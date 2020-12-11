@@ -8,6 +8,24 @@
 import WebKit
 
 extension WKUserScript {
+    static func injectViewPort() -> WKUserScript {
+        let script = """
+            var meta = document.createElement('meta');
+            meta.setAttribute('name', 'viewport');
+            meta.setAttribute('content', 'width=device-width');
+            meta.setAttribute('initial-scale', '1.0');
+            meta.setAttribute('maximum-scale', '1.0');
+            meta.setAttribute('minimum-scale', '1.0');
+            meta.setAttribute('user-scalable', 'no');
+            document.getElementsByTagName('head')[0].appendChild(meta);
+        """
+        return WKUserScript(
+            source: script,
+            injectionTime: .atDocumentEnd,
+            forMainFrameOnly: false
+        )
+    }
+    
     static func injectCSSBase64(_ data: String) -> WKUserScript {
         let script = """
             javascript:(function() {

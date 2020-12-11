@@ -9,6 +9,23 @@
 /* Begin PBXBuildFile section */
 		847A13C125831C35005DAEE4 /* WKUserScript+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13C025831C35005DAEE4 /* WKUserScript+Extension.swift */; };
 		847A13C425831C84005DAEE4 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13C325831C84005DAEE4 /* String+Extension.swift */; };
+		847A13CE25831DEE005DAEE4 /* MarkerScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13CD25831DEE005DAEE4 /* MarkerScript.swift */; };
+		847A13D125831E46005DAEE4 /* MarkerColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13D025831E46005DAEE4 /* MarkerColor.swift */; };
+		847A13D425831F25005DAEE4 /* Marker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13D325831F25005DAEE4 /* Marker.swift */; };
+		847A13D72583200D005DAEE4 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13D62583200D005DAEE4 /* Stack.swift */; };
+		847A13DA2583203B005DAEE4 /* Highlight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13D92583203B005DAEE4 /* Highlight.swift */; };
+		847A13DD2583206F005DAEE4 /* SerializedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13DC2583206F005DAEE4 /* SerializedObject.swift */; };
+		847A13EC2583218A005DAEE4 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13E52583218A005DAEE4 /* jquery.min.js */; };
+		847A13ED2583218A005DAEE4 /* rangy-highlighter.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13E72583218A005DAEE4 /* rangy-highlighter.min.js */; };
+		847A13EE2583218A005DAEE4 /* rangy-core.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13E82583218A005DAEE4 /* rangy-core.min.js */; };
+		847A13EF2583218A005DAEE4 /* rangy-textrange.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13E92583218A005DAEE4 /* rangy-textrange.min.js */; };
+		847A13F02583218A005DAEE4 /* rangy-selectionsaverestore.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13EA2583218A005DAEE4 /* rangy-selectionsaverestore.min.js */; };
+		847A13F12583218A005DAEE4 /* rangy-classapplier.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A13EB2583218A005DAEE4 /* rangy-classapplier.min.js */; };
+		847A13F625832241005DAEE4 /* RangyScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13F425832240005DAEE4 /* RangyScript.swift */; };
+		847A13F725832241005DAEE4 /* JqueryScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847A13F525832240005DAEE4 /* JqueryScript.swift */; };
+		847A13FB25832354005DAEE4 /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 847A13FA25832353005DAEE4 /* sample.html */; };
+		847A13FE258323CC005DAEE4 /* marker.css in Resources */ = {isa = PBXBuildFile; fileRef = 847A13FD258323CC005DAEE4 /* marker.css */; };
+		847A1401258323F4005DAEE4 /* marker.js in Resources */ = {isa = PBXBuildFile; fileRef = 847A1400258323F4005DAEE4 /* marker.js */; };
 		84FF559B258318AD000B0628 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF559A258318AD000B0628 /* AppDelegate.swift */; };
 		84FF559D258318AE000B0628 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF559C258318AD000B0628 /* SceneDelegate.swift */; };
 		84FF559F258318AE000B0628 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FF559E258318AE000B0628 /* ViewController.swift */; };
@@ -20,6 +37,23 @@
 /* Begin PBXFileReference section */
 		847A13C025831C35005DAEE4 /* WKUserScript+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKUserScript+Extension.swift"; sourceTree = "<group>"; };
 		847A13C325831C84005DAEE4 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		847A13CD25831DEE005DAEE4 /* MarkerScript.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerScript.swift; sourceTree = "<group>"; };
+		847A13D025831E46005DAEE4 /* MarkerColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarkerColor.swift; sourceTree = "<group>"; };
+		847A13D325831F25005DAEE4 /* Marker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marker.swift; sourceTree = "<group>"; };
+		847A13D62583200D005DAEE4 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		847A13D92583203B005DAEE4 /* Highlight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Highlight.swift; sourceTree = "<group>"; };
+		847A13DC2583206F005DAEE4 /* SerializedObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SerializedObject.swift; sourceTree = "<group>"; };
+		847A13E52583218A005DAEE4 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = jquery.min.js; sourceTree = "<group>"; };
+		847A13E72583218A005DAEE4 /* rangy-highlighter.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "rangy-highlighter.min.js"; sourceTree = "<group>"; };
+		847A13E82583218A005DAEE4 /* rangy-core.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "rangy-core.min.js"; sourceTree = "<group>"; };
+		847A13E92583218A005DAEE4 /* rangy-textrange.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "rangy-textrange.min.js"; sourceTree = "<group>"; };
+		847A13EA2583218A005DAEE4 /* rangy-selectionsaverestore.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "rangy-selectionsaverestore.min.js"; sourceTree = "<group>"; };
+		847A13EB2583218A005DAEE4 /* rangy-classapplier.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "rangy-classapplier.min.js"; sourceTree = "<group>"; };
+		847A13F425832240005DAEE4 /* RangyScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RangyScript.swift; sourceTree = "<group>"; };
+		847A13F525832240005DAEE4 /* JqueryScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JqueryScript.swift; sourceTree = "<group>"; };
+		847A13FA25832353005DAEE4 /* sample.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = sample.html; sourceTree = "<group>"; };
+		847A13FD258323CC005DAEE4 /* marker.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = marker.css; sourceTree = "<group>"; };
+		847A1400258323F4005DAEE4 /* marker.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = marker.js; sourceTree = "<group>"; };
 		84FF5597258318AD000B0628 /* highlight-webview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "highlight-webview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FF559A258318AD000B0628 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FF559C258318AD000B0628 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,6 +84,76 @@
 			path = extensions;
 			sourceTree = "<group>";
 		};
+		847A13C825831DA0005DAEE4 /* models */ = {
+			isa = PBXGroup;
+			children = (
+				847A13F325832207005DAEE4 /* webkits */,
+				847A13D025831E46005DAEE4 /* MarkerColor.swift */,
+				847A13D92583203B005DAEE4 /* Highlight.swift */,
+				847A13DC2583206F005DAEE4 /* SerializedObject.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		847A13E225832161005DAEE4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				847A13FD258323CC005DAEE4 /* marker.css */,
+				847A13E32583218A005DAEE4 /* CDN */,
+				847A1400258323F4005DAEE4 /* marker.js */,
+				847A13FA25832353005DAEE4 /* sample.html */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		847A13E32583218A005DAEE4 /* CDN */ = {
+			isa = PBXGroup;
+			children = (
+				847A13E42583218A005DAEE4 /* jquery */,
+				847A13E62583218A005DAEE4 /* rangy */,
+			);
+			path = CDN;
+			sourceTree = "<group>";
+		};
+		847A13E42583218A005DAEE4 /* jquery */ = {
+			isa = PBXGroup;
+			children = (
+				847A13E52583218A005DAEE4 /* jquery.min.js */,
+			);
+			path = jquery;
+			sourceTree = "<group>";
+		};
+		847A13E62583218A005DAEE4 /* rangy */ = {
+			isa = PBXGroup;
+			children = (
+				847A13E72583218A005DAEE4 /* rangy-highlighter.min.js */,
+				847A13E82583218A005DAEE4 /* rangy-core.min.js */,
+				847A13E92583218A005DAEE4 /* rangy-textrange.min.js */,
+				847A13EA2583218A005DAEE4 /* rangy-selectionsaverestore.min.js */,
+				847A13EB2583218A005DAEE4 /* rangy-classapplier.min.js */,
+			);
+			path = rangy;
+			sourceTree = "<group>";
+		};
+		847A13F325832207005DAEE4 /* webkits */ = {
+			isa = PBXGroup;
+			children = (
+				847A13F525832240005DAEE4 /* JqueryScript.swift */,
+				847A13F425832240005DAEE4 /* RangyScript.swift */,
+				847A13CD25831DEE005DAEE4 /* MarkerScript.swift */,
+			);
+			path = webkits;
+			sourceTree = "<group>";
+		};
+		847A14052583404B005DAEE4 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				847A13D325831F25005DAEE4 /* Marker.swift */,
+				847A13D62583200D005DAEE4 /* Stack.swift */,
+			);
+			path = components;
+			sourceTree = "<group>";
+		};
 		84FF558E258318AD000B0628 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +173,9 @@
 		84FF5599258318AD000B0628 /* highlight-webview */ = {
 			isa = PBXGroup;
 			children = (
+				847A14052583404B005DAEE4 /* components */,
+				847A13E225832161005DAEE4 /* resources */,
+				847A13C825831DA0005DAEE4 /* models */,
 				847A13C625831CF5005DAEE4 /* extensions */,
 				84FF559A258318AD000B0628 /* AppDelegate.swift */,
 				84FF559C258318AD000B0628 /* SceneDelegate.swift */,
@@ -138,9 +245,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847A13FB25832354005DAEE4 /* sample.html in Resources */,
 				84FF55A7258318B2000B0628 /* LaunchScreen.storyboard in Resources */,
+				847A13F02583218A005DAEE4 /* rangy-selectionsaverestore.min.js in Resources */,
+				847A13ED2583218A005DAEE4 /* rangy-highlighter.min.js in Resources */,
+				847A13EF2583218A005DAEE4 /* rangy-textrange.min.js in Resources */,
+				847A13F12583218A005DAEE4 /* rangy-classapplier.min.js in Resources */,
+				847A13EC2583218A005DAEE4 /* jquery.min.js in Resources */,
+				847A1401258323F4005DAEE4 /* marker.js in Resources */,
 				84FF55A4258318B2000B0628 /* Assets.xcassets in Resources */,
 				84FF55A2258318AE000B0628 /* Main.storyboard in Resources */,
+				847A13EE2583218A005DAEE4 /* rangy-core.min.js in Resources */,
+				847A13FE258323CC005DAEE4 /* marker.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,10 +268,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				84FF559F258318AE000B0628 /* ViewController.swift in Sources */,
+				847A13CE25831DEE005DAEE4 /* MarkerScript.swift in Sources */,
 				847A13C125831C35005DAEE4 /* WKUserScript+Extension.swift in Sources */,
 				84FF559B258318AD000B0628 /* AppDelegate.swift in Sources */,
 				847A13C425831C84005DAEE4 /* String+Extension.swift in Sources */,
+				847A13D125831E46005DAEE4 /* MarkerColor.swift in Sources */,
+				847A13F725832241005DAEE4 /* JqueryScript.swift in Sources */,
+				847A13D72583200D005DAEE4 /* Stack.swift in Sources */,
+				847A13DD2583206F005DAEE4 /* SerializedObject.swift in Sources */,
+				847A13DA2583203B005DAEE4 /* Highlight.swift in Sources */,
 				84FF559D258318AE000B0628 /* SceneDelegate.swift in Sources */,
+				847A13D425831F25005DAEE4 /* Marker.swift in Sources */,
+				847A13F625832241005DAEE4 /* RangyScript.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
