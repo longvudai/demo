@@ -1,0 +1,21 @@
+a {
+    color: #4EB5B5;
+}
+
+body {
+    margin: 10px;
+}
+
+.pink {
+    background-color: #FFABD8;
+}
+.orange {
+    background-color: #FFC694;
+}
+.cyan {
+    background-color: #9BE7E8;
+}
+
+* {
+    -webkit-user-select: text;
+}
