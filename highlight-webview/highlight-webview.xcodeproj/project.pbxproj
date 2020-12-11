@@ -41,6 +41,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		847A13C625831CF5005DAEE4 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				847A13C025831C35005DAEE4 /* WKUserScript+Extension.swift */,
+				847A13C325831C84005DAEE4 /* String+Extension.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
 		84FF558E258318AD000B0628 = {
 			isa = PBXGroup;
 			children = (
@@ -60,6 +69,7 @@
 		84FF5599258318AD000B0628 /* highlight-webview */ = {
 			isa = PBXGroup;
 			children = (
+				847A13C625831CF5005DAEE4 /* extensions */,
 				84FF559A258318AD000B0628 /* AppDelegate.swift */,
 				84FF559C258318AD000B0628 /* SceneDelegate.swift */,
 				84FF559E258318AE000B0628 /* ViewController.swift */,
@@ -67,8 +77,6 @@
 				84FF55A3258318B2000B0628 /* Assets.xcassets */,
 				84FF55A5258318B2000B0628 /* LaunchScreen.storyboard */,
 				84FF55A8258318B2000B0628 /* Info.plist */,
-				847A13C025831C35005DAEE4 /* WKUserScript+Extension.swift */,
-				847A13C325831C84005DAEE4 /* String+Extension.swift */,
 			);
 			path = "highlight-webview";
 			sourceTree = "<group>";
