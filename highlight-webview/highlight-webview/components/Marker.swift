@@ -21,11 +21,11 @@ class Marker: NSObject {
 }
 
 extension Marker: MarkerLogic {
-    func highlight(_ color: MarkerColor) {
-        let script =
-            MarkerScript.Evaluate.highlightSelectedTextWithColor(color)
-        webView?.evaluateJavaScript(script)
-    }
+func highlight(_ color: MarkerColor) {
+    let script =
+        MarkerScript.Evaluate.highlightSelectedTextWithColor(color)
+    webView?.evaluateJavaScript(script)
+}
     
     func removeAll() {
         let script = MarkerScript.Evaluate.removeAllHighlights()
