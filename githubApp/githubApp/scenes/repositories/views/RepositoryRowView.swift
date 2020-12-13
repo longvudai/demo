@@ -14,10 +14,14 @@ struct RepositoryRowView: View {
         GeometryReader { geometry in
             HStack {
                 RemoteImage(url: viewModel.avatarUrl) {
-                    Image(systemName: "photo").resizable()
+                    Image(systemName: "photo")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                } remoteImage: {
+                    Image(uiImage: $0).resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .clipShape(Circle())
                 }
-                .aspectRatio(contentMode: .fit)
-                .clipShape(Circle())
                 .padding()
                 .frame(width: geometry.size.height, height: geometry.size.height)
                     
