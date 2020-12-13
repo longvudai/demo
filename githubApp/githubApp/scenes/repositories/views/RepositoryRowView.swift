@@ -13,7 +13,7 @@ struct RepositoryRowView: View {
     var body: some View {
         GeometryReader { geometry in
             HStack {
-                RemoteImage(url: viewModel.avatarUrl) {
+                RemoteImage(viewModel: RemoteImageViewModel(url: viewModel.avatarUrl, cache: Environment(\.temporaryImageCache).wrappedValue)) {
                     Image(systemName: "photo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)

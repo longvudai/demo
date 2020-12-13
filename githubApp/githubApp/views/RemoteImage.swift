@@ -14,20 +14,20 @@ struct RemoteImage<PlaceholderView: View, ImageView: View>: View {
     private var placeholder: PlaceholderView
     private var remoteImage: RemoteImageHandler?
     
-    @ObservedObject private var imageFetcher: ImageFetcher
+    @ObservedObject var viewModel: RemoteImageViewModel
     
     init(
-        url: URL?,
+        viewModel: RemoteImageViewModel,
         @ViewBuilder placeholder: () -> PlaceholderView,
         @ViewBuilder remoteImage: @escaping RemoteImageHandler
     ) {
+        self.viewModel = viewModel
         self.placeholder = placeholder()
         self.remoteImage = remoteImage
-        _imageFetcher = ObservedObject(wrappedValue: ImageFetcher(url: url, cache: Environment(\.temporaryImageCache).wrappedValue))
     }
     
     var body: some View {
-        if let uiImage = imageFetcher.image, let remoteImage = remoteImage {
+        if let uiImage = viewModel.image, let remoteImage = remoteImage {
             remoteImage(uiImage)
         } else {
             placeholder
