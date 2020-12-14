@@ -28,7 +28,7 @@ class RepositoriesViewModel: ObservableObject {
     }
     
     func fetchListRepositoriesForUser(_ username: String) {
-        githubService.fetchListRepositoriesForUser(username)
+        githubService.fetchListRepositoriesForUser(username, type: .all, sort: .updated)
             .receive(on: DispatchQueue.main)
             .sink { [weak self] value in
             guard let weakSelf = self else { return }

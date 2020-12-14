@@ -23,8 +23,9 @@ class GithubService {
     }
     
     // MARK: - the api lists
-    func fetchListRepositoriesForUser(_ username: String) -> AnyPublisher<[Repository], NetworkError> {
-        let request = GithubEndpoint.Repositories.listForUser(username).urlRequest(with: environment)
-        return fetch(with: request)
+    func fetchListRepositoriesForUser(_ username: String, type: Repository.Kind = .all, sort: Repository.Sort = .created, direction: Direction = .asc) -> AnyPublisher<[Repository], NetworkError> {
+        let endpoint = GithubEndpoint.Repositories.listForUser(username: username, type: type, sort: sort, direction: direction)
+        let urlRequest = endpoint.urlRequest(with: environment)
+        return fetch(with: urlRequest)
     }
 }

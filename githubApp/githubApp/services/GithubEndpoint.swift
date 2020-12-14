@@ -10,11 +10,11 @@ import Combine
 
 enum GithubEndpoint {
     enum Repositories: RequestProtocol {
-        case listForUser(String)
+        case listForUser(username: String, type: Repository.Kind, sort: Repository.Sort, direction: Direction = .asc)
         
         var path: String {
             switch self {
-            case .listForUser(let user):
+            case let .listForUser(user, _, _, _):
                 return "/users/\(user)/repos"
             }
         }
@@ -31,7 +31,10 @@ enum GithubEndpoint {
         }
         
         var parameters: RequestParameters? {
-            return nil
+            switch self {
+            case let .listForUser(_, type, sort, direction):
+                return ["type": type.rawValue, "sort": sort.rawValue, "direction": direction.rawValue]
+            }
         }
         
         var requestType: RequestType {

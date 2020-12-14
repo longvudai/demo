@@ -13,6 +13,8 @@ func fetch(with urlRequest: URLRequest?, session: URLSession = .shared) -> AnyPu
         let error = NetworkError.badRequest("Couldn't create URL request")
         return Fail(error: error).eraseToAnyPublisher()
     }
+    
+    print(urlRequest.url?.absoluteURL)
 
     return session.dataTaskPublisher(for: urlRequest)
         .mapError { _ in NetworkError.unknown }
