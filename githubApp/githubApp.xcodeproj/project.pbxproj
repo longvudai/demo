@@ -7,7 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840F449B25872428000FDD6E /* GithubEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F449A25872428000FDD6E /* GithubEndpoint.swift */; };
+		840F449E25875150000FDD6E /* GithubService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F449D25875150000FDD6E /* GithubService.swift */; };
+		840F44A12587515E000FDD6E /* NetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F44A02587515E000FDD6E /* NetworkEnvironment.swift */; };
+		845B93052586841800412F6D /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845B93042586841800412F6D /* RequestProtocol.swift */; };
 		84A46E502586389300D330BC /* RemoteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A46E4F2586389300D330BC /* RemoteImageViewModel.swift */; };
+		84A46E552586663C00D330BC /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A46E542586663C00D330BC /* NetworkError.swift */; };
+		84A46E582586684400D330BC /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A46E572586684400D330BC /* NetworkHandler.swift */; };
 		84DD2C5E25862FFE00C1082F /* TemporaryImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD2C5D25862FFE00C1082F /* TemporaryImageCache.swift */; };
 		84DD2C622586304200C1082F /* ImageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DD2C612586304200C1082F /* ImageFetcher.swift */; };
 		84DE67A02584BD6900DC33FA /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DE679F2584BD6900DC33FA /* App.swift */; };
@@ -24,7 +30,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		840F449A25872428000FDD6E /* GithubEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubEndpoint.swift; sourceTree = "<group>"; };
+		840F449D25875150000FDD6E /* GithubService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GithubService.swift; sourceTree = "<group>"; };
+		840F44A02587515E000FDD6E /* NetworkEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEnvironment.swift; sourceTree = "<group>"; };
+		845B93042586841800412F6D /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		84A46E4F2586389300D330BC /* RemoteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewModel.swift; sourceTree = "<group>"; };
+		84A46E542586663C00D330BC /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		84A46E572586684400D330BC /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		84DD2C5D25862FFE00C1082F /* TemporaryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryImageCache.swift; sourceTree = "<group>"; };
 		84DD2C612586304200C1082F /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
 		84DE679C2584BD6900DC33FA /* githubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -53,12 +65,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840F449925872404000FDD6E /* services */ = {
+			isa = PBXGroup;
+			children = (
+				840F449A25872428000FDD6E /* GithubEndpoint.swift */,
+				840F449D25875150000FDD6E /* GithubService.swift */,
+				840F44A02587515E000FDD6E /* NetworkEnvironment.swift */,
+			);
+			path = services;
+			sourceTree = "<group>";
+		};
 		84A46E4E2586387F00D330BC /* view_models */ = {
 			isa = PBXGroup;
 			children = (
 				84A46E4F2586389300D330BC /* RemoteImageViewModel.swift */,
 			);
 			path = view_models;
+			sourceTree = "<group>";
+		};
+		84A46E532586663200D330BC /* networks */ = {
+			isa = PBXGroup;
+			children = (
+				84A46E542586663C00D330BC /* NetworkError.swift */,
+				84A46E572586684400D330BC /* NetworkHandler.swift */,
+				845B93042586841800412F6D /* RequestProtocol.swift */,
+			);
+			path = networks;
 			sourceTree = "<group>";
 		};
 		84DD2C602586302D00C1082F /* components */ = {
@@ -89,6 +121,8 @@
 		84DE679E2584BD6900DC33FA /* githubApp */ = {
 			isa = PBXGroup;
 			children = (
+				840F449925872404000FDD6E /* services */,
+				84A46E532586663200D330BC /* networks */,
 				84DE67BA2584BEA600DC33FA /* app */,
 				84DD2C602586302D00C1082F /* components */,
 				84A46E4E2586387F00D330BC /* view_models */,
@@ -248,16 +282,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84A46E582586684400D330BC /* NetworkHandler.swift in Sources */,
+				840F449E25875150000FDD6E /* GithubService.swift in Sources */,
 				84DE67B62584BE8500DC33FA /* RepositoryRowView.swift in Sources */,
 				84DE67C42584C73D00DC33FA /* RepositoryRowViewModel.swift in Sources */,
+				840F44A12587515E000FDD6E /* NetworkEnvironment.swift in Sources */,
+				840F449B25872428000FDD6E /* GithubEndpoint.swift in Sources */,
 				84DE67A02584BD6900DC33FA /* App.swift in Sources */,
 				84DE67D62585149E00DC33FA /* RemoteImage.swift in Sources */,
 				84DE67C02584BF0F00DC33FA /* Repository.swift in Sources */,
 				84DE67DB2585C95300DC33FA /* RepositoryView.swift in Sources */,
 				84DE67BD2584BEC800DC33FA /* RepositoriesViewModel.swift in Sources */,
 				84DE67B22584BE4C00DC33FA /* RepositoriesView.swift in Sources */,
+				845B93052586841800412F6D /* RequestProtocol.swift in Sources */,
 				84A46E502586389300D330BC /* RemoteImageViewModel.swift in Sources */,
 				84DE67CA2584CB4B00DC33FA /* User.swift in Sources */,
+				84A46E552586663C00D330BC /* NetworkError.swift in Sources */,
 				84DD2C622586304200C1082F /* ImageFetcher.swift in Sources */,
 				84DD2C5E25862FFE00C1082F /* TemporaryImageCache.swift in Sources */,
 			);

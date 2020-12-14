@@ -11,7 +11,7 @@ import SwiftUI
 struct GithubApp: App {
     var body: some Scene {
         WindowGroup {
-            RepositoriesView(viewModel: RepositoriesViewModel(repositories: Array(repeating: mockRepository, count: 1000)))
+            RepositoriesView(viewModel: RepositoriesViewModel())
         }
     }
 }
