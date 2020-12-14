@@ -22,6 +22,14 @@ struct Repository: Decodable {
         case isPrivate = "private"
         case owner
     }
+    
+    enum Kind: String {
+        case all, owner, member
+    }
+    
+    enum Sort: String {
+        case created, updated, pushed, full_name
+    }
 }
 
 let mockRepository = Repository(id: 1296269, name: "Hello-World", fullName: "octocat/Hello-World", isPrivate: false, owner: mockUser)
