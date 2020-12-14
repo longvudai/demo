@@ -97,9 +97,10 @@ extension RequestProtocol {
             return nil
         }
         // Convert parameters to query items.
-        return parameters.map { (key: String, value: Any?) -> URLQueryItem in
+        return parameters.compactMap {
+            guard let value = $0.value else { return nil }
             let valueString = String(describing: value)
-            return URLQueryItem(name: key, value: valueString)
+            return URLQueryItem(name: $0.key, value: valueString)
         }
     }
 
