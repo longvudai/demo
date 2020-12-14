@@ -39,7 +39,7 @@
 		84A46E572586684400D330BC /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		84DD2C5D25862FFE00C1082F /* TemporaryImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryImageCache.swift; sourceTree = "<group>"; };
 		84DD2C612586304200C1082F /* ImageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFetcher.swift; sourceTree = "<group>"; };
-		84DE679C2584BD6900DC33FA /* githubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		84DE679C2584BD6900DC33FA /* Github.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Github.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84DE679F2584BD6900DC33FA /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		84DE67A32584BD6E00DC33FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84DE67A62584BD6E00DC33FA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -113,7 +113,7 @@
 		84DE679D2584BD6900DC33FA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				84DE679C2584BD6900DC33FA /* githubApp.app */,
+				84DE679C2584BD6900DC33FA /* Github.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -216,9 +216,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		84DE679B2584BD6900DC33FA /* githubApp */ = {
+		84DE679B2584BD6900DC33FA /* Github */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 84DE67AB2584BD6E00DC33FA /* Build configuration list for PBXNativeTarget "githubApp" */;
+			buildConfigurationList = 84DE67AB2584BD6E00DC33FA /* Build configuration list for PBXNativeTarget "Github" */;
 			buildPhases = (
 				84DE67982584BD6900DC33FA /* Sources */,
 				84DE67992584BD6900DC33FA /* Frameworks */,
@@ -228,9 +228,9 @@
 			);
 			dependencies = (
 			);
-			name = githubApp;
+			name = Github;
 			productName = githubApp;
-			productReference = 84DE679C2584BD6900DC33FA /* githubApp.app */;
+			productReference = 84DE679C2584BD6900DC33FA /* Github.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -260,7 +260,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				84DE679B2584BD6900DC33FA /* githubApp */,
+				84DE679B2584BD6900DC33FA /* Github */,
 			);
 		};
 /* End PBXProject section */
@@ -478,7 +478,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		84DE67AB2584BD6E00DC33FA /* Build configuration list for PBXNativeTarget "githubApp" */ = {
+		84DE67AB2584BD6E00DC33FA /* Build configuration list for PBXNativeTarget "Github" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				84DE67AC2584BD6E00DC33FA /* Debug */,
