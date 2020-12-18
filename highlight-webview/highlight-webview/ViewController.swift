@@ -128,18 +128,18 @@ class ViewController: UIViewController, WKScriptMessageHandler {
     }
     
     // MARK: - Selector
-    @objc func highlight(_ sender: UIButton) {
-        switch sender.tag {
-        case 0:
-            marker.highlight(MarkerColor.orange)
-        case 1:
-            marker.highlight(MarkerColor.cyan)
-        case 2:
-            marker.highlight(MarkerColor.pink)
-        default:
-            break
-        }
+@objc func highlight(_ sender: UIButton) {
+    switch sender.tag {
+    case 0:
+        marker.highlight(MarkerColor.orange)
+    case 1:
+        marker.highlight(MarkerColor.cyan)
+    case 2:
+        marker.highlight(MarkerColor.pink)
+    default:
+        break
     }
+}
     
     @objc func erase() {
         marker.erase()
