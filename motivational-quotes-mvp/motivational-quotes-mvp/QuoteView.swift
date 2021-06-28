@@ -9,6 +9,7 @@ import UIKit
 
 class QuoteView: UIView {
     static let maxQuoteViewHeight: CGFloat = 128
+    
     var progress: Float = 0
     var content: String = "" {
         didSet {
@@ -21,7 +22,7 @@ class QuoteView: UIView {
         }
     }
     
-    private var isActiveShare: Bool = false {
+    var isActiveShare: Bool = false {
         didSet {
             if isActiveShare {
                 if let activeIcon = UIImage(named: "share-active") {

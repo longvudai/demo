@@ -7,11 +7,26 @@
 
 import UIKit
 import SnapKit
+import FloatingPanel
 
 class ViewController: UIViewController {
     
     var dataSource: UICollectionViewDiffableDataSource<MyCollectionView.Section, MyCollectionView.Item>?
     
+    private lazy var shareQuoteViewController: ShareQuoteViewController = {
+        let c = ShareQuoteViewController()
+        return c
+    }()
+    private lazy var fpc: FloatingPanelController = {
+        let c = FloatingPanelController()
+        c.layout = ShareQuotePanelLayout()
+        c.backdropView.dismissalTapGestureRecognizer.isEnabled = true
+        c.isRemovalInteractionEnabled = true
+        c.set(contentViewController: shareQuoteViewController)
+        
+        return c
+    }()
+
     private lazy var collectionView: MyCollectionView = {
         let listConfig = UICollectionLayoutListConfiguration(appearance: .plain)
         let listLayout = UICollectionViewCompositionalLayout.list(using: listConfig)
@@ -52,6 +67,8 @@ class ViewController: UIViewController {
         })
         
         applyInitialData()
+        
+//        fpc.addPanel(toParent: self)
     }
     
     private func setupConstraint() {
@@ -81,6 +98,12 @@ extension ViewController: UICollectionViewDelegate {
             quoteView.snp.updateConstraints {
                 $0.height.equalTo(newHeight)
             }
+        }
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if quoteView.isActiveShare {
+            present(fpc, animated: true, completion: nil)
         }
     }
 }
