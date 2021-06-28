@@ -20,6 +20,13 @@ class ViewController: UIViewController {
         
         v.translatesAutoresizingMaskIntoConstraints = false
         
+        v.delegate = self
+        
+        return v
+    }()
+    
+    private lazy var quoteView: QuoteView = {
+        let v = QuoteView(content: "Discipline is choosing between what you want now and what you want most", author: "― Abraham Lincoln")
         return v
     }()
 
@@ -27,11 +34,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let views: [UIView] = [collectionView]
+        let views: [UIView] = [collectionView, quoteView]
         views.forEach { view.addSubview($0) }
-        collectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        setupConstraint()
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, MyCollectionView.Item> { (cell, indexPath, item) in
             var content = cell.defaultContentConfiguration()
@@ -49,6 +54,17 @@ class ViewController: UIViewController {
         applyInitialData()
     }
     
+    private func setupConstraint() {
+        quoteView.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(0)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+    
     private func applyInitialData() {
         var snapshot = NSDiffableDataSourceSnapshot<MyCollectionView.Section, MyCollectionView.Item>()
         snapshot.appendSections([.main])
@@ -57,3 +73,14 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: UICollectionViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        let newHeight = abs(offsetY)
+        if (offsetY < 0) {
+            quoteView.snp.updateConstraints {
+                $0.height.equalTo(newHeight)
+            }
+        }
+    }
+}

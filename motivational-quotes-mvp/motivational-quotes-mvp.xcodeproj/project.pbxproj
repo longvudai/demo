@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		944DED8426897CBB006EE718 /* QuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DED8326897CBB006EE718 /* QuoteView.swift */; };
+		944DED872689AB0D006EE718 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 944DED862689AB0D006EE718 /* FloatingPanel */; };
 		9473FE71268964AF006B19CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE70268964AF006B19CD /* AppDelegate.swift */; };
 		9473FE73268964AF006B19CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE72268964AF006B19CD /* SceneDelegate.swift */; };
 		9473FE75268964AF006B19CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE74268964AF006B19CD /* ViewController.swift */; };
@@ -17,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		944DED8326897CBB006EE718 /* QuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteView.swift; sourceTree = "<group>"; };
 		9473FE6D268964AF006B19CD /* motivational-quotes-mvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "motivational-quotes-mvp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9473FE70268964AF006B19CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9473FE72268964AF006B19CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,6 +36,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				947E1AC326896B0600AA86B0 /* SnapKit in Frameworks */,
+				944DED872689AB0D006EE718 /* FloatingPanel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +69,7 @@
 				9473FE7B268964B1006B19CD /* LaunchScreen.storyboard */,
 				9473FE7E268964B1006B19CD /* Info.plist */,
 				947E1AC426896EE200AA86B0 /* MyCollectionView.swift */,
+				944DED8326897CBB006EE718 /* QuoteView.swift */,
 			);
 			path = "motivational-quotes-mvp";
 			sourceTree = "<group>";
@@ -87,6 +92,7 @@
 			name = "motivational-quotes-mvp";
 			packageProductDependencies = (
 				947E1AC226896B0600AA86B0 /* SnapKit */,
+				944DED862689AB0D006EE718 /* FloatingPanel */,
 			);
 			productName = "motivational-quotes-mvp";
 			productReference = 9473FE6D268964AF006B19CD /* motivational-quotes-mvp.app */;
@@ -117,6 +123,7 @@
 			mainGroup = 9473FE64268964AF006B19CD;
 			packageReferences = (
 				947E1AC126896B0600AA86B0 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				944DED852689AB0D006EE718 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 9473FE6E268964AF006B19CD /* Products */;
 			projectDirPath = "";
@@ -145,6 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9473FE75268964AF006B19CD /* ViewController.swift in Sources */,
+				944DED8426897CBB006EE718 /* QuoteView.swift in Sources */,
 				9473FE71268964AF006B19CD /* AppDelegate.swift in Sources */,
 				947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */,
 				9473FE73268964AF006B19CD /* SceneDelegate.swift in Sources */,
@@ -343,6 +351,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		944DED852689AB0D006EE718 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = exactVersion;
+				version = 2.4.0;
+			};
+		};
 		947E1AC126896B0600AA86B0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -354,6 +370,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		944DED862689AB0D006EE718 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 944DED852689AB0D006EE718 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
+		};
 		947E1AC226896B0600AA86B0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 947E1AC126896B0600AA86B0 /* XCRemoteSwiftPackageReference "SnapKit" */;
