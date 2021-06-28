@@ -6,11 +6,28 @@
 //
 
 import Foundation
+import Combine
 
 class ShareQuoteViewModel {
     var quote: Quote
     
+    var quoteColor: AnyPublisher<ColorSet, Never> { quoteColorSubject.eraseToAnyPublisher() }
+    private var quoteColorSubject = CurrentValueSubject<ColorSet, Never>(.orange)
+    
+    var items = [
+        ColorSelectorCollectionView.Item(colorSet: ColorSet.orange),
+        ColorSelectorCollectionView.Item(colorSet: ColorSet.green),
+        ColorSelectorCollectionView.Item(colorSet: ColorSet.purple),
+        ColorSelectorCollectionView.Item(colorSet: ColorSet.red),
+        ColorSelectorCollectionView.Item(colorSet: ColorSet.blue)
+    ]
+    
     init(quote: Quote) {
         self.quote = quote
+    }
+    
+    func changeQuoteColor(index: Int) {
+        let color = items[index].colorSet
+        quoteColorSubject.send(color)
     }
 }

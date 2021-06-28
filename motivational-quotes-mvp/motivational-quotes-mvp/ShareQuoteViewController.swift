@@ -6,12 +6,35 @@
 //
 
 import UIKit
+import Combine
 import SnapKit
 import FloatingPanel
 
+extension Publisher where Failure == Never {
+    func assign<Root: AnyObject>(
+        to keyPath: ReferenceWritableKeyPath<Root, Output>,
+        onWeak object: Root
+    ) -> AnyCancellable {
+        sink { [weak object] value in
+            object?[keyPath: keyPath] = value
+        }
+    }
+}
+
 class ShareQuoteViewController: UIViewController {
-    private var primaryColor: UIColor = ColorSet.orange.value!
-    private var primaryBgColor: UIColor = UIColor(named: "orange-bg")!
+    private var color: ColorSet = .orange {
+        didSet {
+            let primaryColor = color.value
+            shareButton.backgroundColor = primaryColor
+            openQuoteImageView.tintColor = primaryColor
+            contentLabel.textColor = primaryColor
+            authorLabel.textColor = primaryColor.withAlphaComponent(0.5)
+            hashtagLabel.textColor = primaryColor
+            quoteView.backgroundColor = color.bgColor
+        }
+    }
+    private var primaryColor: UIColor = ColorSet.orange.value
+    private var primaryBgColor: UIColor = ColorSet.orange.bgColor
     
     private var viewModel: ShareQuoteViewModel
     
@@ -29,15 +52,10 @@ class ShareQuoteViewController: UIViewController {
     }()
     
     // start quote content section
-    private lazy var openQuoteImageView1: UIImageView = {
+    private lazy var openQuoteImageView: UIImageView = {
         let v = UIImageView(image: UIImage(named: "open-quote"))
         v.contentMode = .scaleToFill
-        return v
-    }()
-    
-    private lazy var openQuoteImageView2: UIImageView = {
-        let v = UIImageView(image: UIImage(named: "open-quote"))
-        v.contentMode = .scaleToFill
+        v.tintColor = primaryColor
         return v
     }()
     
@@ -76,7 +94,6 @@ class ShareQuoteViewController: UIViewController {
     
     // end quote content section
     
-    //
     private lazy var shareButton: UIButton = {
         let v = UIButton()
         v.backgroundColor = primaryColor
@@ -85,6 +102,21 @@ class ShareQuoteViewController: UIViewController {
         return v
     }()
     
+    private var colorSelectorDataSource: UICollectionViewDiffableDataSource<ColorSelectorCollectionView.Section, ColorSelectorCollectionView.Item>?
+    private lazy var colorSelector: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let v = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        v.backgroundColor = .clear
+        v.delegate = self
+        v.register(ColorSelectorCollectionView.Cell.self, forCellWithReuseIdentifier: ColorSelectorCollectionView.Cell._reuseIdentifier)
+        
+        return v
+    }()
+    
+    private var cancellableSet = Set<AnyCancellable>()
+    
+    // MARK: - Initialization
     init(viewModel: ShareQuoteViewModel) {
         self.viewModel = viewModel
         
@@ -93,6 +125,8 @@ class ShareQuoteViewController: UIViewController {
         contentLabel.text = viewModel.quote.content
         authorLabel.text = viewModel.quote.author
         hashtagLabel.text = viewModel.quote.hashTag
+        
+        viewModel.quoteColor.receive(on: DispatchQueue.main).assign(to: \.color, onWeak: self).store(in: &cancellableSet)
 
     }
     
@@ -107,16 +141,32 @@ class ShareQuoteViewController: UIViewController {
         
         setupView()
         setupConstraint()
+        
+        colorSelectorDataSource = UICollectionViewDiffableDataSource<ColorSelectorCollectionView.Section, ColorSelectorCollectionView.Item>(collectionView: colorSelector) { [weak self] collectionView, indexPath, item in
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorSelectorCollectionView.Cell._reuseIdentifier, for: indexPath) as? ColorSelectorCollectionView.Cell
+            else  { return UICollectionViewCell() }
+            cell.color = item.color
+            if (item.color == self?.color.value) {
+                collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+                cell.isSelected = true
+            }
+            return cell
+        }
+        
+        var snapshot = NSDiffableDataSourceSnapshot<ColorSelectorCollectionView.Section, ColorSelectorCollectionView.Item>()
+        snapshot.appendSections([.all])
+        snapshot.appendItems(viewModel.items, toSection: .all)
+        colorSelectorDataSource?.apply(snapshot, animatingDifferences: false)
     }
     
     private func setupView() {
         // button container
-        let buttonContainerViews = [closeButton]
+        let buttonContainerViews = [colorSelector, closeButton]
         buttonContainerViews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         buttonContainerViews.forEach { buttonContainer.addSubview($0) }
         
         // quote view
-        let quoteViews: [UIView] = [openQuoteImageView1, openQuoteImageView2, contentLabel, authorLabel, hashtagLabel]
+        let quoteViews: [UIView] = [openQuoteImageView, contentLabel, authorLabel, hashtagLabel]
         quoteViews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         quoteViews.forEach { quoteView.addSubview($0) }
         
@@ -137,6 +187,7 @@ class ShareQuoteViewController: UIViewController {
             $0.top.equalTo(buttonContainer.snp.bottom).inset(-19)
             $0.bottom.equalTo(shareButton.snp.top).inset(-19)
             $0.leading.trailing.equalToSuperview().inset(16)
+            $0.height.equalTo(quoteView.snp.width)
         }
         
         shareButton.snp.makeConstraints {
@@ -146,6 +197,12 @@ class ShareQuoteViewController: UIViewController {
         }
         
         // button container
+        colorSelector.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(closeButton.snp.leading).inset(-16)
+            $0.height.equalToSuperview()
+        }
         closeButton.snp.makeConstraints {
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
@@ -153,22 +210,13 @@ class ShareQuoteViewController: UIViewController {
         }
         
         // quote view
-        openQuoteImageView1.snp.makeConstraints {
+        openQuoteImageView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(28)
-            $0.leading.equalToSuperview().inset(155.5)
-            $0.width.equalTo(12)
-            $0.height.equalTo(24)
-        }
-        
-        openQuoteImageView2.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(28)
-            $0.trailing.equalToSuperview().inset(155.5)
-            $0.width.equalTo(12)
-            $0.height.equalTo(24)
+            $0.centerX.equalToSuperview()
         }
         
         contentLabel.snp.makeConstraints {
-            $0.top.equalTo(openQuoteImageView1.snp.bottom).inset(-22.5)
+            $0.top.equalTo(openQuoteImageView.snp.bottom).inset(-22.5)
             $0.leading.trailing.equalToSuperview().inset(32.5)
             $0.height.equalTo(100)
         }
@@ -196,8 +244,9 @@ class ShareQuotePanelLayout: FloatingPanelLayout {
     }
 
     var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring]  {
+        let screenWidth = UIScreen.main.bounds.width
         return [
-            .half: FloatingPanelLayoutAnchor(fractionalInset: 0.6, edge: .bottom, referenceGuide: .safeArea)
+            .half: FloatingPanelLayoutAnchor(absoluteInset: screenWidth + 158 - 32, edge: .bottom, referenceGuide: .safeArea)
         ]
     }
 
@@ -210,16 +259,12 @@ class ShareQuotePanelLayout: FloatingPanelLayout {
     }
 }
 
-extension ShareQuoteViewController {
-    enum ColorSet: String {
-        case orange,
-        purple,
-        blue,
-        green,
-        red
-        
-        var value: UIColor? {
-            UIColor(named: rawValue)
-        }
+extension ShareQuoteViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 32, height: 32)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        viewModel.changeQuoteColor(index: indexPath.row)
     }
 }
