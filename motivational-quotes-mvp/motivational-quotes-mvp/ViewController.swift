@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<MyCollectionView.Section, MyCollectionView.Item>?
     
     private lazy var shareQuoteViewController: ShareQuoteViewController = {
-        let c = ShareQuoteViewController()
+        let viewModel = ShareQuoteViewModel(quote: Quote.mockQuote())
+        let c = ShareQuoteViewController(viewModel: viewModel)
         return c
     }()
     private lazy var fpc: FloatingPanelController = {
@@ -22,6 +23,9 @@ class ViewController: UIViewController {
         c.layout = ShareQuotePanelLayout()
         c.backdropView.dismissalTapGestureRecognizer.isEnabled = true
         c.isRemovalInteractionEnabled = true
+        
+        c.surfaceView.appearance.cornerRadius = 10
+        
         c.set(contentViewController: shareQuoteViewController)
         
         return c
@@ -67,8 +71,6 @@ class ViewController: UIViewController {
         })
         
         applyInitialData()
-        
-//        fpc.addPanel(toParent: self)
     }
     
     private func setupConstraint() {
