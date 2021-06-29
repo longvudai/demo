@@ -20,6 +20,7 @@
 		9473FE7D268964B1006B19CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9473FE7B268964B1006B19CD /* LaunchScreen.storyboard */; };
 		947E1AC326896B0600AA86B0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 947E1AC226896B0600AA86B0 /* SnapKit */; };
 		947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E1AC426896EE200AA86B0 /* MyCollectionView.swift */; };
+		94D0A74E268AB93B0050EA1E /* ShareableQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */; };
 		94FBEE622689DA9100C8095B /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEE612689DA9100C8095B /* ColorSet.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 		9473FE7C268964B1006B19CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9473FE7E268964B1006B19CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		947E1AC426896EE200AA86B0 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
+		94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareableQuoteView.swift; sourceTree = "<group>"; };
 		94FBEE612689DA9100C8095B /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +87,7 @@
 				947E1AC426896EE200AA86B0 /* MyCollectionView.swift */,
 				944DED8E2689C718006EE718 /* ColorSelectorCollectionView.swift */,
 				944DED8326897CBB006EE718 /* QuoteView.swift */,
+				94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */,
 			);
 			path = "motivational-quotes-mvp";
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 				947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */,
 				94FBEE622689DA9100C8095B /* ColorSet.swift in Sources */,
 				944DED8D2689BED2006EE718 /* Quote.swift in Sources */,
+				94D0A74E268AB93B0050EA1E /* ShareableQuoteView.swift in Sources */,
 				9473FE73268964AF006B19CD /* SceneDelegate.swift in Sources */,
 				944DED8B2689BE8E006EE718 /* ShareQuoteViewModel.swift in Sources */,
 				944DED892689AE40006EE718 /* ShareQuoteViewController.swift in Sources */,

@@ -26,11 +26,7 @@ class ShareQuoteViewController: UIViewController {
         didSet {
             let primaryColor = color.value
             shareButton.backgroundColor = primaryColor
-            openQuoteImageView.tintColor = primaryColor
-            contentLabel.textColor = primaryColor
-            authorLabel.textColor = primaryColor.withAlphaComponent(0.5)
-            hashtagLabel.textColor = primaryColor
-            quoteView.backgroundColor = color.bgColor
+            quoteView.updateColor(primaryColor: color.value, bgColor: color.bgColor)
         }
     }
     private var primaryColor: UIColor = ColorSet.orange.value
@@ -51,44 +47,9 @@ class ShareQuoteViewController: UIViewController {
         return v
     }()
     
-    // start quote content section
-    private lazy var openQuoteImageView: UIImageView = {
-        let v = UIImageView(image: UIImage(named: "open-quote"))
-        v.contentMode = .scaleToFill
-        v.tintColor = primaryColor
-        return v
-    }()
-    
-    private lazy var contentLabel: UILabel = {
-        let v = UILabel()
-        v.textAlignment = .center
-        v.numberOfLines = 0
-        v.textColor = primaryColor
-        v.font = UIFont.systemFont(ofSize: 26)
-        v.lineBreakMode = .byWordWrapping
-        return v
-    }()
-    
-    private lazy var authorLabel: UILabel = {
-        let v = UILabel()
-        v.textAlignment = .center
-        v.textColor = primaryColor.withAlphaComponent(0.5)
-        v.font = UIFont.systemFont(ofSize: 14)
-        return v
-    }()
-    
-    private lazy var hashtagLabel: UILabel = {
-        let v = UILabel()
-        v.textAlignment = .right
-        v.textColor = primaryColor
-        v.font = UIFont.systemFont(ofSize: 16)
-        return v
-    }()
-    
-    private lazy var quoteView: UIView = {
-        let v = UIView()
-        v.backgroundColor = primaryBgColor
-        v.layer.cornerRadius = 10
+    // start quote content section    
+    private lazy var quoteView: ShareableQuoteView = {
+        let v = ShareableQuoteView(quote: viewModel.quote)
         return v
     }()
     
@@ -121,10 +82,6 @@ class ShareQuoteViewController: UIViewController {
         self.viewModel = viewModel
         
         super.init(nibName: nil, bundle: nil)
-        
-        contentLabel.text = viewModel.quote.content
-        authorLabel.text = viewModel.quote.author
-        hashtagLabel.text = viewModel.quote.hashTag
         
         viewModel.quoteColor.receive(on: DispatchQueue.main).assign(to: \.color, onWeak: self).store(in: &cancellableSet)
 
@@ -165,11 +122,6 @@ class ShareQuoteViewController: UIViewController {
         buttonContainerViews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         buttonContainerViews.forEach { buttonContainer.addSubview($0) }
         
-        // quote view
-        let quoteViews: [UIView] = [openQuoteImageView, contentLabel, authorLabel, hashtagLabel]
-        quoteViews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
-        quoteViews.forEach { quoteView.addSubview($0) }
-        
         let views = [buttonContainer, quoteView, shareButton]
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         views.forEach { view.addSubview($0) }
@@ -207,28 +159,6 @@ class ShareQuoteViewController: UIViewController {
             $0.trailing.equalToSuperview()
             $0.centerY.equalToSuperview()
             $0.width.height.equalTo(26.67)
-        }
-        
-        // quote view
-        openQuoteImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(28)
-            $0.centerX.equalToSuperview()
-        }
-        
-        contentLabel.snp.makeConstraints {
-            $0.top.equalTo(openQuoteImageView.snp.bottom).inset(-22.5)
-            $0.leading.trailing.equalToSuperview().inset(32.5)
-            $0.height.equalTo(100)
-        }
-        
-        authorLabel.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).inset(-8)
-            $0.leading.trailing.equalToSuperview().inset(65)
-        }
-        
-        hashtagLabel.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(13.5)
-            $0.leading.trailing.equalToSuperview().inset(10)
         }
     }
     
