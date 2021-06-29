@@ -46,20 +46,18 @@ class ShareQuoteViewController: UIViewController {
         let v = UIView()
         return v
     }()
-    
-    // start quote content section    
+        
     private lazy var quoteView: ShareableQuoteView = {
         let v = ShareableQuoteView(quote: viewModel.quote)
         return v
     }()
-    
-    // end quote content section
     
     private lazy var shareButton: UIButton = {
         let v = UIButton()
         v.backgroundColor = primaryColor
         v.setTitle("Share this Quote", for: .normal)
         v.layer.cornerRadius = 5
+        v.addTarget(self, action: #selector(handleShareQuote), for: .touchUpInside)
         return v
     }()
     
@@ -165,6 +163,14 @@ class ShareQuoteViewController: UIViewController {
     @objc
     private func handleClose() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    @objc
+    private func handleShareQuote() {
+        let quoteImage = quoteView.renderToImage()
+        let items = [quoteImage]
+        let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        present(activityViewController, animated: true, completion: nil)
     }
 }
 
