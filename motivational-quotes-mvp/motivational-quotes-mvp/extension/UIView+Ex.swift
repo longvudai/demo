@@ -9,13 +9,14 @@ import UIKit
 
 public extension UIView {
     @available(iOS 10.0, *)
-    func renderToImage(afterScreenUpdates: Bool = false) -> UIImage {
+    func renderToImage(afterScreenUpdates: Bool = false, size: CGSize) -> UIImage {
         let rendererFormat = UIGraphicsImageRendererFormat.default()
         rendererFormat.opaque = false
-        let renderer = UIGraphicsImageRenderer(size: bounds.size, format: rendererFormat)
+        let renderer = UIGraphicsImageRenderer(size: size, format: rendererFormat)
 
+        
         let snapshotImage = renderer.image { _ in
-            drawHierarchy(in: bounds, afterScreenUpdates: afterScreenUpdates)
+            drawHierarchy(in: CGRect(origin: .zero, size: size), afterScreenUpdates: afterScreenUpdates)
         }
         return snapshotImage
     }

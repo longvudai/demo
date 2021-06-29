@@ -152,7 +152,10 @@ class ShareQuoteViewController: UIViewController {
     
     @objc
     private func handleShareQuote() {
-        let quoteImage = quoteView.renderToImage()
+        let scale = UIScreen.main.scale
+        let width = 1000 / scale
+        let size = CGSize(width: width, height: width)
+        let quoteImage = quoteView.renderToImage(size: size)
         let items = [quoteImage]
         let activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
         present(activityViewController, animated: true, completion: nil)
