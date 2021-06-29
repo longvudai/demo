@@ -28,6 +28,10 @@ class ShareQuoteViewModel {
     }
     
     func changeQuoteColor(index: Int) {
+        guard index > 0 && index < items.count else {
+            print("Index is out of range in items array!")
+            return
+        }
         let color = items[index].colorSet
         quoteColorSubject.send(color)
     }
