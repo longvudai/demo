@@ -18,11 +18,11 @@ class ShareQuoteViewController: UIViewController {
             quoteView.updateColor(primaryColor: color.value, bgColor: color.bgColor)
         }
     }
-    private var primaryColor: UIColor = ColorSet.orange.value
-    private var primaryBgColor: UIColor = ColorSet.orange.bgColor
     
     private var viewModel: ShareQuoteViewModel
+    private var cancellableSet = Set<AnyCancellable>()
     
+    // UI property
     private lazy var closeButton: UIButton = {
         let v = UIButton()
         v.setImage(UIImage(named: "close"), for: .normal)
@@ -43,7 +43,6 @@ class ShareQuoteViewController: UIViewController {
     
     private lazy var shareButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = primaryColor
         v.setTitle("Share this Quote", for: .normal)
         v.layer.cornerRadius = 5
         v.addTarget(self, action: #selector(handleShareQuote), for: .touchUpInside)
@@ -62,8 +61,6 @@ class ShareQuoteViewController: UIViewController {
         return v
     }()
     
-    private var cancellableSet = Set<AnyCancellable>()
-    
     // MARK: - Initialization
     init(viewModel: ShareQuoteViewModel) {
         self.viewModel = viewModel
@@ -71,7 +68,6 @@ class ShareQuoteViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         viewModel.quoteColor.receive(on: DispatchQueue.main).assign(to: \.color, onWeak: self).store(in: &cancellableSet)
-
     }
     
     required init?(coder: NSCoder) {
