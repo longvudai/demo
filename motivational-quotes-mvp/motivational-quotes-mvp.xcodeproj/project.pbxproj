@@ -22,6 +22,7 @@
 		947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E1AC426896EE200AA86B0 /* MyCollectionView.swift */; };
 		94D0A74E268AB93B0050EA1E /* ShareableQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */; };
 		94D0A754268AC0C40050EA1E /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A753268AC0C40050EA1E /* UIView+Ex.swift */; };
+		94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */; };
 		94FBEE622689DA9100C8095B /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEE612689DA9100C8095B /* ColorSet.swift */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		947E1AC426896EE200AA86B0 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
 		94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareableQuoteView.swift; sourceTree = "<group>"; };
 		94D0A753268AC0C40050EA1E /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
+		94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuotePanelLayout.swift; sourceTree = "<group>"; };
 		94FBEE612689DA9100C8095B /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,6 +117,7 @@
 			children = (
 				944DED882689AE40006EE718 /* ShareQuoteViewController.swift */,
 				944DED8A2689BE8E006EE718 /* ShareQuoteViewModel.swift */,
+				94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */,
 			);
 			path = "share-quote";
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */,
 				9473FE75268964AF006B19CD /* ViewController.swift in Sources */,
 				944DED8426897CBB006EE718 /* QuoteView.swift in Sources */,
 				9473FE71268964AF006B19CD /* AppDelegate.swift in Sources */,

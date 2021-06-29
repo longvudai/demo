@@ -174,27 +174,6 @@ class ShareQuoteViewController: UIViewController {
     }
 }
 
-class ShareQuotePanelLayout: FloatingPanelLayout {
-    var initialState: FloatingPanelState {
-        return .half
-    }
-
-    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring]  {
-        let screenWidth = UIScreen.main.bounds.width
-        return [
-            .half: FloatingPanelLayoutAnchor(absoluteInset: screenWidth + 158 - 32, edge: .bottom, referenceGuide: .safeArea)
-        ]
-    }
-
-    var position: FloatingPanelPosition {
-        return .bottom
-    }
-
-    open func backdropAlpha(for state: FloatingPanelState) -> CGFloat {
-        return 0.15
-    }
-}
-
 extension ShareQuoteViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 32, height: 32)
