@@ -20,11 +20,13 @@
 		9473FE7D268964B1006B19CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9473FE7B268964B1006B19CD /* LaunchScreen.storyboard */; };
 		947E1AC326896B0600AA86B0 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 947E1AC226896B0600AA86B0 /* SnapKit */; };
 		947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 947E1AC426896EE200AA86B0 /* MyCollectionView.swift */; };
+		94A45017268ADE1C004235E1 /* QuoteColor+UIKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A45016268ADE1C004235E1 /* QuoteColor+UIKit.swift */; };
+		94A4502D268AFC33004235E1 /* UIColor+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4502C268AFC33004235E1 /* UIColor+Ex.swift */; };
 		94D0A74E268AB93B0050EA1E /* ShareableQuoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */; };
 		94D0A754268AC0C40050EA1E /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A753268AC0C40050EA1E /* UIView+Ex.swift */; };
 		94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */; };
 		94D0A758268AC70D0050EA1E /* Combine+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A757268AC70D0050EA1E /* Combine+Ex.swift */; };
-		94FBEE622689DA9100C8095B /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEE612689DA9100C8095B /* ColorSet.swift */; };
+		94FBEE622689DA9100C8095B /* QuoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEE612689DA9100C8095B /* QuoteColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,11 +43,13 @@
 		9473FE7C268964B1006B19CD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9473FE7E268964B1006B19CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		947E1AC426896EE200AA86B0 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
+		94A45016268ADE1C004235E1 /* QuoteColor+UIKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QuoteColor+UIKit.swift"; sourceTree = "<group>"; };
+		94A4502C268AFC33004235E1 /* UIColor+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ex.swift"; sourceTree = "<group>"; };
 		94D0A74D268AB93B0050EA1E /* ShareableQuoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareableQuoteView.swift; sourceTree = "<group>"; };
 		94D0A753268AC0C40050EA1E /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
 		94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuotePanelLayout.swift; sourceTree = "<group>"; };
 		94D0A757268AC70D0050EA1E /* Combine+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Ex.swift"; sourceTree = "<group>"; };
-		94FBEE612689DA9100C8095B /* ColorSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSet.swift; sourceTree = "<group>"; };
+		94FBEE612689DA9100C8095B /* QuoteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				944DED8C2689BED2006EE718 /* Quote.swift */,
-				94FBEE612689DA9100C8095B /* ColorSet.swift */,
+				94FBEE612689DA9100C8095B /* QuoteColor.swift */,
+				94A45016268ADE1C004235E1 /* QuoteColor+UIKit.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -128,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				94D0A753268AC0C40050EA1E /* UIView+Ex.swift */,
+				94A4502C268AFC33004235E1 /* UIColor+Ex.swift */,
 				94D0A757268AC70D0050EA1E /* Combine+Ex.swift */,
 			);
 			path = extension;
@@ -210,18 +216,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A4502D268AFC33004235E1 /* UIColor+Ex.swift in Sources */,
 				94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */,
 				9473FE75268964AF006B19CD /* ViewController.swift in Sources */,
 				94D0A758268AC70D0050EA1E /* Combine+Ex.swift in Sources */,
 				944DED8426897CBB006EE718 /* QuoteView.swift in Sources */,
 				9473FE71268964AF006B19CD /* AppDelegate.swift in Sources */,
 				947E1AC526896EE200AA86B0 /* MyCollectionView.swift in Sources */,
-				94FBEE622689DA9100C8095B /* ColorSet.swift in Sources */,
+				94FBEE622689DA9100C8095B /* QuoteColor.swift in Sources */,
 				944DED8D2689BED2006EE718 /* Quote.swift in Sources */,
 				94D0A74E268AB93B0050EA1E /* ShareableQuoteView.swift in Sources */,
 				9473FE73268964AF006B19CD /* SceneDelegate.swift in Sources */,
 				944DED8B2689BE8E006EE718 /* ShareQuoteViewModel.swift in Sources */,
 				944DED892689AE40006EE718 /* ShareQuoteViewController.swift in Sources */,
+				94A45017268ADE1C004235E1 /* QuoteColor+UIKit.swift in Sources */,
 				944DED8F2689C718006EE718 /* ColorSelectorCollectionView.swift in Sources */,
 				94D0A754268AC0C40050EA1E /* UIView+Ex.swift in Sources */,
 			);

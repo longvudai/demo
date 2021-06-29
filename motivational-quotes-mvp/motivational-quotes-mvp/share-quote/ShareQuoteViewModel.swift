@@ -10,20 +10,20 @@ import Combine
 import UIKit
 
 class ShareQuoteViewModel {
-    var quote: Quote
+    var quote: Quote?
     
-    var quoteColor: AnyPublisher<ColorSet, Never> { quoteColorSubject.eraseToAnyPublisher() }
-    private var quoteColorSubject = CurrentValueSubject<ColorSet, Never>(.orange)
+    var quoteColor: AnyPublisher<QuoteColor, Never> { quoteColorSubject.eraseToAnyPublisher() }
+    private var quoteColorSubject = CurrentValueSubject<QuoteColor, Never>(.orange)
     
     var items = [
-        ColorSelectorCollectionView.Item(colorSet: ColorSet.orange),
-        ColorSelectorCollectionView.Item(colorSet: ColorSet.green),
-        ColorSelectorCollectionView.Item(colorSet: ColorSet.purple),
-        ColorSelectorCollectionView.Item(colorSet: ColorSet.red),
-        ColorSelectorCollectionView.Item(colorSet: ColorSet.blue)
+        ColorSelectorCollectionView.Item(colorSet: QuoteColor.orange),
+        ColorSelectorCollectionView.Item(colorSet: QuoteColor.green),
+        ColorSelectorCollectionView.Item(colorSet: QuoteColor.purple),
+        ColorSelectorCollectionView.Item(colorSet: QuoteColor.red),
+        ColorSelectorCollectionView.Item(colorSet: QuoteColor.blue)
     ]
     
-    init(quote: Quote) {
+    init(quote: Quote? = nil) {
         self.quote = quote
     }
     

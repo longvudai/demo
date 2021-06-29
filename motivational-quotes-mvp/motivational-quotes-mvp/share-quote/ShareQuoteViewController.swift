@@ -11,7 +11,7 @@ import SnapKit
 import FloatingPanel
 
 class ShareQuoteViewController: UIViewController {
-    private var color: ColorSet = .orange {
+    private var color: QuoteColor = .orange {
         didSet {
             let primaryColor = color.value
             shareButton.backgroundColor = primaryColor
@@ -72,6 +72,12 @@ class ShareQuoteViewController: UIViewController {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        quoteView.quote = viewModel.quote
     }
     
     override func viewDidLoad() {

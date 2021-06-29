@@ -9,6 +9,13 @@ import Foundation
 import UIKit
 
 class ShareableQuoteView: UIView {
+    var quote: Quote? {
+        didSet {
+            contentLabel.text = quote?.content
+            authorLabel.text = quote?.author
+            hashtagLabel.text = quote?.hashTag
+        }
+    }
     private var primaryColor: UIColor = .clear {
         didSet {
             openQuoteImageView.tintColor = primaryColor
@@ -24,7 +31,6 @@ class ShareableQuoteView: UIView {
         }
     }
     
-    private var quote: Quote
     private lazy var openQuoteImageView: UIImageView = {
         let v = UIImageView(image: UIImage(named: "open-quote"))
         v.contentMode = .scaleToFill
@@ -38,7 +44,6 @@ class ShareableQuoteView: UIView {
         v.numberOfLines = 0
         v.textColor = primaryColor
         v.font = UIFont.systemFont(ofSize: 26)
-        v.lineBreakMode = .byWordWrapping
         return v
     }()
     
@@ -69,7 +74,7 @@ class ShareableQuoteView: UIView {
     }()
     
     // MARK: - Initialization
-    init(quote: Quote) {
+    init(quote: Quote?) {
         self.quote = quote
         
         super.init(frame: .zero)
@@ -86,10 +91,6 @@ class ShareableQuoteView: UIView {
         backgroundColor = primaryBgColor
         layer.cornerRadius = 10
         
-        contentLabel.text = quote.content
-        authorLabel.text = quote.author
-        hashtagLabel.text = quote.hashTag
-        
         let quoteViews: [UIView] = [openQuoteImageView, stackView, hashtagLabel]
         quoteViews.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
         quoteViews.forEach { addSubview($0) }
@@ -104,7 +105,8 @@ class ShareableQuoteView: UIView {
         
         stackView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-            $0.width.height.lessThanOrEqualToSuperview()
+            $0.height.lessThanOrEqualToSuperview()
+            $0.width.equalToSuperview().inset(32.5)
         }
         
         hashtagLabel.snp.makeConstraints {

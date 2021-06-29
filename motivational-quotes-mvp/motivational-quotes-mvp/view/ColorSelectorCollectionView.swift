@@ -19,7 +19,7 @@ extension ColorSelectorCollectionView {
     }
     
     struct Item: Hashable {
-        let colorSet: ColorSet
+        let colorSet: QuoteColor
         var color: UIColor {
             return colorSet.value
         }
@@ -31,7 +31,7 @@ extension ColorSelectorCollectionView {
 
 extension ColorSelectorCollectionView {
     class Cell: UICollectionViewCell {
-        var color: UIColor = ColorSet.orange.value {
+        var color: UIColor = QuoteColor.orange.value {
             didSet {
                 inner.backgroundColor = color
                 outer.backgroundColor = .clear

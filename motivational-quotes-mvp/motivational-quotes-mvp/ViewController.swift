@@ -8,14 +8,28 @@
 import UIKit
 import SnapKit
 import FloatingPanel
+import Combine
 
 class ViewController: UIViewController {
     
-    var dataSource: UICollectionViewDiffableDataSource<MyCollectionView.Section, MyCollectionView.Item>?
+    private var cancellableSet = Set<AnyCancellable>()
+    private var dataSource: UICollectionViewDiffableDataSource<MyCollectionView.Section, MyCollectionView.Item>?
+    private var listQuote: [Quote] = Quote.mockListQuote()
+    private var currentQuote: Quote? {
+        didSet {
+            shareQuoteViewModel.quote = currentQuote
+            if let quote = currentQuote {
+                quoteView.content = quote.content
+                quoteView.author = quote.author
+            }
+        }
+    }
     
+    private lazy var shareQuoteViewModel: ShareQuoteViewModel = {
+        return ShareQuoteViewModel()
+    }()
     private lazy var shareQuoteViewController: ShareQuoteViewController = {
-        let viewModel = ShareQuoteViewModel(quote: Quote.mockQuote())
-        let c = ShareQuoteViewController(viewModel: viewModel)
+        let c = ShareQuoteViewController(viewModel: shareQuoteViewModel)
         return c
     }()
     private lazy var fpc: FloatingPanelController = {
@@ -45,7 +59,7 @@ class ViewController: UIViewController {
     }()
     
     private lazy var quoteView: QuoteView = {
-        let v = QuoteView(content: "Discipline is choosing between what you want now and what you want most", author: "― Abraham Lincoln")
+        let v = QuoteView()
         return v
     }()
 
@@ -71,6 +85,17 @@ class ViewController: UIViewController {
         })
         
         applyInitialData()
+        
+        Timer.publish(every: 2, on: .main, in: .default).autoconnect().sink { [unowned weakSelf = self] _ in
+            let index = Int.random(in: 0..<weakSelf.listQuote.count)
+            weakSelf.currentQuote = weakSelf.listQuote[index]
+        }.store(in: &cancellableSet)
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        
+        quoteView.isHidden = currentQuote == nil
     }
     
     private func setupConstraint() {
@@ -94,6 +119,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard !quoteView.isHidden else { return }
         let offsetY = scrollView.contentOffset.y
         let newHeight = abs(offsetY)
         if (offsetY < 0) {
@@ -104,7 +130,7 @@ extension ViewController: UICollectionViewDelegate {
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if quoteView.isActiveShare {
+        if quoteView.isActiveShare && !quoteView.isHidden {
             present(fpc, animated: true, completion: nil)
         }
     }
