@@ -27,6 +27,8 @@
 		94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */; };
 		94D0A758268AC70D0050EA1E /* Combine+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94D0A757268AC70D0050EA1E /* Combine+Ex.swift */; };
 		94FBEE622689DA9100C8095B /* QuoteColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FBEE612689DA9100C8095B /* QuoteColor.swift */; };
+		94FF5A0C268C016F00C2B8F1 /* Inter.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94FF5A0B268C016E00C2B8F1 /* Inter.ttf */; };
+		94FF5A0E268C0A1C00C2B8F1 /* UIFont+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FF5A0D268C0A1C00C2B8F1 /* UIFont+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +52,8 @@
 		94D0A755268AC33A0050EA1E /* ShareQuotePanelLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuotePanelLayout.swift; sourceTree = "<group>"; };
 		94D0A757268AC70D0050EA1E /* Combine+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Ex.swift"; sourceTree = "<group>"; };
 		94FBEE612689DA9100C8095B /* QuoteColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteColor.swift; sourceTree = "<group>"; };
+		94FF5A0B268C016E00C2B8F1 /* Inter.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Inter.ttf; sourceTree = "<group>"; };
+		94FF5A0D268C0A1C00C2B8F1 /* UIFont+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 				9473FE72268964AF006B19CD /* SceneDelegate.swift */,
 				9473FE74268964AF006B19CD /* ViewController.swift */,
 				9473FE79268964B1006B19CD /* Assets.xcassets */,
+				94FF5A0B268C016E00C2B8F1 /* Inter.ttf */,
 				9473FE7B268964B1006B19CD /* LaunchScreen.storyboard */,
 				9473FE7E268964B1006B19CD /* Info.plist */,
 			);
@@ -135,6 +140,7 @@
 				94D0A753268AC0C40050EA1E /* UIView+Ex.swift */,
 				94A4502C268AFC33004235E1 /* UIColor+Ex.swift */,
 				94D0A757268AC70D0050EA1E /* Combine+Ex.swift */,
+				94FF5A0D268C0A1C00C2B8F1 /* UIFont+Ex.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9473FE7D268964B1006B19CD /* LaunchScreen.storyboard in Resources */,
+				94FF5A0C268C016F00C2B8F1 /* Inter.ttf in Resources */,
 				9473FE7A268964B1006B19CD /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +224,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94A4502D268AFC33004235E1 /* UIColor+Ex.swift in Sources */,
+				94FF5A0E268C0A1C00C2B8F1 /* UIFont+Ex.swift in Sources */,
 				94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */,
 				9473FE75268964AF006B19CD /* ViewController.swift in Sources */,
 				94D0A758268AC70D0050EA1E /* Combine+Ex.swift in Sources */,

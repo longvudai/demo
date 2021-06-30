@@ -43,7 +43,13 @@ class ShareableQuoteView: UIView {
         v.textAlignment = .center
         v.numberOfLines = 0
         v.textColor = primaryColor
-        v.font = UIFont.systemFont(ofSize: 26)
+        v.minimumScaleFactor = 0.5
+        v.adjustsFontSizeToFitWidth = true
+        
+        v.font = UIFont.interFont(size: 26)?.bold()
+        
+        v.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        
         return v
     }()
     
@@ -51,7 +57,8 @@ class ShareableQuoteView: UIView {
         let v = UILabel()
         v.textAlignment = .center
         v.textColor = primaryColor.withAlphaComponent(0.5)
-        v.font = UIFont.systemFont(ofSize: 14)
+        v.font = UIFont.interFont(size: 14)
+        
         return v
     }()
     
@@ -59,7 +66,8 @@ class ShareableQuoteView: UIView {
         let v = UILabel()
         v.textAlignment = .right
         v.textColor = primaryColor
-        v.font = UIFont.systemFont(ofSize: 16)
+        v.font = UIFont.interFont(size: 16)?.weight(.bold)
+        
         return v
     }()
     
@@ -70,6 +78,9 @@ class ShareableQuoteView: UIView {
         v.distribution = .fill
         v.alignment = .center
         v.spacing = 8
+        
+        v.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
+        
         return v
     }()
     
@@ -100,12 +111,12 @@ class ShareableQuoteView: UIView {
         // quote view
         openQuoteImageView.snp.makeConstraints {
             $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().inset(28)
             $0.bottom.equalTo(stackView.snp.top).inset(-22.5)
         }
         
         stackView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-            $0.height.lessThanOrEqualToSuperview()
             $0.width.equalToSuperview().inset(32.5)
         }
         

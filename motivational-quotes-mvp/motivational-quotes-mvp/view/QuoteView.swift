@@ -13,7 +13,7 @@ class QuoteView: UIView {
     var progress: Float = 0
     var content: String = "" {
         didSet {
-            contentLabel.text = content
+            contentLabel.text = "\"\(content)\""
         }
     }
     var author: String = "" {
@@ -42,6 +42,8 @@ class QuoteView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         v.numberOfLines = 0
         
+        v.font = UIFont.interFont(size: 16)?.weight(.medium).italic()
+        
         v.textColor = .white
         return v
     }()
@@ -51,6 +53,7 @@ class QuoteView: UIView {
         v.translatesAutoresizingMaskIntoConstraints = false
         
         v.textColor = .white
+        v.font = UIFont.interFont(size: 14)
         
         return v
     }()

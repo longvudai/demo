@@ -14,7 +14,14 @@ class ViewController: UIViewController {
     
     private var cancellableSet = Set<AnyCancellable>()
     private var dataSource: UICollectionViewDiffableDataSource<MyCollectionView.Section, MyCollectionView.Item>?
-    private var listQuote: [Quote] = Quote.mockListQuote()
+    private var listQuote: [Quote] = [] {
+        didSet {
+            if !listQuote.isEmpty {
+                let randomIndex = Int.random(in: 0..<listQuote.count)
+                currentQuote = listQuote[randomIndex]
+            }
+        }
+    }
     private var currentQuote: Quote? {
         didSet {
             shareQuoteViewModel.quote = currentQuote
@@ -22,6 +29,8 @@ class ViewController: UIViewController {
                 quoteView.content = quote.content
                 quoteView.author = quote.author
             }
+            
+            quoteView.isHidden = currentQuote == nil
         }
     }
     
@@ -86,16 +95,24 @@ class ViewController: UIViewController {
         
         applyInitialData()
         
-        Timer.publish(every: 2, on: .main, in: .default).autoconnect().sink { [unowned weakSelf = self] _ in
-            let index = Int.random(in: 0..<weakSelf.listQuote.count)
-            weakSelf.currentQuote = weakSelf.listQuote[index]
-        }.store(in: &cancellableSet)
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        quoteView.isHidden = currentQuote == nil
+        listQuote = Quote.mockListQuote()
+        Timer
+            .publish(every: 5, on: .main, in: .default)
+            .autoconnect()
+            .map { [weak self] date -> Quote? in
+                guard let weakSelf = self else {
+                    return nil
+                }
+                let calendar = Calendar.current
+                if !weakSelf.listQuote.isEmpty {
+                    let randomIndex = (calendar.dateComponents([.second], from: date).second ?? 0) % weakSelf.listQuote.count
+                    return weakSelf.listQuote[randomIndex]
+                } else {
+                    return nil
+                }
+            }
+            .assign(to: \.currentQuote, onWeak: self)
+            .store(in: &cancellableSet)
     }
     
     private func setupConstraint() {
