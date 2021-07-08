@@ -24,8 +24,8 @@ class DayStreakViewController: UIViewController {
             title: "Your First Streak",
             subTitle: "That’s great start! Let’s keep it up to gain your first 3 day streak",
             habitName: "Read Book Hehe",
-            currentStreakDay: 3,
-            numberOfStreakDay: 4,
+            currentStreakDay: 1,
+            numberOfStreakDay: 2,
             actionType: .readMotivationalLetter,
             actionTitle: "Read Our Letter",
             firstDayStreak: .sunday

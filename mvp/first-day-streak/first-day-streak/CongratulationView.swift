@@ -83,9 +83,9 @@ class CongratulationView: UIView {
         return v
     }()
     
-    private lazy var streakView: UIStackView = {
+    private lazy var streakStackView: UIStackView = {
         let v = UIStackView()
-        v.distribution = .fillEqually
+        v.distribution = .equalCentering
         v.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
         return v
     }()
@@ -121,7 +121,7 @@ class CongratulationView: UIView {
     }
     
     private func setupView() {
-        let views = [decorateView, iconView, closeButton, titleView, subTitleView, habitNameView, streakView, actionButton]
+        let views = [decorateView, iconView, closeButton, titleView, subTitleView, habitNameView, streakStackView, actionButton]
         views.forEach { addSubview($0) }
     }
     
@@ -158,7 +158,7 @@ class CongratulationView: UIView {
             $0.height.equalTo(40)
         }
         
-        streakView.snp.makeConstraints {
+        streakStackView.snp.makeConstraints {
             $0.top.equalTo(habitNameView.snp.bottom).offset(25)
             $0.centerX.equalToSuperview()
             $0.width.lessThanOrEqualToSuperview().inset(30)
@@ -193,20 +193,12 @@ class CongratulationView: UIView {
         
         if (data.currentStreakDay >= 0 && data.currentStreakDay <= data.numberOfStreakDay) {
             let weekDays = Weekday.allCase(from: data.firstDayStreak)
-            let isActiveArray = Array(repeating: true, count: data.currentStreakDay) + Array(repeating: false, count: max(0, data.numberOfStreakDay - data.currentStreakDay))
+            let streakDays = Array(repeating: true, count: data.currentStreakDay) + Array(repeating: false, count: max(0, data.numberOfStreakDay - data.currentStreakDay))
+            let numberOfStreakDay = data.numberOfStreakDay
             
-            if weekDays.count >= isActiveArray.count {
-                let views = isActiveArray
-                    .enumerated()
-                    .map { (index, isActive) -> StreakView in
-                        let weekDay = weekDays[index]
-                        let dayOfTheWeek = isActiveArray.count > 5 ? weekDay.dayOfTheWeek1 : weekDay.dayOfTheWeek3
-                        return createStreakView(dayOfTheWeek: dayOfTheWeek, isActive: isActive)
-                    }
-                views.forEach { streakView.addArrangedSubview($0) }
-                
+            if weekDays.count >= numberOfStreakDay {
                 var spacing = 28
-                switch views.count {
+                switch numberOfStreakDay {
                 case 4:
                     spacing = 24
                 case 5:
@@ -217,7 +209,20 @@ class CongratulationView: UIView {
                     break
                 }
                 
-                streakView.spacing = CGFloat(spacing)
+                let views = streakDays
+                    .enumerated()
+                    .flatMap { (index, isActive) -> [UIView] in
+                        let weekDay = weekDays[index]
+                        let dayOfTheWeek = streakDays.count > 5 ? weekDay.dayOfTheWeek1 : weekDay.dayOfTheWeek3
+                        let streakView = createStreakView(dayOfTheWeek: dayOfTheWeek, isActive: isActive)
+                        let connectLineView = ConnectLineView(isActive: index + 1 < data.currentStreakDay, size: CGSize(width: spacing, height: 2))
+                        return index < (numberOfStreakDay - 1) ?  [streakView, connectLineView] : [streakView]
+                    }
+                views.forEach {
+                    streakStackView.addArrangedSubview($0)
+                }
+                
+                streakStackView.spacing = 0
             }
         }
     }
@@ -318,6 +323,7 @@ extension CongratulationView {
             streakIcon.image = image
             
             labelView.text = dayOfTheWeek
+            // TODO: create streak color variable
             labelView.textColor = isActive ? UIColor(red: 0.863, green: 0.382, blue: 0.083, alpha: 1) : Colors.labelSecondary
             
             addSubview(streakIcon)
@@ -333,7 +339,73 @@ extension CongratulationView {
                 $0.top.equalTo(streakIcon.snp.bottom).offset(10)
                 $0.bottom.equalToSuperview()
                 $0.leading.trailing.equalToSuperview()
+                $0.height.equalTo(20)
             }
+        }
+    }
+    
+    class ConnectLineView: UIView {
+        private lazy var dashView: UIView = {
+            let v = UIView()
+            return v
+        }()
+        
+        private lazy var dashContainer: UIView = {
+            let v = UIView()
+            return v
+        }()
+        
+        convenience init(isActive: Bool = true, size: CGSize) {
+            self.init(frame: .init(origin: .zero, size: size))
+            
+            addSubview(dashContainer)
+            dashContainer.snp.makeConstraints {
+                $0.width.equalTo(size.width)
+                $0.top.leading.trailing.equalToSuperview()
+                $0.bottom.equalToSuperview().inset(30)
+            }
+            dashContainer.addSubview(dashView)
+            dashView.snp.makeConstraints {
+                $0.leading.trailing.equalToSuperview()
+                $0.centerY.equalToSuperview()
+            }
+            
+            if (isActive) {
+                drawActiveLine()
+            } else {
+                drawDeactiveLine()
+            }
+        }
+        
+        private func drawActiveLine() {
+            drawLine(
+                p0: bounds.origin,
+                p1: CGPoint(x: bounds.maxX, y: bounds.origin.y),
+                // FIXME:
+                strokeColor: UIColor(red: 0.863, green: 0.382, blue: 0.083, alpha: 1)
+            )
+        }
+        
+        private func drawDeactiveLine() {
+            drawLine(
+                p0: bounds.origin,
+                p1: CGPoint(x: bounds.maxX, y: bounds.origin.y),
+                // FIXME:
+                strokeColor: UIColor(red: 0.898, green: 0.894, blue: 0.898, alpha: 1),
+                lineDashPattern: [7, 3]
+            )
+        }
+        
+        private func drawLine(p0: CGPoint, p1: CGPoint, lineWidth: CGFloat = 4, strokeColor: UIColor, lineDashPattern: [NSNumber]? = nil) {
+            let shapeLayer = CAShapeLayer()
+            shapeLayer.strokeColor = strokeColor.cgColor
+            shapeLayer.lineWidth = lineWidth
+            shapeLayer.lineDashPattern = lineDashPattern
+
+            let path = CGMutablePath()
+            path.addLines(between: [p0, p1])
+            shapeLayer.path = path
+            dashView.layer.addSublayer(shapeLayer)
         }
     }
 }
