@@ -13,14 +13,15 @@ enum ActionType {
     case share, readMotivationalLetter, dismiss
 }
 
-protocol CongratulationViewDelegate: class {
+protocol CongratulationViewDelegate: AnyObject {
     func congratulationViewDidClose(view: CongratulationView)
+    func congratulationViewDidHandleAction(view: CongratulationView, actionType: ActionType)
 }
 
 class CongratulationView: UIView {
     // MARK: - UI properties
-    private lazy var decorateView: UIImageView = {
-        let image = UIImage(named: "day-streak-decorator") ?? UIImage()
+    private lazy var imageBackgroundView: UIImageView = {
+        let image = UIImage(named: "day-streak-background") ?? UIImage()
         let v = UIImageView(image: image)
         return v
     }()
@@ -42,7 +43,7 @@ class CongratulationView: UIView {
     
     private lazy var actionButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = UIColor(red: 0.165, green: 0.404, blue: 0.957, alpha: 1)
+        v.backgroundColor = DayStreakColor.accentPrimary
         v.layer.cornerRadius = 5
         v.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         return v
@@ -120,13 +121,19 @@ class CongratulationView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    override func layoutSubviews() {
+//        super.layoutSubviews()
+//        
+//        subTitleView.sizeToFit()
+//    }
+    
     private func setupView() {
-        let views = [decorateView, iconView, closeButton, titleView, subTitleView, habitNameView, streakStackView, actionButton]
+        let views = [imageBackgroundView, iconView, closeButton, titleView, subTitleView, habitNameView, streakStackView, actionButton]
         views.forEach { addSubview($0) }
     }
     
     private func setupConstraint() {
-        decorateView.snp.makeConstraints {
+        imageBackgroundView.snp.makeConstraints {
             $0.top.leading.trailing.equalToSuperview()
         }
         
@@ -235,14 +242,7 @@ class CongratulationView: UIView {
     @objc
     private func handleAction() {
         guard let actionType = viewData?.actionType else { return  }
-        switch actionType {
-        case .share:
-            print("share")
-        case .dismiss:
-            print("dismiss")
-        case .readMotivationalLetter:
-            print("readMotivationalLetter")
-        }
+        delegate?.congratulationViewDidHandleAction(view: self, actionType: actionType)
     }
 }
 
@@ -256,6 +256,32 @@ extension CongratulationView {
         let actionType: ActionType
         let actionTitle: String
         let firstDayStreak: Weekday
+        
+        static func mockedViewData2() -> ViewData {
+            return ViewData(
+                title: "2 Day in a Row!",
+                subTitle: "Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement",
+                habitName: "Read Book",
+                currentStreakDay: 2,
+                numberOfStreakDay: 3,
+                actionType: .readMotivationalLetter,
+                actionTitle: "Read Our Letter",
+                firstDayStreak: .sunday
+            )
+        }
+        
+        static func mockedViewData1() -> ViewData {
+            return ViewData(
+                title: "Your First Streak",
+                subTitle: "That’s great start! Let’s keep it up to gain your first 3 day streak",
+                habitName: "Read Book Hehe",
+                currentStreakDay: 3,
+                numberOfStreakDay: 7,
+                actionType: .readMotivationalLetter,
+                actionTitle: "Read Our Letter",
+                firstDayStreak: .sunday
+            )
+        }
     }
     
     enum Weekday: Int {

@@ -30,6 +30,9 @@
 		948B4EA72695BC5600ED6CB6 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948B4E9E2695BC5500ED6CB6 /* Inter-ExtraBold.otf */; };
 		948B4EA82695BC5600ED6CB6 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948B4E9F2695BC5500ED6CB6 /* Inter-BoldItalic.otf */; };
 		948B4EAB2695BD4400ED6CB6 /* TextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 948B4EAA2695BD4400ED6CB6 /* TextAttributes */; };
+		94E45B4D2696BF0D006F1314 /* MotivationLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */; };
+		94E45B4F2696DA77006F1314 /* DayStreakViewController+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4E2696DA76006F1314 /* DayStreakViewController+Style.swift */; };
+		94E45B512696E01A006F1314 /* DayStreakViewController+Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B502696E01A006F1314 /* DayStreakViewController+Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +59,9 @@
 		948B4E9D2695BC5500ED6CB6 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
 		948B4E9E2695BC5500ED6CB6 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
 		948B4E9F2695BC5500ED6CB6 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationLetterView.swift; sourceTree = "<group>"; };
+		94E45B4E2696DA76006F1314 /* DayStreakViewController+Style.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayStreakViewController+Style.swift"; sourceTree = "<group>"; };
+		94E45B502696E01A006F1314 /* DayStreakViewController+Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DayStreakViewController+Model.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,7 @@
 		948B4E712695AB6600ED6CB6 /* first-day-streak */ = {
 			isa = PBXGroup;
 			children = (
+				94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */,
 				948B4E932695BC4A00ED6CB6 /* Font.swift */,
 				948B4E722695AB6600ED6CB6 /* AppDelegate.swift */,
 				948B4E742695AB6600ED6CB6 /* SceneDelegate.swift */,
@@ -97,6 +104,8 @@
 				948B4E912695B59E00ED6CB6 /* Defines.swift */,
 				948B4E8F2695B57500ED6CB6 /* AppStyle.swift */,
 				948B4E882695ABF100ED6CB6 /* DayStreakViewController.swift */,
+				94E45B4E2696DA76006F1314 /* DayStreakViewController+Style.swift */,
+				94E45B502696E01A006F1314 /* DayStreakViewController+Model.swift */,
 				948B4E8D2695AFF400ED6CB6 /* CongratulationView.swift */,
 				948B4E862695AB8400ED6CB6 /* BottomCardPresentationController.swift */,
 				948B4E782695AB6600ED6CB6 /* Main.storyboard */,
@@ -220,9 +229,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				948B4E872695AB8400ED6CB6 /* BottomCardPresentationController.swift in Sources */,
+				94E45B512696E01A006F1314 /* DayStreakViewController+Model.swift in Sources */,
 				948B4E892695ABF100ED6CB6 /* DayStreakViewController.swift in Sources */,
+				94E45B4D2696BF0D006F1314 /* MotivationLetterView.swift in Sources */,
 				948B4E772695AB6600ED6CB6 /* ViewController.swift in Sources */,
 				948B4E732695AB6600ED6CB6 /* AppDelegate.swift in Sources */,
+				94E45B4F2696DA77006F1314 /* DayStreakViewController+Style.swift in Sources */,
 				948B4E8E2695AFF400ED6CB6 /* CongratulationView.swift in Sources */,
 				948B4E942695BC4A00ED6CB6 /* Font.swift in Sources */,
 				948B4E752695AB6600ED6CB6 /* SceneDelegate.swift in Sources */,
