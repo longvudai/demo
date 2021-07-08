@@ -344,8 +344,7 @@ extension CongratulationView {
             streakIcon.image = image
             
             labelView.text = dayOfTheWeek
-            // TODO: create streak color variable
-            labelView.textColor = isActive ? UIColor(red: 0.863, green: 0.382, blue: 0.083, alpha: 1) : Colors.labelSecondary
+            labelView.textColor = isActive ? DayStreakColor.streak : Colors.labelSecondary
             
             addSubview(streakIcon)
             addSubview(labelView)
@@ -402,8 +401,7 @@ extension CongratulationView {
             drawLine(
                 p0: bounds.origin,
                 p1: CGPoint(x: bounds.maxX, y: bounds.origin.y),
-                // FIXME:
-                strokeColor: UIColor(red: 0.863, green: 0.382, blue: 0.083, alpha: 1)
+                strokeColor: DayStreakColor.streak ?? UIColor()
             )
         }
         
@@ -411,7 +409,6 @@ extension CongratulationView {
             drawLine(
                 p0: bounds.origin,
                 p1: CGPoint(x: bounds.maxX, y: bounds.origin.y),
-                // FIXME:
                 strokeColor: UIColor(red: 0.898, green: 0.894, blue: 0.898, alpha: 1),
                 lineDashPattern: [7, 3]
             )
