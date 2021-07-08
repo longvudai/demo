@@ -22,12 +22,19 @@ class DayStreakViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         setupView()
         setupConstraint()
         
-        congratulationView.viewData = CongratulationView.ViewData.mockedViewData2()
+        congratulationView.viewData = CongratulationView.ViewData.mockedViewData1()
+        motivationLetterView.viewData = MotivationLetterView.ViewData.mockedValue()
         
+        let optimizedSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        self.preferredContentSize = optimizedSize
     }
     
     private func setupView() {
@@ -41,8 +48,10 @@ class DayStreakViewController: UIViewController {
     private func setupConstraint() {
         congratulationView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+            let frame = presentationController?.frameOfPresentedViewInContainerView ?? .zero
+            $0.width.equalTo(frame.width)
         }
-        
+
         motivationLetterView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }

@@ -60,11 +60,12 @@ class CongratulationView: UIView {
     private lazy var subTitleView: UILabel = {
         let v = UILabel()
         v.numberOfLines = 0
+        v.lineBreakMode = .byWordWrapping
         
         v.font = AppTextStyles.body.font
         v.textColor = Colors.labelSecondary
         v.textAlignment = .center
-        
+                
         return v
     }()
     
@@ -120,12 +121,6 @@ class CongratulationView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        
-//        subTitleView.sizeToFit()
-//    }
     
     private func setupView() {
         let views = [imageBackgroundView, iconView, closeButton, titleView, subTitleView, habitNameView, streakStackView, actionButton]

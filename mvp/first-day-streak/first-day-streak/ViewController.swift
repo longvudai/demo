@@ -24,7 +24,6 @@ class ViewController: UIViewController {
     @objc
     private func showDayStreakViewController() {
         let dayStreakViewController = DayStreakViewController()
-        dayStreakViewController.preferredContentSize.height = 450
         presentAsBottomCard(for: dayStreakViewController, animated: true)
     }
 }
