@@ -162,12 +162,12 @@ class MotivationLetterView: UIView {
 extension MotivationLetterView {
     struct ViewData {
         let userName: String
-        let motivationLetter: MotivationLetter
+        let motivationLetter: MotivationalLetter
     }
 }
 
 extension MotivationLetterView.ViewData {
     static func mockedValue() -> MotivationLetterView.ViewData {
-        return MotivationLetterView.ViewData(userName: "Melisa", motivationLetter: MotivationLetter.mockedValue())
+        return MotivationLetterView.ViewData(userName: "Melisa", motivationLetter: MotivationalLetter.mockedValue())
     }
 }
