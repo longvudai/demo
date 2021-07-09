@@ -23,7 +23,8 @@ class ViewController: UIViewController {
     
     @objc
     private func showDayStreakViewController() {
-        let dayStreakViewController = DayStreakViewController()
+        let viewModel = StreakMotivationalViewModel(userName: "Long Vu", habitName: "Read Book", numberOfDayStreak: 1, listDayStreak: WeekDay.allCases)
+        let dayStreakViewController = StreakMotivationalViewController(viewModel: viewModel)
         presentAsBottomCard(for: dayStreakViewController, animated: true)
     }
 }

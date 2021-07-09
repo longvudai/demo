@@ -9,13 +9,12 @@ import UIKit
 import SnapKit
 import TextAttributes
 
-enum ActionType {
-    case share, readMotivationalLetter, dismiss
-}
-
 protocol CongratulationViewDelegate: AnyObject {
     func congratulationViewDidClose(view: CongratulationView)
-    func congratulationViewDidHandleAction(view: CongratulationView, actionType: ActionType)
+    func congratulationViewDidHandleAction(
+        view: CongratulationView,
+        actionType: StreakMotivationalContent.PrimaryAction.ActionType
+    )
 }
 
 class CongratulationView: UIView {
@@ -43,7 +42,7 @@ class CongratulationView: UIView {
     
     private lazy var actionButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = DayStreakColor.accentPrimary
+        v.backgroundColor = StreakMotivationalColor.accentPrimary
         v.layer.cornerRadius = 5
         v.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         return v
@@ -185,7 +184,7 @@ class CongratulationView: UIView {
         titleView.text = data.title
         subTitleView.text = data.subTitle
         habitNameView.text = data.habitName
-        actionButton.setTitle(data.actionTitle, for: .normal)
+        actionButton.setTitle(data.primaryAction.title, for: .normal)
         
         // calculate habit name layout constraint
         let fixedWidth = habitNameView.frame.size.width
@@ -194,7 +193,7 @@ class CongratulationView: UIView {
         habitNameLayoutConstraint?.constant = newWidth
         
         if (data.currentStreakDay >= 0 && data.currentStreakDay <= data.numberOfStreakDay) {
-            let weekDays = Weekday.allCase(from: data.firstDayStreak)
+            let weekDays = data.listWeekDay
             let streakDays = Array(repeating: true, count: data.currentStreakDay) + Array(repeating: false, count: max(0, data.numberOfStreakDay - data.currentStreakDay))
             let numberOfStreakDay = data.numberOfStreakDay
             
@@ -214,8 +213,9 @@ class CongratulationView: UIView {
                 let views = streakDays
                     .enumerated()
                     .flatMap { (index, isActive) -> [UIView] in
+                        let calendar = Calendar.current
                         let weekDay = weekDays[index]
-                        let dayOfTheWeek = streakDays.count > 5 ? weekDay.dayOfTheWeek1 : weekDay.dayOfTheWeek3
+                        let dayOfTheWeek = streakDays.count > 5 ? calendar.shortWeekDaySymbol(from: weekDay) : calendar.veryShortWeekDaySymbol(from: weekDay)
                         let streakView = createStreakView(dayOfTheWeek: dayOfTheWeek, isActive: isActive)
                         let connectLineView = ConnectLineView(isActive: index + 1 < data.currentStreakDay, size: CGSize(width: spacing, height: 2))
                         return index < (numberOfStreakDay - 1) ?  [streakView, connectLineView] : [streakView]
@@ -236,7 +236,7 @@ class CongratulationView: UIView {
     
     @objc
     private func handleAction() {
-        guard let actionType = viewData?.actionType else { return  }
+        guard let actionType = viewData?.primaryAction.actionType else { return  }
         delegate?.congratulationViewDidHandleAction(view: self, actionType: actionType)
     }
 }
@@ -248,77 +248,35 @@ extension CongratulationView {
         let habitName: String
         let currentStreakDay: Int
         let numberOfStreakDay: Int
-        let actionType: ActionType
-        let actionTitle: String
-        let firstDayStreak: Weekday
-        
-        static func mockedViewData2() -> ViewData {
-            return ViewData(
-                title: "2 Day in a Row!",
-                subTitle: "Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement",
-                habitName: "Read Book",
-                currentStreakDay: 2,
-                numberOfStreakDay: 3,
-                actionType: .readMotivationalLetter,
-                actionTitle: "Read Our Letter",
-                firstDayStreak: .sunday
-            )
-        }
-        
-        static func mockedViewData1() -> ViewData {
-            return ViewData(
-                title: "Your First Streak",
-                subTitle: "That’s great start! Let’s keep it up to gain your first 3 day streak",
-                habitName: "Read Book Hehe",
-                currentStreakDay: 3,
-                numberOfStreakDay: 7,
-                actionType: .readMotivationalLetter,
-                actionTitle: "Read Our Letter",
-                firstDayStreak: .sunday
-            )
-        }
+        let primaryAction: StreakMotivationalContent.PrimaryAction
+        let listWeekDay: [WeekDay]
+    }
+}
+
+// MARK: - Mock CongratulationView.ViewData
+extension CongratulationView.ViewData {
+    static func mockedViewData2() -> CongratulationView.ViewData {
+        return CongratulationView.ViewData(
+            title: "2 Day in a Row!",
+            subTitle: "Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement",
+            habitName: "Read Book",
+            currentStreakDay: 2,
+            numberOfStreakDay: 3,
+            primaryAction: StreakMotivationalContent.PrimaryAction(title: "Read Our Letter", actionType: .readMotivationalLetter),
+            listWeekDay: WeekDay.allCases
+        )
     }
     
-    enum Weekday: Int {
-        case sunday = 1
-        case monday = 2
-        case tuesday = 3
-        case wednesday = 4
-        case thursday = 5
-        case friday = 6
-        case saturday = 7
-        
-        static func allCase(from weekDay: Weekday) -> [Weekday] {
-             return Array(repeating: weekDay.rawValue, count: 7)
-                .enumerated()
-                .compactMap { (index, start) in
-                    let rawValue = max((start + index) % 8, 1)
-                    return Weekday(rawValue: rawValue)
-                }
-        }
-        
-        var dayOfTheWeek3: String {
-            switch self {
-            case .monday:
-                return "Mon"
-            case .tuesday:
-                return "Tue"
-            case .wednesday:
-                return "Wed"
-            case .thursday:
-                return "Thu"
-            case .friday:
-                return "Fri"
-            case .saturday:
-                return "Sat"
-            case .sunday:
-                return "Sun"
-            }
-        }
-        
-        var dayOfTheWeek1: String {
-            return String(dayOfTheWeek3[dayOfTheWeek3.startIndex])
-        }
+    static func mockedViewData1() -> CongratulationView.ViewData {
+        return CongratulationView.ViewData(
+            title: "Your First Streak",
+            subTitle: "That’s great start! Let’s keep it up to gain your first 3 day streak",
+            habitName: "Read Book Hehe",
+            currentStreakDay: 3,
+            numberOfStreakDay: 7,
+            primaryAction: StreakMotivationalContent.PrimaryAction(title: "Read Our Letter", actionType: .readMotivationalLetter),
+            listWeekDay: [.fri, .mon, .thu, .sun, .wed, .sat, .tue]
+        )
     }
 }
 
@@ -344,7 +302,7 @@ extension CongratulationView {
             streakIcon.image = image
             
             labelView.text = dayOfTheWeek
-            labelView.textColor = isActive ? DayStreakColor.streak : Colors.labelSecondary
+            labelView.textColor = isActive ? StreakMotivationalColor.streak : Colors.labelSecondary
             
             addSubview(streakIcon)
             addSubview(labelView)
@@ -401,7 +359,7 @@ extension CongratulationView {
             drawLine(
                 p0: bounds.origin,
                 p1: CGPoint(x: bounds.maxX, y: bounds.origin.y),
-                strokeColor: DayStreakColor.streak ?? UIColor()
+                strokeColor: StreakMotivationalColor.streak ?? UIColor()
             )
         }
         

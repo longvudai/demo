@@ -45,7 +45,7 @@ class MotivationLetterView: UIView {
     
     private lazy var contentContainer: UIView = {
         let v = UIView()
-        v.backgroundColor = DayStreakColor.motivationLetterBackground
+        v.backgroundColor = StreakMotivationalColor.motivationLetterBackground
         v.layer.cornerRadius = 5
         return v
     }()
@@ -66,7 +66,7 @@ class MotivationLetterView: UIView {
     
     private lazy var actionButton: UIButton = {
         let v = UIButton()
-        v.backgroundColor = DayStreakColor.accentPrimary
+        v.backgroundColor = StreakMotivationalColor.accentPrimary
         v.layer.cornerRadius = 5
         v.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         return v
@@ -158,6 +158,8 @@ class MotivationLetterView: UIView {
         actionButton.setTitle(data.motivationLetter.dismissButtonTitle, for: .normal)
     }
 }
+
+typealias MotivationalLetter = StreakMotivationalContent.MotivationalLetter
 
 extension MotivationLetterView {
     struct ViewData {

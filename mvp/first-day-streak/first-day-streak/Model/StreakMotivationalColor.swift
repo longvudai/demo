@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum DayStreakColor {
+enum StreakMotivationalColor {
     static let accentPrimary = PlatformColor(named: "day-streak-accent-primary")
     static let motivationLetterBackground = PlatformColor(named: "motivation-letter-background")
     static let streak = PlatformColor(named: "streak-color")

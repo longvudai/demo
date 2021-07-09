@@ -7,7 +7,8 @@
 
 import UIKit
 
-class DayStreakViewController: UIViewController {
+class StreakMotivationalViewController: UIViewController {
+    // MARK: - UI Properties
     private lazy var congratulationView: CongratulationView = {
         let v = CongratulationView()
         v.delegate = self
@@ -19,7 +20,20 @@ class DayStreakViewController: UIViewController {
         v.delegate = self
         return v
     }()
-
+    
+    private var viewModel: StreakMotivationalViewModel
+    
+    init(viewModel: StreakMotivationalViewModel) {
+        self.viewModel = viewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -30,13 +44,28 @@ class DayStreakViewController: UIViewController {
         setupView()
         setupConstraint()
         
-        congratulationView.viewData = CongratulationView.ViewData.mockedViewData1()
-        motivationLetterView.viewData = MotivationLetterView.ViewData.mockedValue()
+        if let streakMotivationalContent = viewModel.getStreakMotivationalContent() {
+            congratulationView.viewData = CongratulationView.ViewData(
+                title: streakMotivationalContent.title,
+                subTitle: streakMotivationalContent.subtitle,
+                habitName: viewModel.habitName,
+                currentStreakDay: viewModel.numberOfDayStreak,
+                numberOfStreakDay: viewModel.maxNumberOfDayStreak,
+                primaryAction: streakMotivationalContent.primaryAction,
+                listWeekDay: viewModel.listDayStreak
+            )
+            
+            motivationLetterView.viewData = MotivationLetterView.ViewData(
+                userName: viewModel.userName,
+                motivationLetter: streakMotivationalContent.motivationalLetter
+            )
+        }
         
         let optimizedSize = view.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
         self.preferredContentSize = optimizedSize
     }
     
+    // MARK: - helper
     private func setupView() {
         view.backgroundColor = Colors.background
         view.layer.cornerRadius = 15
@@ -58,17 +87,21 @@ class DayStreakViewController: UIViewController {
     }
 }
 
-extension DayStreakViewController: CongratulationViewDelegate {
+extension StreakMotivationalViewController: CongratulationViewDelegate {
     func congratulationViewDidClose(view: CongratulationView) {
         dismiss(animated: true, completion: nil)
     }
     
-    func congratulationViewDidHandleAction(view: CongratulationView, actionType: ActionType) {
+    func congratulationViewDidHandleAction(
+        view: CongratulationView,
+        actionType: StreakMotivationalContent.PrimaryAction.ActionType
+    ) {
         switch actionType {
         case .share:
+            // TODO: handle share action
             print("share")
         case .dismiss:
-            print("dismiss")
+            dismiss(animated: true, completion: nil)
         case .readMotivationalLetter:
             showMotivationLetter()
         }
@@ -87,7 +120,7 @@ extension DayStreakViewController: CongratulationViewDelegate {
     }
 }
 
-extension DayStreakViewController: MotivationLetterViewDelegate {
+extension StreakMotivationalViewController: MotivationLetterViewDelegate {
     func motivationLetterViewDidClose(view: MotivationLetterView) {
         dismiss(animated: true, completion: nil)
     }
