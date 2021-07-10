@@ -20,7 +20,7 @@ class MainViewController: UIViewController {
         guard let weakSelf = self, let preview = weakSelf.imagePreview else { return }
         weakSelf.updateUI(photos: listImage)
         preview.image = listImage.collage(size: preview.frame.size)
-    })
+      })
       .disposed(by: bag)
   }
   
@@ -29,18 +29,38 @@ class MainViewController: UIViewController {
   }
 
   @IBAction func actionSave() {
-
+    if let image = imagePreview.image {
+      PhotoWriter.save(image: image)
+        .subscribe(onSuccess: { [weak self] identifier in
+          self?.showMessage(identifier)
+          self?.actionClear()
+        }, onFailure: { [weak self] error in
+          self?.showMessage("Error", description: error.localizedDescription)
+        })
+        .disposed(by: bag)
+    }
   }
 
   @IBAction func actionAdd() {
     let photosViewController = storyboard!.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
+    photosViewController.selectedImage
+      .subscribe(onNext: { [images] image in
+        let newListImage = images.value + [image]
+        images.accept(newListImage)
+      }
+      , onCompleted: {
+        print("Completed")
+      }
+      ,onDisposed: {
+        print("disposed")
+      })
+      .disposed(by: bag)
+
     navigationController!.pushViewController(photosViewController, animated: true)
   }
 
   func showMessage(_ title: String, description: String? = nil) {
-    let alert = UIAlertController(title: title, message: description, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "Close", style: .default, handler: { [weak self] _ in self?.dismiss(animated: true, completion: nil)}))
-    present(alert, animated: true, completion: nil)
+    alert(title, description: description).subscribe().disposed(by: bag)
   }
   
   private func updateUI(photos: [UIImage]) {
