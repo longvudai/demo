@@ -11,21 +11,33 @@ class MainViewController: UIViewController {
   
   private let bag = DisposeBag()
   private let images = BehaviorRelay<[UIImage]>(value: [])
+  private var imageCache = [Int]()
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    images
+    let imageObservable = images.share()
+    imageObservable
+      .throttle(.milliseconds(500), scheduler: MainScheduler.instance)
       .subscribe(onNext: { [weak self] listImage in
         guard let weakSelf = self, let preview = weakSelf.imagePreview else { return }
-        weakSelf.updateUI(photos: listImage)
         preview.image = listImage.collage(size: preview.frame.size)
+        
+        self?.updateNavigationIcon()
       })
       .disposed(by: bag)
+    
+    imageObservable
+      .subscribe(onNext: { [weak self] listImage in
+        self?.updateUI(photos: listImage)
+      })
+      .disposed(by: bag)
+
   }
   
   @IBAction func actionClear() {
     images.accept([])
+    imageCache.removeAll()
   }
 
   @IBAction func actionSave() {
@@ -43,17 +55,32 @@ class MainViewController: UIViewController {
 
   @IBAction func actionAdd() {
     let photosViewController = storyboard!.instantiateViewController(withIdentifier: "PhotosViewController") as! PhotosViewController
-    photosViewController.selectedImage
-      .subscribe(onNext: { [images] image in
-        let newListImage = images.value + [image]
-        images.accept(newListImage)
-      }
-      , onCompleted: {
-        print("Completed")
-      }
-      ,onDisposed: {
-        print("disposed")
+    
+    let newPhoto = photosViewController.selectedImage.share()
+
+    newPhoto
+      .filter({ newImage in
+        newImage.size.width > newImage.size.height
       })
+      .filter({ [weak self] newImage in
+        guard let strongSelf = self else { return false }
+        let dataCount = newImage.pngData()?.count ?? 0
+        if strongSelf.imageCache.contains(dataCount) {
+          return false
+        } else {
+          strongSelf.imageCache.append(dataCount)
+          return true
+        }
+      })
+      .take(while: { [weak self] newImage in
+        guard let strongSelf = self else { return false }
+        return strongSelf.images.value.count <= 5
+      })
+      .subscribe(
+        onNext: { [images] image in
+          let newListImage = images.value + [image]
+          images.accept(newListImage)
+        })
       .disposed(by: bag)
 
     navigationController!.pushViewController(photosViewController, animated: true)
@@ -70,5 +97,18 @@ class MainViewController: UIViewController {
     itemAdd.isEnabled = photos.count < 6
     title = photos.count > 0 ? "\(photos.count) photos" :
   "Collage"
+  }
+  
+  private func updateNavigationIcon() {
+    let icon = imagePreview.image?
+      .scaled(CGSize(width: 22, height: 22))
+      .withRenderingMode(.alwaysOriginal)
+    
+    navigationItem.leftBarButtonItem = UIBarButtonItem(
+      image: icon,
+      style: .done,
+      target: nil,
+      action: nil
+    )
   }
 }

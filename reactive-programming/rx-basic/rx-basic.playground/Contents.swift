@@ -46,27 +46,46 @@ let disposeBag = DisposeBag()
 //    }.disposed(by: disposeBag)
 //}
 
-example(of: "never") {
-    let observable = Observable<Any>.of(1, 2, 3)
-  
-  observable
-    .do(onNext: { v in
-        print("side effect", v)
-    }, onSubscribe: {
-        print("do subscribe")
-    }, onSubscribed: {
-        print("do subscribed")
-    })
-    .debug("--debug", trimOutput: false)
-    .subscribe(
-      onNext: { element in
-        print(element)
-      },
-      onCompleted: {
-        print("Completed")
-      },
-      onDisposed: {
-        print("Disposed")
-      }
-    )
+//example(of: "never") {
+//    let observable = Observable<Any>.of(1, 2, 3)
+//
+//  observable
+//    .do(onNext: { v in
+//        print("side effect", v)
+//    }, onSubscribe: {
+//        print("do subscribe")
+//    }, onSubscribed: {
+//        print("do subscribed")
+//    })
+//    .debug("--debug", trimOutput: false)
+//    .subscribe(
+//      onNext: { element in
+//        print(element)
+//      },
+//      onCompleted: {
+//        print("Completed")
+//      },
+//      onDisposed: {
+//        print("Disposed")
+//      }
+//    )
+//}
+
+example(of: "subscribe") {
+    let triggerObservable = Observable<Bool>.create { observer in
+        observer.onNext(true)
+        return Disposables.create()
+    }
+    
+    triggerObservable
+        .skip { !$0 }
+        .subscribe { value in
+            print(value)
+        } onCompleted: {
+            print("completed")
+        } onDisposed: {
+            print("disposed")
+        }
+//        .disposed(by: disposeBag)
+
 }

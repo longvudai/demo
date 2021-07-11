@@ -11,6 +11,10 @@ class PhotosViewController: UICollectionViewController {
 
   // MARK: private properties
   private var selectedImageSubject = PublishSubject<UIImage>.init()
+  private lazy var bag: DisposeBag = {
+    let bag = DisposeBag()
+    return bag
+  }()
   private lazy var photos = PhotosViewController.loadPhotos()
   private lazy var imageManager = PHCachingImageManager()
 
@@ -30,12 +34,47 @@ class PhotosViewController: UICollectionViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
 
+    let authorized = PHPhotoLibrary.authorized.share()
+    authorized
+      .skip { !$0 }
+      .take(1)
+      .subscribe { [weak self] _ in
+        DispatchQueue.main.async {
+          self?.collectionView.reloadData()
+        }
+      }
+      .disposed(by: bag)
+    
+    authorized
+      .skip(1)
+      .takeLast(1)
+      .filter { !$0 }
+      .asSingle()
+      .subscribe(onSuccess: { [weak self] _ in
+        DispatchQueue.main.async {
+          self?.errorMessage()
+        }
+      })
+      .disposed(by: bag)
   }
 
   override func viewWillDisappear(_ animated: Bool) {
     super.viewWillDisappear(animated)
 
     selectedImageSubject.onCompleted()
+  }
+  
+  private func errorMessage() {
+    alert("No access to Camera Roll",
+      description: "You can grant access to Combinestagram from the Settings app"
+    )
+    .asObservable()
+    .take(for: .seconds(5), scheduler: MainScheduler.instance)
+    .subscribe(onCompleted: { [weak self] in
+      self?.dismiss(animated: true, completion: nil)
+      _ = self?.navigationController?.popViewController(animated: true)
+    })
+    .disposed(by: bag)
   }
 
   // MARK: UICollectionView
