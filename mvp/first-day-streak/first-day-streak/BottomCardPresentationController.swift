@@ -126,6 +126,8 @@ private class BottomCardPresentationController: UIPresentationController {
         let v = UIView()
         v.backgroundColor = .black
         v.alpha = 0
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnBackdrop))
+        v.addGestureRecognizer(tap)
         return v
     }()
     private lazy var presentingViewSnapshot: UIView? = presentingViewController.view.snapshotView(afterScreenUpdates: true)
@@ -190,5 +192,10 @@ private class BottomCardPresentationController: UIPresentationController {
                 self?.backdropView.removeFromSuperview()
                 self?.presentingViewSnapshot?.removeFromSuperview()
             })
+    }
+    
+    @objc
+    private func handleTapOnBackdrop() {
+        self.presentingViewController.dismiss(animated: true, completion: nil)
     }
 }
