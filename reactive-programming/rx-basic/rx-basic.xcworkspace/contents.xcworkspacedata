@@ -5,6 +5,9 @@
       location = "group:rx-basic.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:rx-tranformation.playground">
+   </FileRef>
+   <FileRef
       location = "group:rx-operator.playground">
    </FileRef>
    <FileRef
