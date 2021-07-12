@@ -46,13 +46,7 @@ class ViewController: UIViewController {
             $0.trailing.leading.equalToSuperview()
             $0.height.equalTo(100)
             $0.top.equalToSuperview()
-//            $0.top.equalTo(testView1.snp.bottom)
         }
-        
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        testView1.addGestureRecognizer(tap1)
-//        testView2.addGestureRecognizer(tap2)
     }
     
     @objc
@@ -60,11 +54,6 @@ class ViewController: UIViewController {
         let viewModel = StreakMotivationalViewModel(userName: "Long Vu", habitName: "Read Book", numberOfDayStreak: 1, listDayStreak: WeekDay.allCases)
         let dayStreakViewController = StreakMotivationalViewController(viewModel: viewModel)
         presentAsBottomCard(for: dayStreakViewController, animated: true)
-    }
-    
-    @objc func handleTap(_ sender: UITapGestureRecognizer? = nil) {
-        // handling code
-        print("tap", sender?.view?.tag)
     }
 }
 

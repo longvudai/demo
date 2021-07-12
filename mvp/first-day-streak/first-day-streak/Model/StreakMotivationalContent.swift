@@ -60,7 +60,7 @@ extension StreakMotivationalContent.DayContent {
     static func mockedValue() -> StreakMotivationalContent.DayContent {
         return StreakMotivationalContent.DayContent(
             title: "Your First Streak",
-            subtitle: "That’s great start! Let’s keep it up to gain your first 3 day streak",
+            subtitle: "That’s great start! Let’s keep it up to gain your first 3 day streak That’s great start! Let’s keep it up to gain your first 3 day streak That’s great start! Let’s keep it up to gain your first 3 day streak",
             motivationalLetter: StreakMotivationalContent.MotivationalLetter(
                 content: "We're really happy to see your first steps on this memorable journey of becoming.",
                 dismissButtonTitle: "Got It"

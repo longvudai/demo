@@ -77,8 +77,6 @@ class StreakMotivationalViewController: UIViewController {
     private func setupConstraint() {
         congratulationView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-            let frame = presentationController?.frameOfPresentedViewInContainerView ?? .zero
-            $0.width.equalTo(frame.width)
         }
 
         motivationLetterView.snp.makeConstraints {
@@ -123,5 +121,11 @@ extension StreakMotivationalViewController: CongratulationViewDelegate {
 extension StreakMotivationalViewController: MotivationLetterViewDelegate {
     func motivationLetterViewDidClose(view: MotivationLetterView) {
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension StreakMotivationalViewController: PresentationBehavior {
+    func presentationContentSizeStyle() -> PresentationContentSizeStyle {
+        return .autoLayout
     }
 }

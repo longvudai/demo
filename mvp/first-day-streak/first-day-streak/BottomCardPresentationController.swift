@@ -121,6 +121,15 @@ private class BottomCardAnimatedTransitioning: NSObject, UIViewControllerAnimate
     }
 }
 
+enum PresentationContentSizeStyle {
+    case autoLayout
+    case preferredContentSize(size: CGSize)
+}
+
+protocol PresentationBehavior {
+    func presentationContentSizeStyle() -> PresentationContentSizeStyle
+}
+
 private class BottomCardPresentationController: UIPresentationController {
     private lazy var backdropView: UIView = {
         let v = UIView()
@@ -149,19 +158,40 @@ private class BottomCardPresentationController: UIPresentationController {
             return .zero
         }
         
-        let targetSize = CGSize(width: min(maximumContentSize.width, containerView.frame.width),
-                       height: min(maximumContentSize.height, containerView.frame.height))
-        let contentSize = presentedView?.systemLayoutSizeFitting(
-            targetSize,
-            withHorizontalFittingPriority: .required,
-            verticalFittingPriority: .fittingSizeLevel
-        ) ?? containerView.frame.size
+        var contentSize: CGSize = .zero
+        
+        if let presentationContentSizeStyle = presentedViewController as? PresentationBehavior {
+            let style = presentationContentSizeStyle.presentationContentSizeStyle()
+            switch style {
+            case .autoLayout:
+                let targetSize = CGSize(
+                    width: min(maximumContentSize.width, containerView.frame.width),
+                    height: min(maximumContentSize.height, containerView.frame.height)
+                )
+                contentSize = presentedView?.systemLayoutSizeFitting(
+                    targetSize,
+                    withHorizontalFittingPriority: .required,
+                    verticalFittingPriority: .fittingSizeLevel
+                ) ?? containerView.frame.size
+                
+            case .preferredContentSize(let preferredContentSize):
+                contentSize = CGSize(
+                    width: min(maximumContentSize.width, preferredContentSize.width),
+                    height: min(maximumContentSize.height, preferredContentSize.height)
+                )
+            }
+        } else {
+            contentSize = CGSize(
+                width: min(maximumContentSize.width, containerView.frame.width),
+                height: min(maximumContentSize.height, presentedViewController.preferredContentSize.height)
+            )
+        }
         
         return CGRect(
             x: containerView.bounds.midX - (contentSize.width / 2),
             y: containerView.bounds.height - contentSize.height - bottomOffset,
             width: contentSize.width,
-            height: contentSize.height
+            height: min(UIScreen.main.bounds.height, contentSize.height)
         )
     }
     
