@@ -149,13 +149,20 @@ private class BottomCardPresentationController: UIPresentationController {
             return .zero
         }
         
-        let contentSize = CGSize(width: min(maximumContentSize.width, containerView.frame.width),
-                                 height: min(maximumContentSize.height, presentedViewController.preferredContentSize.height))
+        let targetSize = CGSize(width: min(maximumContentSize.width, containerView.frame.width),
+                       height: min(maximumContentSize.height, containerView.frame.height))
+        let contentSize = presentedView?.systemLayoutSizeFitting(
+            targetSize,
+            withHorizontalFittingPriority: .required,
+            verticalFittingPriority: .fittingSizeLevel
+        ) ?? containerView.frame.size
         
-        return CGRect(x: containerView.bounds.midX - (contentSize.width / 2),
-                      y: containerView.bounds.height - contentSize.height - bottomOffset,
-                      width: contentSize.width,
-                      height: contentSize.height)
+        return CGRect(
+            x: containerView.bounds.midX - (contentSize.width / 2),
+            y: containerView.bounds.height - contentSize.height - bottomOffset,
+            width: contentSize.width,
+            height: contentSize.height
+        )
     }
     
     override func containerViewWillLayoutSubviews() {
