@@ -1,5 +1,8 @@
 import Foundation
 import RxSwift
+import PlaygroundSupport
+
+PlaygroundPage.current.needsIndefiniteExecution = true
 
 let bag = DisposeBag()
 //example(of: "skipUntil") {
@@ -48,69 +51,98 @@ let bag = DisposeBag()
 //}
 
 
-example(of: "Challenge 1") {
-  let disposeBag = DisposeBag()
-  
-  let contacts = [
-    "603-555-1212": "Florent",
-    "212-555-1212": "Shai",
-    "408-555-1212": "Marin",
-    "617-555-1212": "Scott"
-  ]
-  
-  func phoneNumber(from inputs: [Int]) -> String {
-    var phone = inputs.map(String.init).joined()
-    
-    phone.insert("-", at: phone.index(
-      phone.startIndex,
-      offsetBy: 3)
-    )
-    
-    phone.insert("-", at: phone.index(
-      phone.startIndex,
-      offsetBy: 7)
-    )
-    
-    return phone
-  }
-  
-  let input = PublishSubject<Int>()
-  
-  // Add your code here
-    input
-        .skip(while: { $0 == 0 })
-        .filter { (0...10).contains($0) }
-        .take(10)
-        .toArray()
-        .subscribe { digits in
-            print(digits)
-            let phoneNumber = phoneNumber(from: digits)
-            if let person = contacts[phoneNumber] {
-                print("Dialing to ", person)
-            } else {
-                print("Contact not found")
-            }
-        } onFailure: { error in
-            print(error.localizedDescription)
-        }.disposed(by: disposeBag)
+//example(of: "Challenge 1") {
+//  let disposeBag = DisposeBag()
+//
+//  let contacts = [
+//    "603-555-1212": "Florent",
+//    "212-555-1212": "Shai",
+//    "408-555-1212": "Marin",
+//    "617-555-1212": "Scott"
+//  ]
+//
+//  func phoneNumber(from inputs: [Int]) -> String {
+//    var phone = inputs.map(String.init).joined()
+//
+//    phone.insert("-", at: phone.index(
+//      phone.startIndex,
+//      offsetBy: 3)
+//    )
+//
+//    phone.insert("-", at: phone.index(
+//      phone.startIndex,
+//      offsetBy: 7)
+//    )
+//
+//    return phone
+//  }
+//
+//  let input = PublishSubject<Int>()
+//
+//  // Add your code here
+//    input
+//        .skip(while: { $0 == 0 })
+//        .filter { (0...10).contains($0) }
+//        .take(10)
+//        .toArray()
+//        .subscribe { digits in
+//            print(digits)
+//            let phoneNumber = phoneNumber(from: digits)
+//            if let person = contacts[phoneNumber] {
+//                print("Dialing to ", person)
+//            } else {
+//                print("Contact not found")
+//            }
+//        } onFailure: { error in
+//            print(error.localizedDescription)
+//        }.disposed(by: disposeBag)
+//
+//
+//
+//  input.onNext(0)
+//  input.onNext(603)
+//
+//  input.onNext(2)
+//  input.onNext(1)
+//
+//  // Confirm that 7 results in "Contact not found",
+//  // and then change to 2 and confirm that Shai is found
+//  input.onNext(2)
+//
+//  "5551212".forEach {
+//    if let number = (Int("\($0)")) {
+//      input.onNext(number)
+//    }
+//  }
+//
+//  input.onNext(9)
+//}
 
-  
-  
-  input.onNext(0)
-  input.onNext(603)
-  
-  input.onNext(2)
-  input.onNext(1)
-  
-  // Confirm that 7 results in "Contact not found",
-  // and then change to 2 and confirm that Shai is found
-  input.onNext(2)
-  
-  "5551212".forEach {
-    if let number = (Int("\($0)")) {
-      input.onNext(number)
+example(of: "share") {
+    func createPublisher() -> Observable<Int>{
+        return Observable.create { observer in
+            observer.onNext(1)
+            DispatchQueue.global(qos: .background).asyncAfter(deadline: .now() + 1) {
+                observer.onNext(2)
+                observer.onNext(3)
+            }
+            return Disposables.create()
+        }
     }
-  }
-  
-  input.onNext(9)
+    
+    let share = createPublisher()
+//        .share()
+//        .share(replay: 1, scope: .forever)
+    
+    share
+        .subscribe { event in
+            print("subscription1", event)
+        }
+        .disposed(by: bag)
+    
+    share
+        .subscribe { event in
+            print("subscription2", event)
+        }
+        .disposed(by: bag)
 }
