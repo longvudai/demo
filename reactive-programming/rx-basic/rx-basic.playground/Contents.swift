@@ -71,21 +71,32 @@ let disposeBag = DisposeBag()
 //    )
 //}
 
-example(of: "subscribe") {
-    let triggerObservable = Observable<Bool>.create { observer in
-        observer.onNext(true)
-        return Disposables.create()
-    }
-    
-    triggerObservable
-        .skip { !$0 }
-        .subscribe { value in
-            print(value)
-        } onCompleted: {
-            print("completed")
-        } onDisposed: {
-            print("disposed")
-        }
-//        .disposed(by: disposeBag)
+//example(of: "subscribe") {
+//    let triggerObservable = Observable<Bool>.create { observer in
+//        observer.onNext(true)
+//        return Disposables.create()
+//    }
+//
+//    triggerObservable
+//        .skip { !$0 }
+//        .subscribe { value in
+//            print(value)
+//        } onCompleted: {
+//            print("completed")
+//        } onDisposed: {
+//            print("disposed")
+//        }
+////        .disposed(by: disposeBag)
+//
+//}
 
+example(of: "scan1") {
+    let sequence = Observable.of(1, 3, 5, 7, 9)
+    let scanSequence = sequence
+        .scan((0, 0)) {acc, value in
+            return (value, acc.1 + value)
+        }
+        .subscribe { event in
+            print(event)
+        }
 }
