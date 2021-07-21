@@ -17,6 +17,12 @@ protocol CongratulationViewDelegate: AnyObject {
     )
 }
 
+private class HabitNameTextView: UITextView {
+    override var intrinsicContentSize: CGSize {
+        return sizeThatFits(.zero)
+    }
+}
+
 class CongratulationView: UIView {
     // MARK: - UI properties
     private lazy var imageBackgroundView: UIImageView = {
@@ -68,15 +74,16 @@ class CongratulationView: UIView {
         return v
     }()
     
-    private lazy var habitNameView: UITextView = {
-        let v = UITextView()
+    private lazy var habitNameView: HabitNameTextView = {
+        let v = HabitNameTextView()
         v.font = AppTextStyles.title3.font
         v.textColor = Colors.labelSecondary
         v.textAlignment = .center
         v.backgroundColor = UIColor(red: 0.961, green: 0.961, blue: 0.961, alpha: 1)
         v.layer.cornerRadius = 5
-        
+
         v.textContainer.maximumNumberOfLines = 1
+        v.textContainer.lineBreakMode = .byTruncatingTail
         v.textContainerInset = UIEdgeInsets(top: 8, left: 29, bottom: 8, right: 29)
         v.isEditable = false
         v.isSelectable = false
@@ -154,15 +161,15 @@ class CongratulationView: UIView {
         
         habitNameView.snp.makeConstraints {
             $0.top.equalTo(subTitleView.snp.bottom).offset(22)
-            habitNameLayoutConstraint = $0.width.lessThanOrEqualTo(frame.size.width).constraint.layoutConstraints.first
             $0.centerX.equalToSuperview()
+            $0.width.lessThanOrEqualToSuperview().inset(20)
             $0.height.equalTo(40)
         }
         
         streakStackView.snp.makeConstraints {
             $0.top.equalTo(habitNameView.snp.bottom).offset(25)
             $0.centerX.equalToSuperview()
-            $0.width.lessThanOrEqualToSuperview().inset(30)
+            $0.width.lessThanOrEqualToSuperview().inset(16)
             $0.bottom.equalTo(actionButton.snp.top).inset(-20)
         }
         
@@ -183,14 +190,8 @@ class CongratulationView: UIView {
         guard let data = viewData else { return }
         titleView.text = data.title
         subTitleView.text = data.subTitle
-        habitNameView.text = data.habitName
+        habitNameView.text = "Read book Read book Read book Read books"//data.habitName
         actionButton.setTitle(data.primaryAction.title, for: .normal)
-        
-        // calculate habit name layout constraint
-        let fixedWidth = habitNameView.frame.size.width
-        let newSize = habitNameView.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
-        let newWidth = max(newSize.width, fixedWidth)
-        habitNameLayoutConstraint?.constant = newWidth
         
         if (data.currentStreakDay >= 0 && data.currentStreakDay <= data.numberOfStreakDay) {
             let weekDays = data.listWeekDay
@@ -259,7 +260,7 @@ extension CongratulationView.ViewData {
         return CongratulationView.ViewData(
             title: "2 Day in a Row!",
             subTitle: "Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement Keep the flame lit! You’re just one step away from your fist achievement",
-            habitName: "Read Book",
+            habitName: "Read Book asdhakjsdhkajhsd",
             currentStreakDay: 2,
             numberOfStreakDay: 3,
             primaryAction: StreakMotivationalContent.PrimaryAction(title: "Read Our Letter", actionType: .readMotivationalLetter),
