@@ -73,6 +73,7 @@ class ViewController: UIViewController {
     }()
 
     override func viewDidLoad() {
+        log.info("viewDidLoad")
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
@@ -149,6 +150,7 @@ extension ViewController: UICollectionViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if quoteView.isActiveShare && !quoteView.isHidden {
             present(fpc, animated: true, completion: nil)
+            log.info("present")
         }
     }
 }

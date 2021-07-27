@@ -13,6 +13,8 @@
 		944DED8B2689BE8E006EE718 /* ShareQuoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DED8A2689BE8E006EE718 /* ShareQuoteViewModel.swift */; };
 		944DED8D2689BED2006EE718 /* Quote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DED8C2689BED2006EE718 /* Quote.swift */; };
 		944DED8F2689C718006EE718 /* ColorSelectorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DED8E2689C718006EE718 /* ColorSelectorCollectionView.swift */; };
+		9451F70A26AFC34D000BB5DD /* SwiftyBeaver in Frameworks */ = {isa = PBXBuildFile; productRef = 9451F70926AFC34D000BB5DD /* SwiftyBeaver */; };
+		9451F70C26AFC365000BB5DD /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9451F70B26AFC365000BB5DD /* Log.swift */; };
 		9473FE71268964AF006B19CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE70268964AF006B19CD /* AppDelegate.swift */; };
 		9473FE73268964AF006B19CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE72268964AF006B19CD /* SceneDelegate.swift */; };
 		9473FE75268964AF006B19CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9473FE74268964AF006B19CD /* ViewController.swift */; };
@@ -37,6 +39,7 @@
 		944DED8A2689BE8E006EE718 /* ShareQuoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareQuoteViewModel.swift; sourceTree = "<group>"; };
 		944DED8C2689BED2006EE718 /* Quote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quote.swift; sourceTree = "<group>"; };
 		944DED8E2689C718006EE718 /* ColorSelectorCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSelectorCollectionView.swift; sourceTree = "<group>"; };
+		9451F70B26AFC365000BB5DD /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		9473FE6D268964AF006B19CD /* motivational-quotes-mvp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "motivational-quotes-mvp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9473FE70268964AF006B19CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9473FE72268964AF006B19CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 			files = (
 				947E1AC326896B0600AA86B0 /* SnapKit in Frameworks */,
 				944DED872689AB0D006EE718 /* FloatingPanel in Frameworks */,
+				9451F70A26AFC34D000BB5DD /* SwiftyBeaver in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +99,7 @@
 				9473FE70268964AF006B19CD /* AppDelegate.swift */,
 				9473FE72268964AF006B19CD /* SceneDelegate.swift */,
 				9473FE74268964AF006B19CD /* ViewController.swift */,
+				9451F70B26AFC365000BB5DD /* Log.swift */,
 				9473FE79268964B1006B19CD /* Assets.xcassets */,
 				94FF5A0B268C016E00C2B8F1 /* Inter.ttf */,
 				9473FE7B268964B1006B19CD /* LaunchScreen.storyboard */,
@@ -164,6 +169,7 @@
 			packageProductDependencies = (
 				947E1AC226896B0600AA86B0 /* SnapKit */,
 				944DED862689AB0D006EE718 /* FloatingPanel */,
+				9451F70926AFC34D000BB5DD /* SwiftyBeaver */,
 			);
 			productName = "motivational-quotes-mvp";
 			productReference = 9473FE6D268964AF006B19CD /* motivational-quotes-mvp.app */;
@@ -195,6 +201,7 @@
 			packageReferences = (
 				947E1AC126896B0600AA86B0 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				944DED852689AB0D006EE718 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
+				9451F70826AFC34D000BB5DD /* XCRemoteSwiftPackageReference "SwiftyBeaver" */,
 			);
 			productRefGroup = 9473FE6E268964AF006B19CD /* Products */;
 			projectDirPath = "";
@@ -225,6 +232,7 @@
 			files = (
 				94A4502D268AFC33004235E1 /* UIColor+Ex.swift in Sources */,
 				94FF5A0E268C0A1C00C2B8F1 /* UIFont+Ex.swift in Sources */,
+				9451F70C26AFC365000BB5DD /* Log.swift in Sources */,
 				94D0A756268AC33A0050EA1E /* ShareQuotePanelLayout.swift in Sources */,
 				9473FE75268964AF006B19CD /* ViewController.swift in Sources */,
 				94D0A758268AC70D0050EA1E /* Combine+Ex.swift in Sources */,
@@ -308,10 +316,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "-DDEBUG";
+				"OTHER_SWIFT_FLAGS[arch=*]" = "";
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -363,7 +373,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -443,6 +453,14 @@
 				version = 2.4.0;
 			};
 		};
+		9451F70826AFC34D000BB5DD /* XCRemoteSwiftPackageReference "SwiftyBeaver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftyBeaver/SwiftyBeaver";
+			requirement = {
+				kind = exactVersion;
+				version = 1.9.5;
+			};
+		};
 		947E1AC126896B0600AA86B0 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -458,6 +476,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 944DED852689AB0D006EE718 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
 			productName = FloatingPanel;
+		};
+		9451F70926AFC34D000BB5DD /* SwiftyBeaver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9451F70826AFC34D000BB5DD /* XCRemoteSwiftPackageReference "SwiftyBeaver" */;
+			productName = SwiftyBeaver;
 		};
 		947E1AC226896B0600AA86B0 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
