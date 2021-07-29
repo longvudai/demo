@@ -34,6 +34,7 @@
 		94AF463C26B176E5009DD9EC /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463B26B176E5009DD9EC /* RoundedCorner.swift */; };
 		94AF463E26B17780009DD9EC /* TimerSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */; };
 		94AF464026B17E6B009DD9EC /* DurationWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */; };
+		94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,7 @@
 		94AF463B26B176E5009DD9EC /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSessionViewModel.swift; sourceTree = "<group>"; };
 		94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationWheelView.swift; sourceTree = "<group>"; };
+		94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 				94AF461E26B141A2009DD9EC /* Info.plist */,
 				94AF461F26B141A2009DD9EC /* PushNotificationPayload.apns */,
 				94AF461B26B141A2009DD9EC /* Preview Content */,
+				94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */,
 			);
 			path = "testWatchAppLifeCycle WatchKit Extension";
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				94AF461226B141A1009DD9EC /* ExtensionDelegate.swift in Sources */,
 				94AF461626B141A1009DD9EC /* NotificationView.swift in Sources */,
 				94AF461826B141A1009DD9EC /* ComplicationController.swift in Sources */,
+				94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

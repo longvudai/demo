@@ -31,7 +31,7 @@ struct DurationWheelView: View {
                 .padding(.vertical, 12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(Color.white.opacity(0.1))
-                .border(Color.green, width: 2)
+                .border(Color.accentPrimary, width: 2)
                 .cornerRadius(8)
 
             HStack(spacing: 6) {
@@ -66,7 +66,7 @@ struct DurationWheelView: View {
         .digitalCrownRotation(
             $currentDateInterval.duration,
             from: minValue,
-            through: maxValue, // 5 hour
+            through: maxValue,
             by: 60
         )
     }
@@ -96,7 +96,7 @@ struct PrimaryButtonStyle: ButtonStyle {
             .foregroundColor(.white)
             .padding(.vertical, 12)
             .frame(maxWidth: .infinity, alignment: .center)
-            .background(Color.green.cornerRadius(8))
+            .background(Color.accentPrimary.cornerRadius(8))
     }
 }
 

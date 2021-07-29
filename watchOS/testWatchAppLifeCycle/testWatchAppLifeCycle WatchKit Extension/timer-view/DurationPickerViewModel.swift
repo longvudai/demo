@@ -9,10 +9,10 @@ import Foundation
 import Combine
 
 class DurationPickerViewModel: ObservableObject {
-    private var timerSessionViewModel: TimerSessionViewModel?
-    func createTimerSessionViewModel(dateInterval: DateInterval) -> TimerSessionViewModel {
+    @Published var timerSessionViewModel: TimerSessionViewModel!
+    
+    func createTimerSessionViewModel(dateInterval: DateInterval) {
         let viewModel = TimerSessionViewModel(dateInterval: dateInterval)
         self.timerSessionViewModel = viewModel
-        return viewModel
     }
 }

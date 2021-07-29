@@ -13,15 +13,15 @@ struct ContentView: View {
     @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
-        DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { v in
-            print(v)
-        }
-//        NavigationView {
-//            DurationPickerView(preferredIntervals: DurationPickerView_Previews.mockedListIntervals, viewModel: DurationPickerViewModel())
-//                .onChange(of: scenePhase, perform: { value in
-//                print(value)
-//            })
+//        DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { v in
+//            print(v)
 //        }
+        NavigationView {
+            DurationPickerView(preferredIntervals: DurationPickerView_Previews.mockedListIntervals, viewModel: DurationPickerViewModel())
+                .onChange(of: scenePhase, perform: { value in
+                print(value)
+            })
+        }
     }
     
     var containerView: some View {

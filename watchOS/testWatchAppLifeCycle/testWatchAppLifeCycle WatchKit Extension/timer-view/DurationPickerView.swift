@@ -13,12 +13,18 @@ struct DurationPickerView: View {
     var preferredIntervals: [DateInterval]
     @ObservedObject var viewModel: DurationPickerViewModel
     @State private var isShowDurationWheel = false
+    @State private var isShowTimerSessionView = false
     
     var body: some View {
         contentView
+            .background(destinationView)
+            .onAppear(perform: {
+                isShowDurationWheel = false
+                isShowTimerSessionView = false
+            })
             .fullScreenCover(isPresented: $isShowDurationWheel, content: {
                 DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { dateInterval in
-                    print(dateInterval)
+                    createTimerSessionViewModel(dateInterval: dateInterval)
                 }
             })
     }
@@ -33,13 +39,14 @@ struct DurationPickerView: View {
                 .listRowInsets(EdgeInsets())
             
             DurationItem(durationString: "7 mins", description: "Recent")
-            
             ForEach(preferredIntervals, id: \.self) { item in
-                NavigationLink(
-                    destination: TimerSessionView(viewModel: viewModel.createTimerSessionViewModel(dateInterval: item)),
-                    label: {
-                        DurationItem(durationString: DurationPickerFormatter.string(from: item.duration))
-                    })
+                Button(action: {
+                    createTimerSessionViewModel(dateInterval: item)
+                }, label: {
+                    DurationItem(durationString: DurationPickerFormatter.string(from: item.duration))
+                })
+                .frame(maxWidth: .infinity)
+                .buttonStyle(PlainButtonStyle())
             }
             .frame(maxWidth: .infinity)
             
@@ -51,6 +58,26 @@ struct DurationPickerView: View {
                     .padding(12)
             })
         }
+    }
+    
+    private var destinationView: some View {
+        VStack {
+            if let timerSessionViewModel = viewModel.timerSessionViewModel {
+                NavigationLink(
+                    destination: TimerSessionView(viewModel: timerSessionViewModel),
+                    isActive: $isShowTimerSessionView
+                ) {
+                    EmptyView()
+                }
+            } else {
+                EmptyView()
+            }
+        }
+    }
+    // MARK: - helper
+    private func createTimerSessionViewModel(dateInterval: DateInterval) {
+        viewModel.createTimerSessionViewModel(dateInterval: dateInterval)
+        isShowTimerSessionView = true
     }
 }
 
