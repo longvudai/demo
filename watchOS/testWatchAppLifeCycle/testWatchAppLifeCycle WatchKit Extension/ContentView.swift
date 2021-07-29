@@ -16,12 +16,10 @@ struct ContentView: View {
 //        DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { v in
 //            print(v)
 //        }
-        NavigationView {
             DurationPickerView(preferredIntervals: DurationPickerView_Previews.mockedListIntervals, viewModel: DurationPickerViewModel())
                 .onChange(of: scenePhase, perform: { value in
                 print(value)
             })
-        }
     }
     
     var containerView: some View {

@@ -26,13 +26,26 @@ struct DurationWheelView: View {
     }
     
     var body: some View {
+        contentView
+            .padding(8)
+            .toolbar(content: {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close") {
+                        presentationMode.wrappedValue.dismiss()
+                    }
+                }})
+    }
+    
+    private var contentView: some View {
         VStack {
             Text(DurationFormatter.string(from: currentDateInterval.duration))
                 .padding(.vertical, 12)
                 .frame(maxWidth: .infinity, alignment: .center)
                 .background(Color.white.opacity(0.1))
-                .border(Color.accentPrimary, width: 2)
-                .cornerRadius(8)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.accentPrimary, lineWidth: 2)
+                )
 
             HStack(spacing: 6) {
                 Button(action: {

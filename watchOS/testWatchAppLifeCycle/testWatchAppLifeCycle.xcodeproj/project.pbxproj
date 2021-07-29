@@ -35,6 +35,7 @@
 		94AF463E26B17780009DD9EC /* TimerSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */; };
 		94AF464026B17E6B009DD9EC /* DurationWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */; };
 		94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
+		94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSessionViewModel.swift; sourceTree = "<group>"; };
 		94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationWheelView.swift; sourceTree = "<group>"; };
 		94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ex.swift"; sourceTree = "<group>"; };
+		94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +193,7 @@
 		94AF460C26B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */,
 				94AF463B26B176E5009DD9EC /* RoundedCorner.swift */,
 				94AF463926B1769F009DD9EC /* CircleProgressBar.swift */,
 				94AF463226B16692009DD9EC /* timer-view */,
@@ -375,6 +378,7 @@
 			files = (
 				94AF463C26B176E5009DD9EC /* RoundedCorner.swift in Sources */,
 				94AF463E26B17780009DD9EC /* TimerSessionViewModel.swift in Sources */,
+				94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */,
 				94AF461026B141A1009DD9EC /* ContentView.swift in Sources */,
 				94AF460E26B141A1009DD9EC /* HostingController.swift in Sources */,
 				94AF463426B166A5009DD9EC /* DurationPickerView.swift in Sources */,

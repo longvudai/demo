@@ -12,7 +12,7 @@ class DurationPickerViewModel: ObservableObject {
     @Published var timerSessionViewModel: TimerSessionViewModel!
     
     func createTimerSessionViewModel(dateInterval: DateInterval) {
-        let viewModel = TimerSessionViewModel(dateInterval: dateInterval)
+        let viewModel = TimerSessionViewModel.mockedValue
         self.timerSessionViewModel = viewModel
     }
 }

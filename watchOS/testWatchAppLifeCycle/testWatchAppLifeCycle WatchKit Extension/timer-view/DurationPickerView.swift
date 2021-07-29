@@ -11,13 +11,13 @@ import SwiftUI
 
 struct DurationPickerView: View {
     var preferredIntervals: [DateInterval]
+    
     @ObservedObject var viewModel: DurationPickerViewModel
     @State private var isShowDurationWheel = false
     @State private var isShowTimerSessionView = false
     
     var body: some View {
         contentView
-            .background(destinationView)
             .onAppear(perform: {
                 isShowDurationWheel = false
                 isShowTimerSessionView = false
@@ -25,6 +25,13 @@ struct DurationPickerView: View {
             .fullScreenCover(isPresented: $isShowDurationWheel, content: {
                 DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { dateInterval in
                     createTimerSessionViewModel(dateInterval: dateInterval)
+                }
+            })
+            .fullScreenCover(isPresented: $isShowTimerSessionView, content: {
+                if let timerSessionViewModel = viewModel.timerSessionViewModel {
+                    TimerSessionView(viewModel: timerSessionViewModel)
+                } else {
+                    EmptyView()
                 }
             })
     }
@@ -57,21 +64,6 @@ struct DurationPickerView: View {
                     .frame(maxWidth: .infinity)
                     .padding(12)
             })
-        }
-    }
-    
-    private var destinationView: some View {
-        VStack {
-            if let timerSessionViewModel = viewModel.timerSessionViewModel {
-                NavigationLink(
-                    destination: TimerSessionView(viewModel: timerSessionViewModel),
-                    isActive: $isShowTimerSessionView
-                ) {
-                    EmptyView()
-                }
-            } else {
-                EmptyView()
-            }
         }
     }
     // MARK: - helper
