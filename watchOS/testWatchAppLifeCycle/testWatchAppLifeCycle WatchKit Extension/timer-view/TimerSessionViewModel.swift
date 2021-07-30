@@ -7,12 +7,17 @@
 
 import Combine
 import Foundation
+import RxSwift
+import RxCocoa
 
 class TimerSessionViewModel: ObservableObject {
     // MARK: - publisher properties
     @Published var progress: Double = 1
     @Published var countDownText: String?
     @Published var isCompleted: Bool = false
+    @Published var controlButtonTitle: String = "Start"
+    
+    private var action = CurrentValueSubject<Action, Never>(.start)
     
     // MARK: - private properties
     private var timerCancellable: AnyCancellable?
@@ -29,7 +34,6 @@ class TimerSessionViewModel: ObservableObject {
     var context: [String: Any] = [:]
     var session: TimerSession
     
-//    private let initialDuration: TimeInterval
     private let targetDuration: TimeInterval
     private var passedDuration: TimeInterval = 0
     
@@ -41,34 +45,78 @@ class TimerSessionViewModel: ObservableObject {
         self.context = context
         self.session = session
         self.targetDuration = (context[TimerSession.ContextKey.targetDuration.rawValue] as? TimeInterval) ?? 0
-//        self.passedDuration = (context[TimerSession.ContextKey.loggedDuration.rawValue] as? TimeInterval) ?? 0
-//        self.initialDuration = passedDuration
         
-        session.start()
+        self.countDownText = durationFormatter.string(from: targetDuration)
         
-        timerCancellable?.cancel()
-        timerCancellable = Timer.publish(every: 1, on: .main, in: .default)
+        let state = session
+            .publisher(for: \.state)
+            .share()
+        
+        state
+            .map { [weak self] state -> Action in
+                self?.action(for: state) ?? .start
+            }
+            .assign(to: \.value, on: action)
+            .store(in: &cancellableSet)
+
+        action
+            .removeDuplicates()
+            .map { $0.localizedTitle }
+            .weakAssign(to: \.controlButtonTitle, on: self)
+            .store(in: &cancellableSet)
+            
+        let tick = Timer.publish(every: 1, on: .main, in: .default)
             .autoconnect()
+        
+        tick
+            .combineLatest(state, $isCompleted, { _, state, isCompleted in
+                return (state, isCompleted)
+            })
+            .filter { !$0.1 }
+            .map { $0.0 }
+            .filter { $0 ~= TimerSession.State.running }
             .sink(receiveValue: { [weak self] _ in
                 self?.timerFired()
             })
+            .store(in: &cancellableSet)
         
         $isCompleted
-            .removeDuplicates()
             .sink { [weak self] isCompleted in
                 if isCompleted  {
-                    print("finish")
                     self?.timerCancellable?.cancel()
 //                    delegate?.timerSessionViewController(self, didComplete: session)
                 }
             }
             .store(in: &cancellableSet)
+        
+        $controlButtonTitle.sink { v in
+            print(v)
+        }.store(in: &cancellableSet)
+        
+        session.start()
     }
     
     func onDisappear() {
         timerCancellable = nil
     }
     
+    func controlButtonTapped() {
+        switch action.value {
+        case .pause:
+            session.pause()
+
+        case .resume:
+            session.resume()
+
+        case .stop:
+            session.stop()
+
+        case .start:
+            session.start()
+        }
+    }
+    
+    // MARK: - helper
     private func timerFired() {
         let remainingDuration = targetDuration - passedDuration
         let remainingString = durationFormatter.string(from: remainingDuration)
@@ -78,7 +126,6 @@ class TimerSessionViewModel: ObservableObject {
         if targetDuration != 0 {
             progress = max(0, 1 - Double(passedDuration / targetDuration))
         }
-        print(progress)
 
         let isCompleted = remainingDuration <= 0
         if isCompleted {
@@ -93,3 +140,52 @@ extension TimerSessionViewModel {
         TimerSession.ContextKey.loggedDuration.rawValue: TimeInterval(60)
     ])
 }
+
+private extension TimerSessionViewModel {
+    // FIXME: remove mocked L10 enum
+    enum L10n {
+        struct Common {
+            static let start = "start"
+            static let pause = "pause"
+            static let resume = "resume"
+            static let stop = "stop"
+        }
+    }
+    
+    enum Action {
+        case start, pause, resume, stop
+
+        var localizedTitle: String {
+            switch self {
+            case .start:
+                return L10n.Common.start
+            case .pause:
+                return L10n.Common.pause
+            case .resume:
+                return L10n.Common.resume
+            case .stop:
+                return L10n.Common.stop
+            }
+        }
+    }
+
+    func action(for state: TimerSession.State) -> Action {
+        switch state {
+        case .idle:
+            return.start
+
+        case .paused:
+            return.resume
+
+        case .completed:
+            return.start
+
+        case .running:
+            return.pause
+
+        case .stopped:
+            return.resume
+        }
+    }
+}
+

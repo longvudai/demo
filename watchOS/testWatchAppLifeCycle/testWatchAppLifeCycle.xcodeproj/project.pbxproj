@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		941ED5C126B3B8A20085AAC0 /* NotificationProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941ED5C026B3B8A20085AAC0 /* NotificationProcessor.swift */; };
 		94AF45E926B1419E009DD9EC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF45E826B1419E009DD9EC /* AppDelegate.swift */; };
 		94AF45EB26B1419E009DD9EC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF45EA26B1419E009DD9EC /* SceneDelegate.swift */; };
 		94AF45ED26B1419E009DD9EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF45EC26B1419E009DD9EC /* ContentView.swift */; };
@@ -34,6 +35,15 @@
 		94AF463C26B176E5009DD9EC /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463B26B176E5009DD9EC /* RoundedCorner.swift */; };
 		94AF463E26B17780009DD9EC /* TimerSessionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */; };
 		94AF464026B17E6B009DD9EC /* DurationWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */; };
+		94F3EF5F26B3D93F004BAEE3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF5E26B3D93F004BAEE3 /* RxSwift */; };
+		94F3EF6126B3D93F004BAEE3 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6026B3D93F004BAEE3 /* RxCocoa */; };
+		94F3EF6426B3D995004BAEE3 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6326B3D995004BAEE3 /* RxSwift */; };
+		94F3EF6626B3D99C004BAEE3 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6526B3D99C004BAEE3 /* RxCocoa */; };
+		94F3EF6926B3E357004BAEE3 /* RxCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6826B3E357004BAEE3 /* RxCombine */; };
+		94F3EF6C26B3E376004BAEE3 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6B26B3E376004BAEE3 /* CombineExt */; };
+		94F3EF6E26B3E385004BAEE3 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6D26B3E385004BAEE3 /* CombineExt */; };
+		94F3EF7026B3E38F004BAEE3 /* RxCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6F26B3E38F004BAEE3 /* RxCombine */; };
+		94F3EF7226B3E542004BAEE3 /* Combine+WeakAssign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */; };
 		94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
 		94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
 /* End PBXBuildFile section */
@@ -81,6 +91,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		941ED5C026B3B8A20085AAC0 /* NotificationProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationProcessor.swift; sourceTree = "<group>"; };
 		94AF45E526B1419E009DD9EC /* testWatchAppLifeCycle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testWatchAppLifeCycle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94AF45E826B1419E009DD9EC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94AF45EA26B1419E009DD9EC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -114,6 +125,7 @@
 		94AF463B26B176E5009DD9EC /* RoundedCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSessionViewModel.swift; sourceTree = "<group>"; };
 		94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationWheelView.swift; sourceTree = "<group>"; };
+		94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+WeakAssign.swift"; sourceTree = "<group>"; };
 		94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ex.swift"; sourceTree = "<group>"; };
 		94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,6 +135,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F3EF6C26B3E376004BAEE3 /* CombineExt in Frameworks */,
+				94F3EF6126B3D93F004BAEE3 /* RxCocoa in Frameworks */,
+				94F3EF6926B3E357004BAEE3 /* RxCombine in Frameworks */,
+				94F3EF5F26B3D93F004BAEE3 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -130,6 +146,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F3EF7026B3E38F004BAEE3 /* RxCombine in Frameworks */,
+				94F3EF6626B3D99C004BAEE3 /* RxCocoa in Frameworks */,
+				94F3EF6E26B3E385004BAEE3 /* CombineExt in Frameworks */,
+				94F3EF6426B3D995004BAEE3 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +163,7 @@
 				94AF45FD26B141A0009DD9EC /* testWatchAppLifeCycle WatchKit App */,
 				94AF460C26B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension */,
 				94AF45E626B1419E009DD9EC /* Products */,
+				94F3EF6226B3D995004BAEE3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -193,6 +214,8 @@
 		94AF460C26B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */,
+				941ED5C026B3B8A20085AAC0 /* NotificationProcessor.swift */,
 				94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */,
 				94AF463B26B176E5009DD9EC /* RoundedCorner.swift */,
 				94AF463926B1769F009DD9EC /* CircleProgressBar.swift */,
@@ -233,6 +256,13 @@
 			path = "timer-view";
 			sourceTree = "<group>";
 		};
+		94F3EF6226B3D995004BAEE3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,6 +281,12 @@
 				94AF45FC26B141A0009DD9EC /* PBXTargetDependency */,
 			);
 			name = testWatchAppLifeCycle;
+			packageProductDependencies = (
+				94F3EF5E26B3D93F004BAEE3 /* RxSwift */,
+				94F3EF6026B3D93F004BAEE3 /* RxCocoa */,
+				94F3EF6826B3E357004BAEE3 /* RxCombine */,
+				94F3EF6B26B3E376004BAEE3 /* CombineExt */,
+			);
 			productName = testWatchAppLifeCycle;
 			productReference = 94AF45E526B1419E009DD9EC /* testWatchAppLifeCycle.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +321,12 @@
 			dependencies = (
 			);
 			name = "testWatchAppLifeCycle WatchKit Extension";
+			packageProductDependencies = (
+				94F3EF6326B3D995004BAEE3 /* RxSwift */,
+				94F3EF6526B3D99C004BAEE3 /* RxCocoa */,
+				94F3EF6D26B3E385004BAEE3 /* CombineExt */,
+				94F3EF6F26B3E38F004BAEE3 /* RxCombine */,
+			);
 			productName = "testWatchAppLifeCycle WatchKit Extension";
 			productReference = 94AF460826B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension.appex */;
 			productType = "com.apple.product-type.watchkit2-extension";
@@ -318,6 +360,11 @@
 				Base,
 			);
 			mainGroup = 94AF45DC26B1419D009DD9EC;
+			packageReferences = (
+				94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				94F3EF6726B3E357004BAEE3 /* XCRemoteSwiftPackageReference "RxCombine" */,
+				94F3EF6A26B3E376004BAEE3 /* XCRemoteSwiftPackageReference "CombineExt" */,
+			);
 			productRefGroup = 94AF45E626B1419E009DD9EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -378,6 +425,7 @@
 			files = (
 				94AF463C26B176E5009DD9EC /* RoundedCorner.swift in Sources */,
 				94AF463E26B17780009DD9EC /* TimerSessionViewModel.swift in Sources */,
+				94F3EF7226B3E542004BAEE3 /* Combine+WeakAssign.swift in Sources */,
 				94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */,
 				94AF461026B141A1009DD9EC /* ContentView.swift in Sources */,
 				94AF460E26B141A1009DD9EC /* HostingController.swift in Sources */,
@@ -392,6 +440,7 @@
 				94AF461626B141A1009DD9EC /* NotificationView.swift in Sources */,
 				94AF461826B141A1009DD9EC /* ComplicationController.swift in Sources */,
 				94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */,
+				941ED5C126B3B8A20085AAC0 /* NotificationProcessor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,6 +775,76 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 6.2.0;
+			};
+		};
+		94F3EF6726B3E357004BAEE3 /* XCRemoteSwiftPackageReference "RxCombine" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/RxCombine";
+			requirement = {
+				kind = exactVersion;
+				version = 2.0.1;
+			};
+		};
+		94F3EF6A26B3E376004BAEE3 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		94F3EF5E26B3D93F004BAEE3 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		94F3EF6026B3D93F004BAEE3 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		94F3EF6326B3D995004BAEE3 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+		94F3EF6526B3D99C004BAEE3 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF5D26B3D93F004BAEE3 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		94F3EF6826B3E357004BAEE3 /* RxCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF6726B3E357004BAEE3 /* XCRemoteSwiftPackageReference "RxCombine" */;
+			productName = RxCombine;
+		};
+		94F3EF6B26B3E376004BAEE3 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF6A26B3E376004BAEE3 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		94F3EF6D26B3E385004BAEE3 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF6A26B3E376004BAEE3 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
+		};
+		94F3EF6F26B3E38F004BAEE3 /* RxCombine */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94F3EF6726B3E357004BAEE3 /* XCRemoteSwiftPackageReference "RxCombine" */;
+			productName = RxCombine;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 94AF45DD26B1419E009DD9EC /* Project object */;
 }

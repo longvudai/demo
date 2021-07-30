@@ -21,6 +21,7 @@ struct DurationPickerView: View {
             .onAppear(perform: {
                 isShowDurationWheel = false
                 isShowTimerSessionView = false
+                viewModel.timerSessionViewModel = nil
             })
             .fullScreenCover(isPresented: $isShowDurationWheel, content: {
                 DurationWheelView(initialValue: DateInterval(start: Date(), duration: 60)) { dateInterval in
@@ -45,7 +46,11 @@ struct DurationPickerView: View {
                 .listRowBackground(Color.clear)
                 .listRowInsets(EdgeInsets())
             
+            // remaining
+            
+            // recent
             DurationItem(durationString: "7 mins", description: "Recent")
+            
             ForEach(preferredIntervals, id: \.self) { item in
                 Button(action: {
                     createTimerSessionViewModel(dateInterval: item)

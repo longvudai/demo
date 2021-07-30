@@ -72,30 +72,40 @@ struct TimerSessionView: View {
     }
     
     private var stopButton: some View {
-        ZStack {
-            Rectangle()
-                .fill(Color.red)
-                .frame(width: 18, height: 18)
-                .cornerRadius(3)
-        }
-        .padding(.horizontal, 15)
-        .frame(maxHeight: .infinity)
-        .background(Color.white.opacity(0.1))
-        .cornerRadius(6, corners: [.topRight, .bottomRight])
+        Button(action: {
+            presentationMode.wrappedValue.dismiss()
+        }, label: {
+            ZStack {
+                Rectangle()
+                    .fill(Color.red)
+                    .frame(width: 18, height: 18)
+                    .cornerRadius(3)
+            }
+            .padding(.horizontal, 15)
+            .frame(maxHeight: .infinity)
+            .background(Color.white.opacity(0.1))
+            .cornerRadius(6, corners: [.topRight, .bottomRight])
+        })
+        .buttonStyle(PlainButtonStyle())
     }
     
     private var pauseButton: some View {
-        HStack(spacing: 6) {
-            Image(systemName: "pause")
-            Text("Pause")
-                .font(.system(size: 15, weight: .regular))
-                .foregroundColor(.white)
-        }
-        .frame(maxWidth: .infinity,
-               maxHeight: .infinity,
-               alignment: .center)
-        .background(Color.white.opacity(0.1))
-        .cornerRadius(6, corners: [.topLeft, .bottomLeft])
+        Button(action: {
+            viewModel.controlButtonTapped()
+        }, label: {
+            HStack(spacing: 6) {
+                Image(systemName: "pause")
+                Text(viewModel.controlButtonTitle)
+                    .font(.system(size: 15, weight: .regular))
+                    .foregroundColor(.white)
+            }
+            .frame(maxWidth: .infinity,
+                   maxHeight: .infinity,
+                   alignment: .center)
+            .background(Color.white.opacity(0.1))
+            .cornerRadius(6, corners: [.topLeft, .bottomLeft])
+        })
+        .buttonStyle(PlainButtonStyle())
     }
     
     private var completedView: some View {
