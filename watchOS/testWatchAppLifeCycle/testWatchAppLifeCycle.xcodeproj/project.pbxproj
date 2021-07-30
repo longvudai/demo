@@ -44,6 +44,13 @@
 		94F3EF6E26B3E385004BAEE3 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6D26B3E385004BAEE3 /* CombineExt */; };
 		94F3EF7026B3E38F004BAEE3 /* RxCombine in Frameworks */ = {isa = PBXBuildFile; productRef = 94F3EF6F26B3E38F004BAEE3 /* RxCombine */; };
 		94F3EF7226B3E542004BAEE3 /* Combine+WeakAssign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */; };
+		94F3EF7426B3F3EE004BAEE3 /* TimerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */; };
+		94F3EF7826B3F4C2004BAEE3 /* CircleProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463926B1769F009DD9EC /* CircleProgressBar.swift */; };
+		94F3EF7926B3F4C6004BAEE3 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94AF463B26B176E5009DD9EC /* RoundedCorner.swift */; };
+		94F3EF7A26B3F4CA004BAEE3 /* Combine+WeakAssign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */; };
+		94F3EF7B26B3F4CD004BAEE3 /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
+		94F3EF7C26B3F4D0004BAEE3 /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
+		94F3EF7D26B3F4D3004BAEE3 /* TimerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */; };
 		94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
 		94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
 /* End PBXBuildFile section */
@@ -126,6 +133,7 @@
 		94AF463D26B17780009DD9EC /* TimerSessionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerSessionViewModel.swift; sourceTree = "<group>"; };
 		94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationWheelView.swift; sourceTree = "<group>"; };
 		94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+WeakAssign.swift"; sourceTree = "<group>"; };
+		94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSessionManager.swift; sourceTree = "<group>"; };
 		94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ex.swift"; sourceTree = "<group>"; };
 		94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,9 +167,10 @@
 		94AF45DC26B1419D009DD9EC = {
 			isa = PBXGroup;
 			children = (
-				94AF45E726B1419E009DD9EC /* testWatchAppLifeCycle */,
-				94AF45FD26B141A0009DD9EC /* testWatchAppLifeCycle WatchKit App */,
-				94AF460C26B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension */,
+				94F3EF7526B3F404004BAEE3 /* Core */,
+				94AF45E726B1419E009DD9EC /* iOS */,
+				94AF45FD26B141A0009DD9EC /* WatchKit App */,
+				94AF460C26B141A1009DD9EC /* WatchKit Extension */,
 				94AF45E626B1419E009DD9EC /* Products */,
 				94F3EF6226B3D995004BAEE3 /* Frameworks */,
 			);
@@ -177,7 +186,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		94AF45E726B1419E009DD9EC /* testWatchAppLifeCycle */ = {
+		94AF45E726B1419E009DD9EC /* iOS */ = {
 			isa = PBXGroup;
 			children = (
 				94AF462F26B1472C009DD9EC /* testWatchAppLifeCycle.entitlements */,
@@ -190,7 +199,7 @@
 				94AF45F626B141A0009DD9EC /* Info.plist */,
 				94AF45F026B141A0009DD9EC /* Preview Content */,
 			);
-			path = testWatchAppLifeCycle;
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		94AF45F026B141A0009DD9EC /* Preview Content */ = {
@@ -201,24 +210,20 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		94AF45FD26B141A0009DD9EC /* testWatchAppLifeCycle WatchKit App */ = {
+		94AF45FD26B141A0009DD9EC /* WatchKit App */ = {
 			isa = PBXGroup;
 			children = (
 				94AF45FE26B141A0009DD9EC /* Interface.storyboard */,
 				94AF460126B141A1009DD9EC /* Assets.xcassets */,
 				94AF460326B141A1009DD9EC /* Info.plist */,
 			);
-			path = "testWatchAppLifeCycle WatchKit App";
+			path = "WatchKit App";
 			sourceTree = "<group>";
 		};
-		94AF460C26B141A1009DD9EC /* testWatchAppLifeCycle WatchKit Extension */ = {
+		94AF460C26B141A1009DD9EC /* WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
-				94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */,
 				941ED5C026B3B8A20085AAC0 /* NotificationProcessor.swift */,
-				94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */,
-				94AF463B26B176E5009DD9EC /* RoundedCorner.swift */,
-				94AF463926B1769F009DD9EC /* CircleProgressBar.swift */,
 				94AF463226B16692009DD9EC /* timer-view */,
 				94AF460D26B141A1009DD9EC /* HostingController.swift */,
 				94AF460F26B141A1009DD9EC /* ContentView.swift */,
@@ -231,9 +236,8 @@
 				94AF461E26B141A2009DD9EC /* Info.plist */,
 				94AF461F26B141A2009DD9EC /* PushNotificationPayload.apns */,
 				94AF461B26B141A2009DD9EC /* Preview Content */,
-				94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */,
 			);
-			path = "testWatchAppLifeCycle WatchKit Extension";
+			path = "WatchKit Extension";
 			sourceTree = "<group>";
 		};
 		94AF461B26B141A2009DD9EC /* Preview Content */ = {
@@ -261,6 +265,35 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94F3EF7526B3F404004BAEE3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				94F3EF7726B3F4AE004BAEE3 /* components */,
+				94F3EF7626B3F4A3004BAEE3 /* extensions */,
+				94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */,
+				94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		94F3EF7626B3F4A3004BAEE3 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */,
+				94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		94F3EF7726B3F4AE004BAEE3 /* components */ = {
+			isa = PBXGroup;
+			children = (
+				94AF463926B1769F009DD9EC /* CircleProgressBar.swift */,
+				94AF463B26B176E5009DD9EC /* RoundedCorner.swift */,
+			);
+			path = components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,7 +445,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94F3EF7C26B3F4D0004BAEE3 /* TimerSession.swift in Sources */,
+				94F3EF7B26B3F4CD004BAEE3 /* Color+Ex.swift in Sources */,
+				94F3EF7D26B3F4D3004BAEE3 /* TimerSessionManager.swift in Sources */,
+				94F3EF7926B3F4C6004BAEE3 /* RoundedCorner.swift in Sources */,
 				94AF45E926B1419E009DD9EC /* AppDelegate.swift in Sources */,
+				94F3EF7826B3F4C2004BAEE3 /* CircleProgressBar.swift in Sources */,
+				94F3EF7A26B3F4CA004BAEE3 /* Combine+WeakAssign.swift in Sources */,
 				94AF45EB26B1419E009DD9EC /* SceneDelegate.swift in Sources */,
 				94AF45ED26B1419E009DD9EC /* ContentView.swift in Sources */,
 				94AF462E26B14399009DD9EC /* MainViewModel.swift in Sources */,
@@ -437,6 +476,7 @@
 				94AF463826B1767C009DD9EC /* TimerSessionView.swift in Sources */,
 				94AF463626B175E4009DD9EC /* DurationPickerViewModel.swift in Sources */,
 				94AF461226B141A1009DD9EC /* ExtensionDelegate.swift in Sources */,
+				94F3EF7426B3F3EE004BAEE3 /* TimerSessionManager.swift in Sources */,
 				94AF461626B141A1009DD9EC /* NotificationView.swift in Sources */,
 				94AF461826B141A1009DD9EC /* ComplicationController.swift in Sources */,
 				94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */,
@@ -595,10 +635,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"testWatchAppLifeCycle WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "testWatchAppLifeCycle WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,10 +660,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"testWatchAppLifeCycle WatchKit Extension/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"WatchKit Extension/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "testWatchAppLifeCycle WatchKit Extension/Info.plist";
+				INFOPLIST_FILE = "WatchKit Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -650,7 +690,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = testWatchAppLifeCycle_WatchKit_Extension;
-				INFOPLIST_FILE = "testWatchAppLifeCycle WatchKit App/Info.plist";
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = dailong.demo.testWatchAppLifeCycle.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -671,7 +711,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				IBSC_MODULE = testWatchAppLifeCycle_WatchKit_Extension;
-				INFOPLIST_FILE = "testWatchAppLifeCycle WatchKit App/Info.plist";
+				INFOPLIST_FILE = "WatchKit App/Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = dailong.demo.testWatchAppLifeCycle.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -689,12 +729,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = testWatchAppLifeCycle/testWatchAppLifeCycle.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/testWatchAppLifeCycle.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"testWatchAppLifeCycle/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = testWatchAppLifeCycle/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -714,12 +754,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = testWatchAppLifeCycle/testWatchAppLifeCycle.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS/testWatchAppLifeCycle.entitlements;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_ASSET_PATHS = "\"testWatchAppLifeCycle/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"iOS/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = testWatchAppLifeCycle/Info.plist;
+				INFOPLIST_FILE = iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
