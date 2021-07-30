@@ -8,12 +8,53 @@ class ViewController: UIViewController {
   @IBOutlet private var humidityLabel: UILabel!
   @IBOutlet private var iconLabel: UILabel!
   @IBOutlet private var cityNameLabel: UILabel!
+    @IBOutlet private var switcher: UISwitch!
+    
+    private var disposeBag = DisposeBag()
+    
+    lazy var weather = searchCityName.rx
+        .text
+        .orEmpty
+        .flatMapLatest {
+        ApiController.shared
+            .currentWeather(for: $0)
+            .catchAndReturn(.empty)
+    }
+        .asDriver(onErrorJustReturn: .empty)
+    
+    private var tempTypeSubject = BehaviorSubject(value: TemperatureUnit.celius)
+    
+    @IBAction private func switcherValueChanged(sender: UISwitch) {
+        let nextUnit = try! tempTypeSubject.value() == .celius ? TemperatureUnit.fahrenheit : .celius
+        tempTypeSubject.onNext(nextUnit)
+    }
+    
+    
 
   override func viewDidLoad() {
     super.viewDidLoad()
     // Do any additional setup after loading the view, typically from a nib.
     
-//    searchCityName.rx.text.orEmpty
+    Driver
+        .combineLatest(weather, tempTypeSubject.asDriver(onErrorJustReturn: .celius))
+        .map { $0.1.valueFromCelius(temp: $0.0.temperature) }
+        .drive(tempLabel.rx.text)
+        .disposed(by: disposeBag)
+    
+    weather
+        .map { "\($0.humidity)" }
+        .drive(humidityLabel.rx.text)
+        .disposed(by: disposeBag)
+    
+    weather
+        .map { $0.icon }
+        .drive(iconLabel.rx.text)
+        .disposed(by: disposeBag)
+    
+    weather
+        .map { $0.cityName }
+        .drive(cityNameLabel.rx.text)
+        .disposed(by: disposeBag)
 
     style()
   }
@@ -49,4 +90,21 @@ class ViewController: UIViewController {
     iconLabel.textColor = UIColor.cream
     cityNameLabel.textColor = UIColor.cream
   }
+}
+
+extension ViewController {
+    enum TemperatureUnit {
+        case celius
+        case fahrenheit
+        
+        func valueFromCelius(temp: Int) ->  String {
+            switch self {
+            case .celius:
+                return "\(temp) C"
+            case .fahrenheit:
+            let fTemp = Double (temp) * 1.8 + 32
+                return "\(fTemp) F"
+            }
+        }
+    }
 }
