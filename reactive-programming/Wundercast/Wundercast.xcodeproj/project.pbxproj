@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		9418AFBC26B1D38E0049C65A /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 9418AFBB26B1D38E0049C65A /* RxCocoa */; };
 		9418AFBE26B1D38E0049C65A /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 9418AFBD26B1D38E0049C65A /* RxSwift */; };
+		94BC012326B467C9007DB7EB /* CLLocationManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC012126B467C9007DB7EB /* CLLocationManager+Rx.swift */; };
+		94BC012426B467C9007DB7EB /* MKMapView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BC012226B467C9007DB7EB /* MKMapView+Rx.swift */; };
 		CB4D69411DE9A7D100DC0488 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D69401DE9A7D100DC0488 /* AppDelegate.swift */; };
 		CB4D69431DE9A7D100DC0488 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB4D69421DE9A7D100DC0488 /* ViewController.swift */; };
 		CB4D69461DE9A7D100DC0488 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CB4D69441DE9A7D100DC0488 /* Main.storyboard */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		94BC012126B467C9007DB7EB /* CLLocationManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CLLocationManager+Rx.swift"; sourceTree = "<group>"; };
+		94BC012226B467C9007DB7EB /* MKMapView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MKMapView+Rx.swift"; sourceTree = "<group>"; };
 		CB4D693D1DE9A7D100DC0488 /* Wundercast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wundercast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB4D69401DE9A7D100DC0488 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CB4D69421DE9A7D100DC0488 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +53,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		94BC012026B467C9007DB7EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				94BC012126B467C9007DB7EB /* CLLocationManager+Rx.swift */,
+				94BC012226B467C9007DB7EB /* MKMapView+Rx.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		CB4D69341DE9A7D100DC0488 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +97,7 @@
 		CB4D69631DE9AD2A00DC0488 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				94BC012026B467C9007DB7EB /* Extensions */,
 				CB4D69651DE9AD3300DC0488 /* ApiController.swift */,
 			);
 			path = Controllers;
@@ -191,6 +205,8 @@
 				CB4D69431DE9A7D100DC0488 /* ViewController.swift in Sources */,
 				CB4D69711DE9C70100DC0488 /* Colors.swift in Sources */,
 				CB4D69411DE9A7D100DC0488 /* AppDelegate.swift in Sources */,
+				94BC012426B467C9007DB7EB /* MKMapView+Rx.swift in Sources */,
+				94BC012326B467C9007DB7EB /* CLLocationManager+Rx.swift in Sources */,
 				CB4D69661DE9AD3300DC0488 /* ApiController.swift in Sources */,
 				CB4D69701DE9C70100DC0488 /* Appearance.swift in Sources */,
 			);

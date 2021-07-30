@@ -1,6 +1,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import MapKit
 
 class ViewController: UIViewController {
   @IBOutlet private var searchCityName: UITextField!
@@ -10,17 +11,13 @@ class ViewController: UIViewController {
   @IBOutlet private var cityNameLabel: UILabel!
     @IBOutlet private var switcher: UISwitch!
     
-    private var disposeBag = DisposeBag()
+    @IBOutlet private var mapView: MKMapView!
+    @IBOutlet private var geoLocationButton: UIButton!
+    @IBOutlet private var mapButton: UIButton!
     
-    lazy var weather = searchCityName.rx
-        .text
-        .orEmpty
-        .flatMapLatest {
-        ApiController.shared
-            .currentWeather(for: $0)
-            .catchAndReturn(.empty)
-    }
-        .asDriver(onErrorJustReturn: .empty)
+    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
+    
+    private var disposeBag = DisposeBag()
     
     private var tempTypeSubject = BehaviorSubject(value: TemperatureUnit.celius)
     
@@ -28,12 +25,37 @@ class ViewController: UIViewController {
         let nextUnit = try! tempTypeSubject.value() == .celius ? TemperatureUnit.fahrenheit : .celius
         tempTypeSubject.onNext(nextUnit)
     }
-    
-    
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    let input = searchCityName.rx
+        .controlEvent(.editingDidEndOnExit)
+        .map { self.searchCityName.text ?? "" }
+        .filter { !$0.isEmpty }
+    
+    let weather = searchCityName.rx.text
+        .orEmpty
+        .filter { !$0.isEmpty }
+        .flatMapLatest {
+            ApiController.shared
+                .currentWeather(for: $0)
+                .catchAndReturn(.empty)
+        }
+        .asDriver(onErrorJustReturn: .empty)
+    
+    let running = Observable
+        .merge(
+            input.map { _ in true },
+            weather.asObservable().map { _ in false }
+        )
+        .startWith(true)
+    
+    running
+        .debug()
+        .skip(1)
+        .bind(to: activityIndicator.rx.isAnimating)
+        .disposed(by: disposeBag)
     
     Driver
         .combineLatest(weather, tempTypeSubject.asDriver(onErrorJustReturn: .celius))
@@ -55,7 +77,27 @@ class ViewController: UIViewController {
         .map { $0.cityName }
         .drive(cityNameLabel.rx.text)
         .disposed(by: disposeBag)
-
+    
+    // UI control
+    running
+        .bind(to: tempLabel.rx.isHidden)
+        .disposed(by: disposeBag)
+    
+    running
+        .bind(to: humidityLabel.rx.isHidden)
+        .disposed(by: disposeBag)
+    running
+        .bind(to: cityNameLabel.rx.isHidden)
+        .disposed(by: disposeBag)
+    
+    running
+        .bind(to: iconLabel.rx.isHidden)
+        .disposed(by: disposeBag)
+    
+    running
+        .bind(to: switcher.rx.isHidden)
+        .disposed(by: disposeBag)
+    
     style()
   }
 
