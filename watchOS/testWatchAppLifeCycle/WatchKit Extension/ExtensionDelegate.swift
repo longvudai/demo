@@ -15,12 +15,6 @@ class ExtensionDelegate: NSObject, WKExtensionDelegate {
     
     func applicationDidFinishLaunching() {
         print("🔄 applicationDidFinishLaunching")
-        // Perform any final initialization of your application.
-        
-//        self.connectivityManager = try? ConnectivityManager()
-//        self.connectivityManager?.sessionBehavior = WatchSessionBehavior()
-//        self.notificationProcessor = NotificationProcessor(connectivityManager: self.connectivityManager)
-        
         
         notificationProcessor = NotificationProcessor()
         notificationProcessor?.registerNotifications()

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-import SwiftUI
-
 struct DurationPickerView: View {
     var preferredIntervals: [DateInterval]
     
