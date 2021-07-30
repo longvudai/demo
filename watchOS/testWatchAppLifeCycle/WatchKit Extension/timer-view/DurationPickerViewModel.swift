@@ -12,7 +12,8 @@ class DurationPickerViewModel: ObservableObject {
     @Published var timerSessionViewModel: TimerSessionViewModel!
     
     func createTimerSessionViewModel(dateInterval: DateInterval) {
-        let viewModel = TimerSessionViewModel(session: TimerSession(targetDuration: 60 * 5), context: [TimerSession.ContextKey.targetDuration.rawValue: dateInterval.duration])
+        let targetDuration = dateInterval.duration
+        let viewModel = TimerSessionViewModel(session: TimerSession(targetDuration: targetDuration), context: [:])
         self.timerSessionViewModel = viewModel
     }
 }

@@ -94,7 +94,9 @@ struct TimerSessionView: View {
             viewModel.controlButtonTapped()
         }, label: {
             HStack(spacing: 6) {
-                Image(systemName: "pause")
+                if let imageName = viewModel.controlButtonImageName {
+                    Image(imageName)
+                }
                 Text(viewModel.controlButtonTitle)
                     .font(.system(size: 15, weight: .regular))
                     .foregroundColor(.white)

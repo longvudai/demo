@@ -51,6 +51,13 @@
 		94F3EF7B26B3F4CD004BAEE3 /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
 		94F3EF7C26B3F4D0004BAEE3 /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
 		94F3EF7D26B3F4D3004BAEE3 /* TimerSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */; };
+		94F3EF7F26B3F691004BAEE3 /* WatchTimerSessionNotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF7E26B3F691004BAEE3 /* WatchTimerSessionNotificationPlugin.swift */; };
+		94F3EF8126B3F6BE004BAEE3 /* UserNotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8026B3F6BE004BAEE3 /* UserNotificationPlugin.swift */; };
+		94F3EF8226B3F6BE004BAEE3 /* UserNotificationPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8026B3F6BE004BAEE3 /* UserNotificationPlugin.swift */; };
+		94F3EF8526B3F701004BAEE3 /* UserNotificationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8326B3F701004BAEE3 /* UserNotificationContext.swift */; };
+		94F3EF8626B3F701004BAEE3 /* UserNotificationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8326B3F701004BAEE3 /* UserNotificationContext.swift */; };
+		94F3EF8726B3F701004BAEE3 /* UserNotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8426B3F701004BAEE3 /* UserNotificationContainer.swift */; };
+		94F3EF8826B3F701004BAEE3 /* UserNotificationContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F3EF8426B3F701004BAEE3 /* UserNotificationContainer.swift */; };
 		94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */; };
 		94FFD6DE26B27C3D00B9BCBA /* TimerSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +141,10 @@
 		94AF463F26B17E6B009DD9EC /* DurationWheelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DurationWheelView.swift; sourceTree = "<group>"; };
 		94F3EF7126B3E542004BAEE3 /* Combine+WeakAssign.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Combine+WeakAssign.swift"; sourceTree = "<group>"; };
 		94F3EF7326B3F3EE004BAEE3 /* TimerSessionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSessionManager.swift; sourceTree = "<group>"; };
+		94F3EF7E26B3F691004BAEE3 /* WatchTimerSessionNotificationPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchTimerSessionNotificationPlugin.swift; sourceTree = "<group>"; };
+		94F3EF8026B3F6BE004BAEE3 /* UserNotificationPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationPlugin.swift; sourceTree = "<group>"; };
+		94F3EF8326B3F701004BAEE3 /* UserNotificationContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationContext.swift; sourceTree = "<group>"; };
+		94F3EF8426B3F701004BAEE3 /* UserNotificationContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNotificationContainer.swift; sourceTree = "<group>"; };
 		94FFD6DB26B2511D00B9BCBA /* Color+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Ex.swift"; sourceTree = "<group>"; };
 		94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +247,7 @@
 				94AF461E26B141A2009DD9EC /* Info.plist */,
 				94AF461F26B141A2009DD9EC /* PushNotificationPayload.apns */,
 				94AF461B26B141A2009DD9EC /* Preview Content */,
+				94F3EF7E26B3F691004BAEE3 /* WatchTimerSessionNotificationPlugin.swift */,
 			);
 			path = "WatchKit Extension";
 			sourceTree = "<group>";
@@ -270,6 +282,7 @@
 		94F3EF7526B3F404004BAEE3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				94F3EF8926B3F704004BAEE3 /* user-notification */,
 				94F3EF7726B3F4AE004BAEE3 /* components */,
 				94F3EF7626B3F4A3004BAEE3 /* extensions */,
 				94FFD6DD26B27C3D00B9BCBA /* TimerSession.swift */,
@@ -294,6 +307,16 @@
 				94AF463B26B176E5009DD9EC /* RoundedCorner.swift */,
 			);
 			path = components;
+			sourceTree = "<group>";
+		};
+		94F3EF8926B3F704004BAEE3 /* user-notification */ = {
+			isa = PBXGroup;
+			children = (
+				94F3EF8026B3F6BE004BAEE3 /* UserNotificationPlugin.swift */,
+				94F3EF8426B3F701004BAEE3 /* UserNotificationContainer.swift */,
+				94F3EF8326B3F701004BAEE3 /* UserNotificationContext.swift */,
+			);
+			path = "user-notification";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -454,7 +477,10 @@
 				94F3EF7A26B3F4CA004BAEE3 /* Combine+WeakAssign.swift in Sources */,
 				94AF45EB26B1419E009DD9EC /* SceneDelegate.swift in Sources */,
 				94AF45ED26B1419E009DD9EC /* ContentView.swift in Sources */,
+				94F3EF8126B3F6BE004BAEE3 /* UserNotificationPlugin.swift in Sources */,
+				94F3EF8726B3F701004BAEE3 /* UserNotificationContainer.swift in Sources */,
 				94AF462E26B14399009DD9EC /* MainViewModel.swift in Sources */,
+				94F3EF8526B3F701004BAEE3 /* UserNotificationContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,18 +495,22 @@
 				94AF461026B141A1009DD9EC /* ContentView.swift in Sources */,
 				94AF460E26B141A1009DD9EC /* HostingController.swift in Sources */,
 				94AF463426B166A5009DD9EC /* DurationPickerView.swift in Sources */,
+				94F3EF8226B3F6BE004BAEE3 /* UserNotificationPlugin.swift in Sources */,
 				94AF464026B17E6B009DD9EC /* DurationWheelView.swift in Sources */,
 				94AF461426B141A1009DD9EC /* NotificationController.swift in Sources */,
 				94AF463126B150EE009DD9EC /* EntryViewModel.swift in Sources */,
 				94AF463A26B1769F009DD9EC /* CircleProgressBar.swift in Sources */,
+				94F3EF7F26B3F691004BAEE3 /* WatchTimerSessionNotificationPlugin.swift in Sources */,
 				94AF463826B1767C009DD9EC /* TimerSessionView.swift in Sources */,
 				94AF463626B175E4009DD9EC /* DurationPickerViewModel.swift in Sources */,
+				94F3EF8626B3F701004BAEE3 /* UserNotificationContext.swift in Sources */,
 				94AF461226B141A1009DD9EC /* ExtensionDelegate.swift in Sources */,
 				94F3EF7426B3F3EE004BAEE3 /* TimerSessionManager.swift in Sources */,
 				94AF461626B141A1009DD9EC /* NotificationView.swift in Sources */,
 				94AF461826B141A1009DD9EC /* ComplicationController.swift in Sources */,
 				94FFD6DC26B2511D00B9BCBA /* Color+Ex.swift in Sources */,
 				941ED5C126B3B8A20085AAC0 /* NotificationProcessor.swift in Sources */,
+				94F3EF8826B3F701004BAEE3 /* UserNotificationContainer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

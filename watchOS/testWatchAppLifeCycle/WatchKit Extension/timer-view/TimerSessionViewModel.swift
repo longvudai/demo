@@ -16,6 +16,7 @@ class TimerSessionViewModel: ObservableObject {
     @Published var countDownText: String?
     @Published var isCompleted: Bool = false
     @Published var controlButtonTitle: String = "Start"
+    @Published var controlButtonImageName: String?
     
     private var action = CurrentValueSubject<Action, Never>(.start)
     
@@ -44,7 +45,7 @@ class TimerSessionViewModel: ObservableObject {
     init(session: TimerSession, context: [String: Any]) {
         self.context = context
         self.session = session
-        self.targetDuration = (context[TimerSession.ContextKey.targetDuration.rawValue] as? TimeInterval) ?? 0
+        self.targetDuration = session.targetDuration
         
         self.countDownText = durationFormatter.string(from: targetDuration)
         
@@ -63,6 +64,19 @@ class TimerSessionViewModel: ObservableObject {
             .removeDuplicates()
             .map { $0.localizedTitle }
             .weakAssign(to: \.controlButtonTitle, on: self)
+            .store(in: &cancellableSet)
+        
+        action
+            .removeDuplicates()
+            .map { action in
+                switch action {
+                case .pause, .stop:
+                    return "pause"
+                case .resume, .start:
+                    return "play"
+                }
+            }
+            .weakAssign(to: \.controlButtonImageName, on: self)
             .store(in: &cancellableSet)
             
         let tick = Timer.publish(every: 1, on: .main, in: .default)
@@ -93,7 +107,7 @@ class TimerSessionViewModel: ObservableObject {
             print(v)
         }.store(in: &cancellableSet)
         
-        session.start()
+//        session.start()
     }
     
     func onDisappear() {
@@ -118,13 +132,12 @@ class TimerSessionViewModel: ObservableObject {
     
     // MARK: - helper
     private func timerFired() {
-        let remainingDuration = targetDuration - passedDuration
+        let remainingDuration = session.targetDuration - session.passedDuration
         let remainingString = durationFormatter.string(from: remainingDuration)
         countDownText = remainingString
-        passedDuration += 1
         
         if targetDuration != 0 {
-            progress = max(0, 1 - Double(passedDuration / targetDuration))
+            progress = Double(remainingDuration / targetDuration)
         }
 
         let isCompleted = remainingDuration <= 0
