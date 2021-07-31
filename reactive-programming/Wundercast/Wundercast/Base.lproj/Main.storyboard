@@ -67,10 +67,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uno-QZ-oSA" userLabel="GeoLocationButton">
                                 <rect key="frame" x="8" y="627" width="24" height="32"/>
                                 <state key="normal" image="place-location"/>
+                                <connections>
+                                    <action selector="geoLocationButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="HuD-jQ-4gP"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZvM-MU-Z9d" userLabel="MapButton">
                                 <rect key="frame" x="335" y="628" width="32" height="31"/>
                                 <state key="normal" image="map"/>
+                                <connections>
+                                    <action selector="mapButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="H7k-o2-vnQ"/>
+                                </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Lxe-Ep-avk">
                                 <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>

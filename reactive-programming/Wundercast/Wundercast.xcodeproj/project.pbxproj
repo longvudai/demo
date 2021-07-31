@@ -128,6 +128,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CB4D695A1DE9A7D100DC0488 /* Build configuration list for PBXNativeTarget "Wundercast" */;
 			buildPhases = (
+				9400463726B54B1F00E7892E /* Swift formatting */,
 				CB4D69391DE9A7D100DC0488 /* Sources */,
 				CB4D693A1DE9A7D100DC0488 /* Frameworks */,
 				CB4D693B1DE9A7D100DC0488 /* Resources */,
@@ -196,6 +197,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9400463726B54B1F00E7892E /* Swift formatting */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Swift formatting";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\n\nif which swiftformat >/dev/null; then\n  swiftformat .\nelse\n  echo \"warning: SwiftFormat not installed, download from https://github.com/nicklockwood/SwiftFormat\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CB4D69391DE9A7D100DC0488 /* Sources */ = {
