@@ -125,7 +125,7 @@ extension StreakMotivationalViewController: MotivationLetterViewDelegate {
 }
 
 extension StreakMotivationalViewController: PresentationBehavior {
-    func presentationContentSizeStyle() -> PresentationContentSizeStyle {
+    var bottomCardPresentationContentSizing: BottomCardPresentationContentSizing {
         return .autoLayout
     }
 }

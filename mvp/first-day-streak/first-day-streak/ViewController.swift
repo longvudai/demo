@@ -51,9 +51,12 @@ class ViewController: UIViewController {
     
     @objc
     private func showDayStreakViewController() {
-        let viewModel = StreakMotivationalViewModel(userName: "Long Vu", habitName: "Read Book", numberOfDayStreak: 1, listDayStreak: WeekDay.allCases)
-        let dayStreakViewController = StreakMotivationalViewController(viewModel: viewModel)
-        presentAsBottomCard(for: dayStreakViewController, animated: true)
+        let textController = TextController()
+        presentAsBottomCard(for: textController, animated: true)
+        
+//        let viewModel = StreakMotivationalViewModel(userName: "Long Vu", habitName: "Read Book", numberOfDayStreak: 1, listDayStreak: WeekDay.allCases)
+//        let dayStreakViewController = StreakMotivationalViewController(viewModel: viewModel)
+//        presentAsBottomCard(for: dayStreakViewController, animated: true)
     }
 }
 

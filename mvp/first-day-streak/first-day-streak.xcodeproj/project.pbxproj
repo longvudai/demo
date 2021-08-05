@@ -14,6 +14,7 @@
 		944C4367269806B400F1F483 /* JSONConvertiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C4366269806B400F1F483 /* JSONConvertiable.swift */; };
 		944C43692698079200F1F483 /* Recurrence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C43682698079200F1F483 /* Recurrence.swift */; };
 		944C436B269807A400F1F483 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944C436A269807A400F1F483 /* WeekDay.swift */; };
+		944E0D6A26BBA09100956670 /* CombineExt in Frameworks */ = {isa = PBXBuildFile; productRef = 944E0D6926BBA09100956670 /* CombineExt */; };
 		948B4E732695AB6600ED6CB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4E722695AB6600ED6CB6 /* AppDelegate.swift */; };
 		948B4E752695AB6600ED6CB6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4E742695AB6600ED6CB6 /* SceneDelegate.swift */; };
 		948B4E772695AB6600ED6CB6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948B4E762695AB6600ED6CB6 /* ViewController.swift */; };
@@ -39,6 +40,7 @@
 		948B4EAB2695BD4400ED6CB6 /* TextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 948B4EAA2695BD4400ED6CB6 /* TextAttributes */; };
 		94E45B4D2696BF0D006F1314 /* MotivationLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */; };
 		94E45B4F2696DA77006F1314 /* StreakMotivationalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4E2696DA76006F1314 /* StreakMotivationalColor.swift */; };
+		94E77A6126BAADBB0094042E /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E77A6026BAADBB0094042E /* TextController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +75,7 @@
 		948B4E9F2695BC5500ED6CB6 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
 		94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotivationLetterView.swift; sourceTree = "<group>"; };
 		94E45B4E2696DA76006F1314 /* StreakMotivationalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakMotivationalColor.swift; sourceTree = "<group>"; };
+		94E77A6026BAADBB0094042E /* TextController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				944E0D6A26BBA09100956670 /* CombineExt in Frameworks */,
 				944C43652698067500F1F483 /* SwiftyJSON in Frameworks */,
 				948B4EAB2695BD4400ED6CB6 /* TextAttributes in Frameworks */,
 				948B4E8C2695AC3500ED6CB6 /* SnapKit in Frameworks */,
@@ -129,23 +133,20 @@
 		948B4E712695AB6600ED6CB6 /* first-day-streak */ = {
 			isa = PBXGroup;
 			children = (
+				94E77A6226BAADC30094042E /* Helper */,
 				944C436C26980DE100F1F483 /* View */,
 				944C43582697E7CB00F1F483 /* Model */,
-				948B4E932695BC4A00ED6CB6 /* Font.swift */,
 				948B4E722695AB6600ED6CB6 /* AppDelegate.swift */,
 				948B4E742695AB6600ED6CB6 /* SceneDelegate.swift */,
 				948B4E762695AB6600ED6CB6 /* ViewController.swift */,
-				948B4E912695B59E00ED6CB6 /* Defines.swift */,
-				948B4E8F2695B57500ED6CB6 /* AppStyle.swift */,
+				94E77A6026BAADBB0094042E /* TextController.swift */,
 				948B4E882695ABF100ED6CB6 /* StreakMotivationalViewController.swift */,
 				944C435F2697FE4100F1F483 /* StreakMotivationalViewModel.swift */,
-				948B4E862695AB8400ED6CB6 /* BottomCardPresentationController.swift */,
 				948B4E782695AB6600ED6CB6 /* Main.storyboard */,
 				948B4E7B2695AB6800ED6CB6 /* Assets.xcassets */,
 				948B4E7D2695AB6800ED6CB6 /* LaunchScreen.storyboard */,
 				948B4E802695AB6800ED6CB6 /* Info.plist */,
 				948B4E952695BC5500ED6CB6 /* Fonts */,
-				944C4366269806B400F1F483 /* JSONConvertiable.swift */,
 			);
 			path = "first-day-streak";
 			sourceTree = "<group>";
@@ -174,6 +175,18 @@
 			path = Inter;
 			sourceTree = "<group>";
 		};
+		94E77A6226BAADC30094042E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				944C4366269806B400F1F483 /* JSONConvertiable.swift */,
+				948B4E912695B59E00ED6CB6 /* Defines.swift */,
+				948B4E8F2695B57500ED6CB6 /* AppStyle.swift */,
+				948B4E932695BC4A00ED6CB6 /* Font.swift */,
+				948B4E862695AB8400ED6CB6 /* BottomCardPresentationController.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -194,6 +207,7 @@
 				948B4E8B2695AC3500ED6CB6 /* SnapKit */,
 				948B4EAA2695BD4400ED6CB6 /* TextAttributes */,
 				944C43642698067500F1F483 /* SwiftyJSON */,
+				944E0D6926BBA09100956670 /* CombineExt */,
 			);
 			productName = "first-day-streak";
 			productReference = 948B4E6F2695AB6600ED6CB6 /* first-day-streak.app */;
@@ -226,6 +240,7 @@
 				948B4E8A2695AC3500ED6CB6 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				948B4EA92695BD4400ED6CB6 /* XCRemoteSwiftPackageReference "TextAttributes" */,
 				944C43632698067500F1F483 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
+				944E0D6826BBA09100956670 /* XCRemoteSwiftPackageReference "CombineExt" */,
 			);
 			productRefGroup = 948B4E702695AB6600ED6CB6 /* Products */;
 			projectDirPath = "";
@@ -263,6 +278,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E77A6126BAADBB0094042E /* TextController.swift in Sources */,
 				944C436B269807A400F1F483 /* WeekDay.swift in Sources */,
 				948B4E872695AB8400ED6CB6 /* BottomCardPresentationController.swift in Sources */,
 				944C43602697FE4100F1F483 /* StreakMotivationalViewModel.swift in Sources */,
@@ -491,6 +507,14 @@
 				version = 5.0.1;
 			};
 		};
+		944E0D6826BBA09100956670 /* XCRemoteSwiftPackageReference "CombineExt" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CombineCommunity/CombineExt.git";
+			requirement = {
+				kind = exactVersion;
+				version = 1.3.0;
+			};
+		};
 		948B4E8A2695AC3500ED6CB6 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -514,6 +538,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 944C43632698067500F1F483 /* XCRemoteSwiftPackageReference "SwiftyJSON" */;
 			productName = SwiftyJSON;
+		};
+		944E0D6926BBA09100956670 /* CombineExt */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 944E0D6826BBA09100956670 /* XCRemoteSwiftPackageReference "CombineExt" */;
+			productName = CombineExt;
 		};
 		948B4E8B2695AC3500ED6CB6 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
