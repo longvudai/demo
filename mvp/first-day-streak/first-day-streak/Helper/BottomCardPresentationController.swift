@@ -209,7 +209,7 @@ private class BottomCardPresentationController: UIPresentationController {
             .withLatestFrom(kbPresentation)
             .map { $0.animationDuration }
             .sink(receiveValue: { [weak self] animationDuration in
-                UIView.animate(withDuration: 0.3, delay: 0, options: [.curveEaseInOut], animations: {
+                UIView.animate(withDuration: animationDuration, delay: 0, options: [.curveEaseInOut], animations: {
                     self?.containerView?.setNeedsLayout()
                     self?.containerView?.layoutIfNeeded()
                 }, completion: nil)
