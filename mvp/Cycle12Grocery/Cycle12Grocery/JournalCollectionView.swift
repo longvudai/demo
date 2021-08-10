@@ -6,3 +6,10 @@
 //
 
 import Foundation
+import UIKit
+
+class JournalCollectionView: UICollectionView {}
+
+extension JournalCollectionView {
+    
+}

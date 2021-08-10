@@ -1,0 +1,6 @@
+framework module Pods_Cycle12Grocery {
+  umbrella header "Pods-Cycle12Grocery-umbrella.h"
+
+  export *
+  module * { export * }
+}

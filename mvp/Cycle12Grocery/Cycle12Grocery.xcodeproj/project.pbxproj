@@ -3,19 +3,30 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */; };
 		9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C44C26C11B4100739630 /* AppDelegate.swift */; };
 		9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C44E26C11B4100739630 /* SceneDelegate.swift */; };
 		9480C45126C11B4100739630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C45026C11B4100739630 /* ViewController.swift */; };
 		9480C45426C11B4100739630 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9480C45226C11B4100739630 /* Main.storyboard */; };
 		9480C45626C11B4300739630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9480C45526C11B4300739630 /* Assets.xcassets */; };
 		9480C45926C11B4300739630 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9480C45726C11B4300739630 /* LaunchScreen.storyboard */; };
+		9480C46126C121BC00739630 /* JournalCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46026C121BC00739630 /* JournalCollectionView.swift */; };
+		9480C46326C128CD00739630 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46226C128CD00739630 /* Habit.swift */; };
+		9480C46526C12ECA00739630 /* JournalHabitCollectionViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46426C12ECA00739630 /* JournalHabitCollectionViewCell2.swift */; };
+		9480C46826C12EFA00739630 /* SwipeCellKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9480C46726C12EFA00739630 /* SwipeCellKit */; };
+		9480C46B26C1308100739630 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 9480C46A26C1308100739630 /* SnapKit */; };
+		9480C46E26C1329200739630 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46D26C1329100739630 /* AppStyle.swift */; };
+		9480C47026C132A800739630 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46F26C132A800739630 /* Defines.swift */; };
+		9480C47326C1353500739630 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C47226C1353400739630 /* GoalProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42802202D048A798213065BC /* Pods-Cycle12Grocery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.debug.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.debug.xcconfig"; sourceTree = "<group>"; };
+		8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cycle12Grocery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9480C44926C11B4100739630 /* Cycle12Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cycle12Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9480C44C26C11B4100739630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9480C44E26C11B4100739630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,13 @@
 		9480C45526C11B4300739630 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9480C45826C11B4300739630 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9480C45A26C11B4400739630 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9480C46026C121BC00739630 /* JournalCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalCollectionView.swift; sourceTree = "<group>"; };
+		9480C46226C128CD00739630 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		9480C46426C12ECA00739630 /* JournalHabitCollectionViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalHabitCollectionViewCell2.swift; sourceTree = "<group>"; };
+		9480C46D26C1329100739630 /* AppStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		9480C46F26C132A800739630 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
+		9480C47226C1353400739630 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
+		E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.release.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +49,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9480C46826C12EFA00739630 /* SwipeCellKit in Frameworks */,
+				9480C46B26C1308100739630 /* SnapKit in Frameworks */,
+				0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2A6A709A7BD3A3DF84F8D85A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				42802202D048A798213065BC /* Pods-Cycle12Grocery.debug.xcconfig */,
+				E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		9480C44026C11B4100739630 = {
 			isa = PBXGroup;
 			children = (
 				9480C44B26C11B4100739630 /* Cycle12Grocery */,
 				9480C44A26C11B4100739630 /* Products */,
+				2A6A709A7BD3A3DF84F8D85A /* Pods */,
+				C8B382E3D01DC816263AA7A6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +88,45 @@
 		9480C44B26C11B4100739630 /* Cycle12Grocery */ = {
 			isa = PBXGroup;
 			children = (
+				9480C47126C134F000739630 /* Component */,
+				9480C46C26C1329100739630 /* Helper */,
 				9480C44C26C11B4100739630 /* AppDelegate.swift */,
 				9480C44E26C11B4100739630 /* SceneDelegate.swift */,
 				9480C45026C11B4100739630 /* ViewController.swift */,
+				9480C46026C121BC00739630 /* JournalCollectionView.swift */,
+				9480C46426C12ECA00739630 /* JournalHabitCollectionViewCell2.swift */,
+				9480C46226C128CD00739630 /* Habit.swift */,
 				9480C45226C11B4100739630 /* Main.storyboard */,
 				9480C45526C11B4300739630 /* Assets.xcassets */,
 				9480C45726C11B4300739630 /* LaunchScreen.storyboard */,
 				9480C45A26C11B4400739630 /* Info.plist */,
 			);
 			path = Cycle12Grocery;
+			sourceTree = "<group>";
+		};
+		9480C46C26C1329100739630 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				9480C46F26C132A800739630 /* Defines.swift */,
+				9480C46D26C1329100739630 /* AppStyle.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		9480C47126C134F000739630 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				9480C47226C1353400739630 /* GoalProgressView.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		C8B382E3D01DC816263AA7A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,15 +136,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9480C45D26C11B4400739630 /* Build configuration list for PBXNativeTarget "Cycle12Grocery" */;
 			buildPhases = (
+				57EF27947E2CCBE88ED89691 /* [CP] Check Pods Manifest.lock */,
 				9480C44526C11B4100739630 /* Sources */,
 				9480C44626C11B4100739630 /* Frameworks */,
 				9480C44726C11B4100739630 /* Resources */,
+				1BF17F6FA3A29AA3037F5A9C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Cycle12Grocery;
+			packageProductDependencies = (
+				9480C46726C12EFA00739630 /* SwipeCellKit */,
+				9480C46A26C1308100739630 /* SnapKit */,
+			);
 			productName = Cycle12Grocery;
 			productReference = 9480C44926C11B4100739630 /* Cycle12Grocery.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +178,10 @@
 				Base,
 			);
 			mainGroup = 9480C44026C11B4100739630;
+			packageReferences = (
+				9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
+				9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 9480C44A26C11B4100739630 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -132,14 +204,62 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		1BF17F6FA3A29AA3037F5A9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		57EF27947E2CCBE88ED89691 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Cycle12Grocery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		9480C44526C11B4100739630 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9480C46526C12ECA00739630 /* JournalHabitCollectionViewCell2.swift in Sources */,
+				9480C46126C121BC00739630 /* JournalCollectionView.swift in Sources */,
+				9480C46326C128CD00739630 /* Habit.swift in Sources */,
+				9480C47326C1353500739630 /* GoalProgressView.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
 				9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */,
+				9480C47026C132A800739630 /* Defines.swift in Sources */,
+				9480C46E26C1329200739630 /* AppStyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +403,7 @@
 		};
 		9480C45E26C11B4400739630 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 42802202D048A798213065BC /* Pods-Cycle12Grocery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +422,7 @@
 		};
 		9480C45F26C11B4400739630 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -339,6 +461,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
+			requirement = {
+				kind = exactVersion;
+				version = 2.7.1;
+			};
+		};
+		9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = exactVersion;
+				version = 5.0.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		9480C46726C12EFA00739630 /* SwipeCellKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;
+			productName = SwipeCellKit;
+		};
+		9480C46A26C1308100739630 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 9480C44126C11B4100739630 /* Project object */;
 }
