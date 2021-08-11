@@ -53,6 +53,12 @@ class ViewController: UIViewController {
             cell.goalString = "\(item.currentValue) / \(item.targetValue) mins"
             cell.goalProgress = CGFloat (item.currentValue / item.targetValue)
             cell.habitIconName = item.habitIconName
+            
+            if indexPath.row % 2 == 0 {
+                cell.smartActionIcon = JournalImage.SmartAction.completed
+                cell.smartActionTitle = "+1"
+            }
+            
             return cell
         }
         
@@ -81,14 +87,14 @@ extension ViewController: UICollectionViewDelegate, SwipeCollectionViewCellDeleg
     func collectionView(_ collectionView: UICollectionView, editActionsForItemAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         switch orientation {
         case .left:
-            return [checkinAction(), checkinAction()]
-        case .right:
             return [checkinAction()]
+        case .right:
+            return [addNoteAction()]
         }
     }
     
     private func checkinAction() -> SwipeAction {
-        let action = SwipeAction(style: .destructive, title: "Check-in", handler: nil)
+        let action = SwipeAction(style: .destructive, title: "Completed", handler: nil)
         action.font =  .systemFont(ofSize: 13, weight: .medium)
         action.textColor = .white
         action.image = PlatformImage(named: "JournalSwipeCheckin")
@@ -100,15 +106,43 @@ extension ViewController: UICollectionViewDelegate, SwipeCollectionViewCellDeleg
         return action
     }
     
+    private func addNoteAction() -> SwipeAction {
+        let action = SwipeAction(style: .default, title: "Note", handler: nil)
+        action.font =  .systemFont(ofSize: 13, weight: .medium)
+        action.textColor = actionForegroundColor
+        action.image = PlatformImage(named: "JournalSwipeAddNote")
+        action.hidesWhenSelected = true
+        action.backgroundColor = Colors.secondaryBackground
+        action.handler = { [weak self] _, indexPath in
+            
+        }
+        return action
+    }
+    
+    private var actionBackgroundColor: UIColor {
+        return Colors.secondaryBackground
+    }
+
+    private var actionForegroundColor: UIColor {
+        return UIColor(dynamicProvider: { traitCollection -> UIColor in
+            switch traitCollection.userInterfaceStyle {
+            case .dark:
+                return .white
+
+            case .light, .unspecified:
+                return Colors.accentPrimary
+            @unknown default:
+                return Colors.accentPrimary
+            }
+        })
+    }
+    
     func collectionView(_ collectionView: UICollectionView,
                         editActionsOptionsForItemAt indexPath: IndexPath,
                         for orientation: SwipeActionsOrientation) -> SwipeOptions {
         var options = SwipeOptions()
         options.transitionStyle = .border
-        options.minimumButtonWidth = 110
-        options.maximumButtonWidth = 110
-        options.buttonSpacing = 10
-
+        options.minimumButtonWidth = 90
         options.expansionStyle = .selection
 
         return options

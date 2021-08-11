@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */; };
+		94628A3F26C297150020F081 /* JournalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94628A3E26C297150020F081 /* JournalColor.swift */; };
+		94628A4126C2A5FC0020F081 /* NewJournalImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94628A4026C2A5FC0020F081 /* NewJournalImage.swift */; };
 		9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C44C26C11B4100739630 /* AppDelegate.swift */; };
 		9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C44E26C11B4100739630 /* SceneDelegate.swift */; };
 		9480C45126C11B4100739630 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C45026C11B4100739630 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		42802202D048A798213065BC /* Pods-Cycle12Grocery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.debug.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.debug.xcconfig"; sourceTree = "<group>"; };
 		8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Cycle12Grocery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		94628A3E26C297150020F081 /* JournalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalColor.swift; sourceTree = "<group>"; };
+		94628A4026C2A5FC0020F081 /* NewJournalImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewJournalImage.swift; sourceTree = "<group>"; };
 		9480C44926C11B4100739630 /* Cycle12Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cycle12Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9480C44C26C11B4100739630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9480C44E26C11B4100739630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 			children = (
 				9480C46F26C132A800739630 /* Defines.swift */,
 				9480C46D26C1329100739630 /* AppStyle.swift */,
+				94628A3E26C297150020F081 /* JournalColor.swift */,
+				94628A4026C2A5FC0020F081 /* NewJournalImage.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -255,9 +261,11 @@
 				9480C46126C121BC00739630 /* JournalCollectionView.swift in Sources */,
 				9480C46326C128CD00739630 /* Habit.swift in Sources */,
 				9480C47326C1353500739630 /* GoalProgressView.swift in Sources */,
+				94628A4126C2A5FC0020F081 /* NewJournalImage.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
 				9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */,
+				94628A3F26C297150020F081 /* JournalColor.swift in Sources */,
 				9480C47026C132A800739630 /* Defines.swift in Sources */,
 				9480C46E26C1329200739630 /* AppStyle.swift in Sources */,
 			);

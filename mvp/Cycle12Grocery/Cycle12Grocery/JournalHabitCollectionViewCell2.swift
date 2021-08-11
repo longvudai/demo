@@ -37,8 +37,28 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell {
         }
     }
     
+    var smartActionIcon: UIImage? {
+        didSet {
+            smartActionButton.setImage(smartActionIcon, for: .normal)
+        }
+    }
+    
+    var smartActionTitle: String? {
+        didSet {
+            smartActionButton.setTitle(smartActionTitle ?? "", for: .normal)
+        }
+    }
+    
+    // MARK: UI properties
     private lazy var goalProgressView: GoalProgressView = {
         let v = GoalProgressView()
+        v.isUserInteractionEnabled = false
+        return v
+    }()
+    
+    private lazy var checkinButton: UIButton = {
+        let v = UIButton()
+        v.addTarget(self, action: #selector(checkinButtonTapped), for: .touchUpInside)
         return v
     }()
     
@@ -73,11 +93,27 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell {
     private lazy var smartActionButton: UIButton = {
         let v = UIButton()
         v.setTitle("Timer", for: .normal)
-        v.backgroundColor = .green
+        
+        let color = Colors.accentPrimary
+        v.setTitleColor(color, for: .normal)
+        v.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
+        
+        v.setImage(UIImage(named: "SmartActionTimer"), for: .normal)
+        v.imageView?.tintColor = color
+        
+        v.layer.cornerRadius = 20
+        v.contentEdgeInsets = .init(top: 8, left: 14, bottom: 8, right: 14)
+        v.backgroundColor = Colors.JournalColor.smartActionBackground
+        
+        v.titleLabel?.adjustsFontSizeToFitWidth = true;
+        
         v.setContentHuggingPriority(.required, for: .horizontal)
+        v.setContentCompressionResistancePriority(.required, for: .horizontal)
+
         return v
     }()
     
+    // MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupView()
@@ -90,12 +126,16 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell {
     private func setupView() {
         contentView.backgroundColor = Colors.background
         
-        let views = [goalProgressView, titleLabel, subtitleLabel, bottomSeparator, smartActionButton]
+        let views = [checkinButton, goalProgressView, titleLabel, subtitleLabel, bottomSeparator, smartActionButton]
         views.forEach { contentView.addSubview($0) }
         
-        goalProgressView.snp.makeConstraints {
+        checkinButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(15)
+        }
+        goalProgressView.snp.makeConstraints {
+            $0.center.equalTo(checkinButton)
+            $0.width.height.equalTo(checkinButton)
         }
 
         smartActionButton.snp.makeConstraints {
@@ -120,5 +160,11 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell {
             $0.trailing.bottom.equalToSuperview()
             $0.height.equalTo(1)
         }
+    }
+    
+    // MARK: - helper
+    @objc
+    private func checkinButtonTapped() {
+        print("check in")
     }
 }
