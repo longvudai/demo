@@ -38,6 +38,7 @@
 		948B4EA72695BC5600ED6CB6 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948B4E9E2695BC5500ED6CB6 /* Inter-ExtraBold.otf */; };
 		948B4EA82695BC5600ED6CB6 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948B4E9F2695BC5500ED6CB6 /* Inter-BoldItalic.otf */; };
 		948B4EAB2695BD4400ED6CB6 /* TextAttributes in Frameworks */ = {isa = PBXBuildFile; productRef = 948B4EAA2695BD4400ED6CB6 /* TextAttributes */; };
+		94C3443B26C3B30F00CC1D3D /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 94C3443A26C3B30F00CC1D3D /* SwiftUIX */; };
 		94E45B4D2696BF0D006F1314 /* MotivationLetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4C2696BF0D006F1314 /* MotivationLetterView.swift */; };
 		94E45B4F2696DA77006F1314 /* StreakMotivationalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E45B4E2696DA76006F1314 /* StreakMotivationalColor.swift */; };
 		94E77A6126BAADBB0094042E /* TextController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E77A6026BAADBB0094042E /* TextController.swift */; };
@@ -86,6 +87,7 @@
 				944E0D6A26BBA09100956670 /* CombineExt in Frameworks */,
 				944C43652698067500F1F483 /* SwiftyJSON in Frameworks */,
 				948B4EAB2695BD4400ED6CB6 /* TextAttributes in Frameworks */,
+				94C3443B26C3B30F00CC1D3D /* SwiftUIX in Frameworks */,
 				948B4E8C2695AC3500ED6CB6 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +210,7 @@
 				948B4EAA2695BD4400ED6CB6 /* TextAttributes */,
 				944C43642698067500F1F483 /* SwiftyJSON */,
 				944E0D6926BBA09100956670 /* CombineExt */,
+				94C3443A26C3B30F00CC1D3D /* SwiftUIX */,
 			);
 			productName = "first-day-streak";
 			productReference = 948B4E6F2695AB6600ED6CB6 /* first-day-streak.app */;
@@ -241,6 +244,7 @@
 				948B4EA92695BD4400ED6CB6 /* XCRemoteSwiftPackageReference "TextAttributes" */,
 				944C43632698067500F1F483 /* XCRemoteSwiftPackageReference "SwiftyJSON" */,
 				944E0D6826BBA09100956670 /* XCRemoteSwiftPackageReference "CombineExt" */,
+				94C3443926C3B30F00CC1D3D /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 			);
 			productRefGroup = 948B4E702695AB6600ED6CB6 /* Products */;
 			projectDirPath = "";
@@ -531,6 +535,14 @@
 				kind = branch;
 			};
 		};
+		94C3443926C3B30F00CC1D3D /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.8;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -553,6 +565,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 948B4EA92695BD4400ED6CB6 /* XCRemoteSwiftPackageReference "TextAttributes" */;
 			productName = TextAttributes;
+		};
+		94C3443A26C3B30F00CC1D3D /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94C3443926C3B30F00CC1D3D /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

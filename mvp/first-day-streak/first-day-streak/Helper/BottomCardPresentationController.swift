@@ -197,11 +197,9 @@ private class BottomCardPresentationController: UIPresentationController {
         super.init(presentedViewController: presentedViewController, presenting: presentingViewController)
         
         let kbPresentation = keyboardManager.keyboardPresetationInfo
-            .print("kbPresentation")
             .removeDuplicates(by: { $0.keyboardSize.height == $1.keyboardSize.height })
             
         kbPresentation.map { $0.keyboardSize.height }
-            .print("keyboardSize.height")
             .assign(to: \.value, on: keyboardHeight, ownership: .weak)
             .store(in: &cancellableSet)
         
@@ -269,6 +267,8 @@ private class BottomCardPresentationController: UIPresentationController {
             width: contentSize.width,
             height: min(UIScreen.main.bounds.height, contentSize.height)
         )
+        
+        print("f", f)
         
         return f
     }
