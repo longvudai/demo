@@ -9,6 +9,6 @@ import Foundation
 
 extension Colors {
     enum JournalColor {
-        static let smartActionBackground = PlatformColor(named: "SmartActionBackgroundColor")        
+        static let smartActionBackground = PlatformColor(named: "SmartActionBackgroundColor")
     }
 }

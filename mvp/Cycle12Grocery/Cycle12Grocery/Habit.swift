@@ -20,6 +20,6 @@ extension Habit {
     }
     
     static var mockedValue2: Habit {
-        return Habit(title: "Item 2 very long title hehe huhu kaka", currentValue: 3, targetValue: 10)
+        return Habit(title: "Item 2 very long title hehe huhu kaka v huhu kaka", currentValue: 3, targetValue: 10)
     }
 }

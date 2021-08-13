@@ -54,11 +54,6 @@ class ViewController: UIViewController {
             cell.goalProgress = CGFloat (item.currentValue / item.targetValue)
             cell.habitIconName = item.habitIconName
             
-            if indexPath.row % 2 == 0 {
-                cell.smartActionIcon = JournalImage.SmartAction.completed
-                cell.smartActionTitle = "+1"
-            }
-            
             return cell
         }
         
