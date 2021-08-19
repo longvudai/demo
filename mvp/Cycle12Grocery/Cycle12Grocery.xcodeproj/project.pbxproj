@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */; };
 		940386F326C657C8009E1CB7 /* UnitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F126C657C8009E1CB7 /* UnitCategory.swift */; };
 		940386F426C657C8009E1CB7 /* UnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F226C657C8009E1CB7 /* UnitType.swift */; };
 		940386FA26C66F36009E1CB7 /* JournalViewController+SmartActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */; };
@@ -34,6 +33,9 @@
 		9480C46E26C1329200739630 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46D26C1329100739630 /* AppStyle.swift */; };
 		9480C47026C132A800739630 /* Defines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C46F26C132A800739630 /* Defines.swift */; };
 		9480C47326C1353500739630 /* GoalProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C47226C1353400739630 /* GoalProgressView.swift */; };
+		94A4533126CE178000816DE7 /* HabitIconPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533026CE178000816DE7 /* HabitIconPickerController.swift */; };
+		94A4533326CE1D0100816DE7 /* ColorSelectorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533226CE1D0100816DE7 /* ColorSelectorCollectionView.swift */; };
+		94A4533826CE40F300816DE7 /* HabitIconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +65,9 @@
 		9480C46D26C1329100739630 /* AppStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		9480C46F26C132A800739630 /* Defines.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Defines.swift; sourceTree = "<group>"; };
 		9480C47226C1353400739630 /* GoalProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalProgressView.swift; sourceTree = "<group>"; };
+		94A4533026CE178000816DE7 /* HabitIconPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitIconPickerController.swift; sourceTree = "<group>"; };
+		94A4533226CE1D0100816DE7 /* ColorSelectorCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectorCollectionView.swift; sourceTree = "<group>"; };
+		94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitIconCollectionView.swift; sourceTree = "<group>"; };
 		E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.release.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +79,6 @@
 				9480C46826C12EFA00739630 /* SwipeCellKit in Frameworks */,
 				9480C46B26C1308100739630 /* SnapKit in Frameworks */,
 				941DA3C126CA4DB2005A3594 /* Introspect in Frameworks */,
-				0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */,
 				941DA3BE26CA483D005A3594 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,14 +116,12 @@
 		9480C44B26C11B4100739630 /* Cycle12Grocery */ = {
 			isa = PBXGroup;
 			children = (
+				94A4532F26CE175E00816DE7 /* Models */,
+				94A4532E26CE174600816DE7 /* Controllers */,
 				9480C47126C134F000739630 /* Component */,
 				9480C46C26C1329100739630 /* Helper */,
 				9480C44C26C11B4100739630 /* AppDelegate.swift */,
 				9480C44E26C11B4100739630 /* SceneDelegate.swift */,
-				9480C45026C11B4100739630 /* ViewController.swift */,
-				9480C46026C121BC00739630 /* JournalCollectionView.swift */,
-				9480C46426C12ECA00739630 /* JournalHabitCollectionViewCell2.swift */,
-				9480C46226C128CD00739630 /* Habit.swift */,
 				9480C45226C11B4100739630 /* Main.storyboard */,
 				9480C45526C11B4300739630 /* Assets.xcassets */,
 				9480C45726C11B4300739630 /* LaunchScreen.storyboard */,
@@ -145,6 +147,8 @@
 		9480C47126C134F000739630 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				94A4533226CE1D0100816DE7 /* ColorSelectorCollectionView.swift */,
+				9480C46426C12ECA00739630 /* JournalHabitCollectionViewCell2.swift */,
 				9480C47226C1353400739630 /* GoalProgressView.swift */,
 				940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */,
 				941DA3BA26CA47CD005A3594 /* DateSelectorView.swift */,
@@ -153,6 +157,25 @@
 				9435874326CD0C7A00CD2390 /* JournalSettingView.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		94A4532E26CE174600816DE7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9480C45026C11B4100739630 /* ViewController.swift */,
+				9480C46026C121BC00739630 /* JournalCollectionView.swift */,
+				94A4533026CE178000816DE7 /* HabitIconPickerController.swift */,
+				94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		94A4532F26CE175E00816DE7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9480C46226C128CD00739630 /* Habit.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C8B382E3D01DC816263AA7A6 /* Frameworks */ = {
@@ -291,6 +314,7 @@
 			files = (
 				9480C46526C12ECA00739630 /* JournalHabitCollectionViewCell2.swift in Sources */,
 				9435873226CCAFF600CD2390 /* JournalLayoutAnnouncement.swift in Sources */,
+				94A4533326CE1D0100816DE7 /* ColorSelectorCollectionView.swift in Sources */,
 				940386FA26C66F36009E1CB7 /* JournalViewController+SmartActionView.swift in Sources */,
 				941DA3C326CA58AE005A3594 /* WeekDay.swift in Sources */,
 				9435874426CD0C7A00CD2390 /* JournalSettingView.swift in Sources */,
@@ -298,12 +322,14 @@
 				9480C46126C121BC00739630 /* JournalCollectionView.swift in Sources */,
 				9480C46326C128CD00739630 /* Habit.swift in Sources */,
 				9480C47326C1353500739630 /* GoalProgressView.swift in Sources */,
+				94A4533126CE178000816DE7 /* HabitIconPickerController.swift in Sources */,
 				941DA3BB26CA47CD005A3594 /* DateSelectorView.swift in Sources */,
 				9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */,
 				94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
 				940386F426C657C8009E1CB7 /* UnitType.swift in Sources */,
+				94A4533826CE40F300816DE7 /* HabitIconCollectionView.swift in Sources */,
 				9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */,
 				94628A3F26C297150020F081 /* JournalColor.swift in Sources */,
 				9480C47026C132A800739630 /* Defines.swift in Sources */,
