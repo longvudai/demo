@@ -11,6 +11,13 @@
 		940386F326C657C8009E1CB7 /* UnitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F126C657C8009E1CB7 /* UnitCategory.swift */; };
 		940386F426C657C8009E1CB7 /* UnitType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F226C657C8009E1CB7 /* UnitType.swift */; };
 		940386FA26C66F36009E1CB7 /* JournalViewController+SmartActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */; };
+		941DA3BB26CA47CD005A3594 /* DateSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DA3BA26CA47CD005A3594 /* DateSelectorView.swift */; };
+		941DA3BE26CA483D005A3594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 941DA3BD26CA483D005A3594 /* SwiftUIX */; };
+		941DA3C126CA4DB2005A3594 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 941DA3C026CA4DB2005A3594 /* Introspect */; };
+		941DA3C326CA58AE005A3594 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DA3C226CA58AE005A3594 /* WeekDay.swift */; };
+		9435873226CCAFF600CD2390 /* JournalLayoutAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435873126CCAFF600CD2390 /* JournalLayoutAnnouncement.swift */; };
+		9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435873326CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift */; };
+		9435874426CD0C7A00CD2390 /* JournalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435874326CD0C7A00CD2390 /* JournalSettingView.swift */; };
 		94628A3F26C297150020F081 /* JournalColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94628A3E26C297150020F081 /* JournalColor.swift */; };
 		94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94628A4026C2A5FC0020F081 /* ImageAsset.swift */; };
 		9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9480C44C26C11B4100739630 /* AppDelegate.swift */; };
@@ -35,6 +42,11 @@
 		940386F126C657C8009E1CB7 /* UnitCategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitCategory.swift; sourceTree = "<group>"; };
 		940386F226C657C8009E1CB7 /* UnitType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitType.swift; sourceTree = "<group>"; };
 		940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JournalViewController+SmartActionView.swift"; sourceTree = "<group>"; };
+		941DA3BA26CA47CD005A3594 /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
+		941DA3C226CA58AE005A3594 /* WeekDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		9435873126CCAFF600CD2390 /* JournalLayoutAnnouncement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalLayoutAnnouncement.swift; sourceTree = "<group>"; };
+		9435873326CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalLayoutAnnouncementViewModel.swift; sourceTree = "<group>"; };
+		9435874326CD0C7A00CD2390 /* JournalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSettingView.swift; sourceTree = "<group>"; };
 		94628A3E26C297150020F081 /* JournalColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalColor.swift; sourceTree = "<group>"; };
 		94628A4026C2A5FC0020F081 /* ImageAsset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAsset.swift; sourceTree = "<group>"; };
 		9480C44926C11B4100739630 /* Cycle12Grocery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cycle12Grocery.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,7 +73,9 @@
 			files = (
 				9480C46826C12EFA00739630 /* SwipeCellKit in Frameworks */,
 				9480C46B26C1308100739630 /* SnapKit in Frameworks */,
+				941DA3C126CA4DB2005A3594 /* Introspect in Frameworks */,
 				0F66CDD805EF6251F9A59371 /* Pods_Cycle12Grocery.framework in Frameworks */,
+				941DA3BE26CA483D005A3594 /* SwiftUIX in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,6 +131,7 @@
 		9480C46C26C1329100739630 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				941DA3C226CA58AE005A3594 /* WeekDay.swift */,
 				9480C46F26C132A800739630 /* Defines.swift */,
 				9480C46D26C1329100739630 /* AppStyle.swift */,
 				94628A3E26C297150020F081 /* JournalColor.swift */,
@@ -132,6 +147,10 @@
 			children = (
 				9480C47226C1353400739630 /* GoalProgressView.swift */,
 				940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */,
+				941DA3BA26CA47CD005A3594 /* DateSelectorView.swift */,
+				9435873126CCAFF600CD2390 /* JournalLayoutAnnouncement.swift */,
+				9435873326CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift */,
+				9435874326CD0C7A00CD2390 /* JournalSettingView.swift */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -165,6 +184,8 @@
 			packageProductDependencies = (
 				9480C46726C12EFA00739630 /* SwipeCellKit */,
 				9480C46A26C1308100739630 /* SnapKit */,
+				941DA3BD26CA483D005A3594 /* SwiftUIX */,
+				941DA3C026CA4DB2005A3594 /* Introspect */,
 			);
 			productName = Cycle12Grocery;
 			productReference = 9480C44926C11B4100739630 /* Cycle12Grocery.app */;
@@ -196,6 +217,8 @@
 			packageReferences = (
 				9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */,
 				9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				941DA3BC26CA483D005A3594 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
+				941DA3BF26CA4DB2005A3594 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 9480C44A26C11B4100739630 /* Products */;
 			projectDirPath = "";
@@ -267,11 +290,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				9480C46526C12ECA00739630 /* JournalHabitCollectionViewCell2.swift in Sources */,
+				9435873226CCAFF600CD2390 /* JournalLayoutAnnouncement.swift in Sources */,
 				940386FA26C66F36009E1CB7 /* JournalViewController+SmartActionView.swift in Sources */,
+				941DA3C326CA58AE005A3594 /* WeekDay.swift in Sources */,
+				9435874426CD0C7A00CD2390 /* JournalSettingView.swift in Sources */,
 				940386F326C657C8009E1CB7 /* UnitCategory.swift in Sources */,
 				9480C46126C121BC00739630 /* JournalCollectionView.swift in Sources */,
 				9480C46326C128CD00739630 /* Habit.swift in Sources */,
 				9480C47326C1353500739630 /* GoalProgressView.swift in Sources */,
+				941DA3BB26CA47CD005A3594 /* DateSelectorView.swift in Sources */,
+				9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */,
 				94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
@@ -356,7 +384,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -411,7 +439,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -428,6 +456,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJ9X539762;
 				INFOPLIST_FILE = Cycle12Grocery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,6 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = YJ9X539762;
 				INFOPLIST_FILE = Cycle12Grocery/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -483,6 +513,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		941DA3BC26CA483D005A3594 /* XCRemoteSwiftPackageReference "SwiftUIX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwiftUIX/SwiftUIX";
+			requirement = {
+				kind = exactVersion;
+				version = 0.0.8;
+			};
+		};
+		941DA3BF26CA4DB2005A3594 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.1.3;
+			};
+		};
 		9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SwipeCellKit/SwipeCellKit";
@@ -502,6 +548,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		941DA3BD26CA483D005A3594 /* SwiftUIX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 941DA3BC26CA483D005A3594 /* XCRemoteSwiftPackageReference "SwiftUIX" */;
+			productName = SwiftUIX;
+		};
+		941DA3C026CA4DB2005A3594 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 941DA3BF26CA4DB2005A3594 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
+		};
 		9480C46726C12EFA00739630 /* SwipeCellKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 9480C46626C12EFA00739630 /* XCRemoteSwiftPackageReference "SwipeCellKit" */;

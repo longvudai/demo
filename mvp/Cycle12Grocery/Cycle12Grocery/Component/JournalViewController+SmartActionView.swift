@@ -51,7 +51,8 @@ class SmartActionView: UIView {
     
     // MARK: - UI Properties
     private lazy var autoHabitView: UIImageView = {
-        let v = UIImageView(image: JournalImage.heart)
+        let image = UIImage(named: ImageAsset.smartActionAutomation.rawValue)
+        let v = UIImageView(image: image)
 
         v.setContentHuggingPriority(.required, for: .horizontal)
         v.setContentCompressionResistancePriority(.required, for: .horizontal)
@@ -63,11 +64,12 @@ class SmartActionView: UIView {
         let v = UIButton()
         v.setTitle("Timer", for: .normal)
         
-        let color = Colors.accentPrimary
+        let color = textColor
         v.setTitleColor(color, for: .normal)
         v.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
         
-        v.setImage(JournalImage.SmartAction.timer, for: .normal)
+        let image = PlatformImage(named: ImageAsset.smartActionTimer.rawValue)
+        v.setImage(image, for: .normal)
         v.imageView?.tintColor = color
         
         v.layer.cornerRadius = 20
@@ -161,23 +163,21 @@ class SmartActionView: UIView {
     
     private func updateUI(basedOn action: SmartAction?) {
         if let action = action {
-            isHidden = false
-            
             var title = ""
             var image: UIImage?
             switch action {
             case .complete:
                 title = "Done"
-                image = JournalImage.SmartAction.completed
+                image = PlatformImage(named: ImageAsset.smartActionCompleted.rawValue)
             case .checkinOne:
                 title = "+1"
-                image = JournalImage.SmartAction.completed
+                image = PlatformImage(named: ImageAsset.smartActionCompleted.rawValue)
             case .logValue:
                 title = "Log"
-                image = JournalImage.SmartAction.logValue
+                image = PlatformImage(named: ImageAsset.smartActionLogValue.rawValue)
             case .timer:
                 title = "Timer"
-                image = JournalImage.SmartAction.timer
+                image = PlatformImage(named: ImageAsset.smartActionTimer.rawValue)
             }
             
             smartActionButton.setTitle(title, for: .normal)
@@ -191,5 +191,19 @@ class SmartActionView: UIView {
             return
         }
         delegate?.smartActionView(didPerform: action)
+    }
+    
+    private var textColor: UIColor {
+        return UIColor { traitCollection in
+            switch traitCollection.userInterfaceStyle {
+            case .unspecified, .light:
+                return Colors.accentPrimary
+
+            case .dark:
+                return .white
+            @unknown default:
+                return Colors.accentPrimary
+            }
+        }
     }
 }

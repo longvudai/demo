@@ -8,15 +8,19 @@
 import Foundation
 import UIKit
 
-enum JournalImage {
-    static let heart = UIImage(named: "Hea")
-    enum SmartAction {
-        static let timer = UIImage(named: "SmartActionTimer")
-        static let completed = UIImage(named: "SmartActionTick")
-        static let logValue = UIImage(named: "SmartActionLogValue")
-    }
+enum ImageAsset: String {
+    case journalOptionButton = "JournalOptionButton"
+    case journalTitleIcon = "JournalTitleIcon"
     
-    enum HabitIcon {
-        static let mediate = UIImage(named: "mediate")
-    }
+    case swipeUndoAction = "SwipeUndoAction"
+    
+    case smartActionAutomation = "heart"
+    case smartActionTimer = "SmartActionTimer"
+    case smartActionCompleted = "SmartActionTick"
+    case smartActionLogValue = "SmartActionLogValue"
+    
+    case journalIconLayout = "JournalIconLayout"
+    case journalIconlessLayout = "JournalIconlessLayout"
+    case journalIconLayoutDark = "JournalIconLayoutDark"
+    case journalIconlessLayoutDark = "JournalIconlessLayoutDark"
 }

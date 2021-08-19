@@ -8,9 +8,17 @@
 import UIKit
 import SwipeCellKit
 import SnapKit
+import SwiftUIX
 
 class ViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<String, Habit>?
+    
+    lazy var dateSelectorView: UIHostingView<DateSelectorView> = {
+        let tomorrow = Calendar.current.date(byAdding: .day,value: 1, to: Date())!
+        let thisDayLastMonth = Calendar.current.date(byAdding: .month, value: -1, to: tomorrow)!
+        let dateInterval = DateInterval(start: thisDayLastMonth, end: tomorrow)
+        return UIHostingView(rootView: DateSelectorView(dateInterval: dateInterval))
+    }()
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewCompositionalLayout { sectionIndex, layoutEnvironment in
@@ -71,9 +79,19 @@ class ViewController: UIViewController {
     }
     
     private func setupView() {
-        view.addSubview(collectionView)
-        collectionView.snp.makeConstraints {
-            $0.edges.equalTo(view.safeAreaLayoutGuide)
+//        view.addSubview(collectionView)
+//        collectionView.snp.makeConstraints {
+//            $0.edges.equalTo(view.safeAreaLayoutGuide)
+//        }
+        
+        let viewModel = JournalSettingViewModel()
+        let v = JournalSettingView(viewModel: viewModel)
+        let contentView = UIHostingView<JournalSettingView>(rootView: v)
+        view.addSubview(contentView)
+        contentView.snp.makeConstraints {
+//            $0.leading.bottom.bottom.equalToSuperview()
+//            $0.trailing.equalToSuperview().inset(100)
+            $0.edges.equalToSuperview()
         }
     }
 }
