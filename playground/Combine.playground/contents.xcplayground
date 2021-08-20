@@ -3,5 +3,6 @@
     <pages>
         <page name='URLRequest'/>
         <page name='Untitled Page'/>
+        <page name='Scheduler'/>
     </pages>
 </playground>
