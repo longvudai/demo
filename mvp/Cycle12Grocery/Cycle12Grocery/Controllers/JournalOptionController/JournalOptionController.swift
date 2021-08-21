@@ -56,10 +56,16 @@ class JournalOptionController: UIViewController {
         
         navigationItem.leftBarButtonItem = UIBarButtonItem.init(customView: titleView)
         
-        // set appreance
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.isTranslucent = true
-        navigationController?.view.backgroundColor = .clear
+        navigationController?.delegate = self
+        
+        if let navigationBar = navigationController?.navigationBar {
+            // set appreance
+            navigationBar.barTintColor = .clear
+            navigationBar.backgroundColor = .clear
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.isTranslucent = true
+            navigationController?.view.backgroundColor = .clear
+        }
     }
     
     private func setupView() {
@@ -76,6 +82,17 @@ class JournalOptionController: UIViewController {
     @objc
     private func saveButtonTapped() {
         dismiss()
+    }
+}
+
+// MARK: - NavigationDelegate
+extension JournalOptionController: UINavigationControllerDelegate {
+    func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
+        UIView.preventDimmingView()
+    }
+
+    func navigationController(_ navigationController: UINavigationController, didShow viewController: UIViewController, animated: Bool) {
+        UIView.allowDimmingView()
     }
 }
 

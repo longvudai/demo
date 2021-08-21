@@ -51,6 +51,11 @@ class ViewController: UIViewController {
         
         view.backgroundColor = .white
         
+        let navigationBar = UINavigationBar.appearance()
+        navigationBar.barTintColor = Colors.background
+        navigationBar.backgroundColor = Colors.background
+        navigationBar.isTranslucent = false
+        
         setupView()
         
 //        dataSource = UICollectionViewDiffableDataSource<String, Habit>(collectionView: collectionView) { (collectionView, indexPath, item) -> UICollectionViewCell? in
@@ -118,7 +123,7 @@ class ViewController: UIViewController {
         fpc.surfaceView.contentPadding = .init(top: 24, left: 0, bottom: 0, right: 0)
         fpc.surfaceView.backgroundColor = Colors.secondaryBackground
 
-        fpc.delegate = self // Optional
+//        fpc.delegate = self // Optional
         
         fpc.isRemovalInteractionEnabled = true
 
@@ -197,12 +202,12 @@ class ViewController: UIViewController {
 //    }
 //}
 
-extension ViewController: FloatingPanelControllerDelegate {
-//    func floatingPanelShouldBeginDragging(_ fpc: FloatingPanelController) -> Bool {
-//        return fpc.state != .full
+//extension ViewController: FloatingPanelControllerDelegate {
+////    func floatingPanelShouldBeginDragging(_ fpc: FloatingPanelController) -> Bool {
+////        return fpc.state != .full
+////    }
+//
+//    func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
+//        fpc.panGestureRecognizer.isEnabled = fpc.state != .full
 //    }
-    
-    func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
-        fpc.panGestureRecognizer.isEnabled = fpc.state != .full
-    }
-}
+//}

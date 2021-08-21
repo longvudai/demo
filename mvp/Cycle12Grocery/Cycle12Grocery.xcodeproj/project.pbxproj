@@ -50,6 +50,7 @@
 		94DACB8626D0BB6000B2B7D4 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7D26D0BB6000B2B7D4 /* Inter-BoldItalic.otf */; };
 		94DACB8826D0CB6700B2B7D4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */; };
 		94DACB8A26D0F5FB00B2B7D4 /* JournalReorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB8926D0F5FB00B2B7D4 /* JournalReorderController.swift */; };
+		94DACB9626D13A8B00B2B7D4 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB9526D13A8B00B2B7D4 /* View+Extension.swift */; };
 		BD10A628292696572B8F4F14 /* Pods_Cycle12Grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,7 @@
 		94DACB7D26D0BB6000B2B7D4 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
 		94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
 		94DACB8926D0F5FB00B2B7D4 /* JournalReorderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalReorderController.swift; sourceTree = "<group>"; };
+		94DACB9526D13A8B00B2B7D4 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.release.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -173,6 +175,7 @@
 				940386F126C657C8009E1CB7 /* UnitCategory.swift */,
 				940386F226C657C8009E1CB7 /* UnitType.swift */,
 				94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */,
+				94DACB9526D13A8B00B2B7D4 /* View+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -406,6 +409,7 @@
 				94DACB6D26D0A19200B2B7D4 /* JournalOptionController.swift in Sources */,
 				94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
+				94DACB9626D13A8B00B2B7D4 /* View+Extension.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
 				94DACB8826D0CB6700B2B7D4 /* UITableView+Extension.swift in Sources */,
 				940386F426C657C8009E1CB7 /* UnitType.swift in Sources */,
