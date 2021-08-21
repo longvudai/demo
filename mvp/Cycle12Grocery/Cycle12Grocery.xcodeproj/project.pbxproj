@@ -36,6 +36,21 @@
 		94A4533126CE178000816DE7 /* HabitIconPickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533026CE178000816DE7 /* HabitIconPickerController.swift */; };
 		94A4533326CE1D0100816DE7 /* ColorSelectorCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533226CE1D0100816DE7 /* ColorSelectorCollectionView.swift */; };
 		94A4533826CE40F300816DE7 /* HabitIconCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */; };
+		94DACB6B26D0A16900B2B7D4 /* FloatingPanel in Frameworks */ = {isa = PBXBuildFile; productRef = 94DACB6A26D0A16900B2B7D4 /* FloatingPanel */; };
+		94DACB6D26D0A19200B2B7D4 /* JournalOptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB6C26D0A19200B2B7D4 /* JournalOptionController.swift */; };
+		94DACB7226D0BB2D00B2B7D4 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB7126D0BB2D00B2B7D4 /* Font.swift */; };
+		94DACB7E26D0BB6000B2B7D4 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7526D0BB6000B2B7D4 /* Inter-Bold.otf */; };
+		94DACB7F26D0BB6000B2B7D4 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7626D0BB6000B2B7D4 /* Inter-Regular.otf */; };
+		94DACB8026D0BB6000B2B7D4 /* Inter-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7726D0BB6000B2B7D4 /* Inter-SemiBoldItalic.otf */; };
+		94DACB8126D0BB6000B2B7D4 /* Inter-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7826D0BB6000B2B7D4 /* Inter-Medium.otf */; };
+		94DACB8226D0BB6000B2B7D4 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7926D0BB6000B2B7D4 /* Inter-SemiBold.otf */; };
+		94DACB8326D0BB6000B2B7D4 /* Inter-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7A26D0BB6000B2B7D4 /* Inter-MediumItalic.otf */; };
+		94DACB8426D0BB6000B2B7D4 /* Inter-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7B26D0BB6000B2B7D4 /* Inter-Italic.otf */; };
+		94DACB8526D0BB6000B2B7D4 /* Inter-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7C26D0BB6000B2B7D4 /* Inter-ExtraBold.otf */; };
+		94DACB8626D0BB6000B2B7D4 /* Inter-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 94DACB7D26D0BB6000B2B7D4 /* Inter-BoldItalic.otf */; };
+		94DACB8826D0CB6700B2B7D4 /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */; };
+		94DACB8A26D0F5FB00B2B7D4 /* JournalReorderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94DACB8926D0F5FB00B2B7D4 /* JournalReorderController.swift */; };
+		BD10A628292696572B8F4F14 /* Pods_Cycle12Grocery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCE802F13F2DC8F16086F80 /* Pods_Cycle12Grocery.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +83,19 @@
 		94A4533026CE178000816DE7 /* HabitIconPickerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitIconPickerController.swift; sourceTree = "<group>"; };
 		94A4533226CE1D0100816DE7 /* ColorSelectorCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorSelectorCollectionView.swift; sourceTree = "<group>"; };
 		94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitIconCollectionView.swift; sourceTree = "<group>"; };
+		94DACB6C26D0A19200B2B7D4 /* JournalOptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalOptionController.swift; sourceTree = "<group>"; };
+		94DACB7126D0BB2D00B2B7D4 /* Font.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		94DACB7526D0BB6000B2B7D4 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		94DACB7626D0BB6000B2B7D4 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		94DACB7726D0BB6000B2B7D4 /* Inter-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		94DACB7826D0BB6000B2B7D4 /* Inter-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.otf"; sourceTree = "<group>"; };
+		94DACB7926D0BB6000B2B7D4 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		94DACB7A26D0BB6000B2B7D4 /* Inter-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-MediumItalic.otf"; sourceTree = "<group>"; };
+		94DACB7B26D0BB6000B2B7D4 /* Inter-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Italic.otf"; sourceTree = "<group>"; };
+		94DACB7C26D0BB6000B2B7D4 /* Inter-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.otf"; sourceTree = "<group>"; };
+		94DACB7D26D0BB6000B2B7D4 /* Inter-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-BoldItalic.otf"; sourceTree = "<group>"; };
+		94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		94DACB8926D0F5FB00B2B7D4 /* JournalReorderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalReorderController.swift; sourceTree = "<group>"; };
 		E870E90FFF00A8C53FA7B1A4 /* Pods-Cycle12Grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Cycle12Grocery.release.xcconfig"; path = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,9 +105,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9480C46826C12EFA00739630 /* SwipeCellKit in Frameworks */,
+				94DACB6B26D0A16900B2B7D4 /* FloatingPanel in Frameworks */,
 				9480C46B26C1308100739630 /* SnapKit in Frameworks */,
 				941DA3C126CA4DB2005A3594 /* Introspect in Frameworks */,
 				941DA3BE26CA483D005A3594 /* SwiftUIX in Frameworks */,
+				BD10A628292696572B8F4F14 /* Pods_Cycle12Grocery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,6 +146,7 @@
 		9480C44B26C11B4100739630 /* Cycle12Grocery */ = {
 			isa = PBXGroup;
 			children = (
+				94DACB7326D0BB6000B2B7D4 /* Fonts */,
 				94A4532F26CE175E00816DE7 /* Models */,
 				94A4532E26CE174600816DE7 /* Controllers */,
 				9480C47126C134F000739630 /* Component */,
@@ -133,6 +164,7 @@
 		9480C46C26C1329100739630 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				94DACB7126D0BB2D00B2B7D4 /* Font.swift */,
 				941DA3C226CA58AE005A3594 /* WeekDay.swift */,
 				9480C46F26C132A800739630 /* Defines.swift */,
 				9480C46D26C1329100739630 /* AppStyle.swift */,
@@ -140,6 +172,7 @@
 				94628A4026C2A5FC0020F081 /* ImageAsset.swift */,
 				940386F126C657C8009E1CB7 /* UnitCategory.swift */,
 				940386F226C657C8009E1CB7 /* UnitType.swift */,
+				94DACB8726D0CB6700B2B7D4 /* UITableView+Extension.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -162,6 +195,7 @@
 		94A4532E26CE174600816DE7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				94DACB6E26D0A1EE00B2B7D4 /* JournalOptionController */,
 				9480C45026C11B4100739630 /* ViewController.swift */,
 				9480C46026C121BC00739630 /* JournalCollectionView.swift */,
 				94A4533026CE178000816DE7 /* HabitIconPickerController.swift */,
@@ -176,6 +210,39 @@
 				9480C46226C128CD00739630 /* Habit.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		94DACB6E26D0A1EE00B2B7D4 /* JournalOptionController */ = {
+			isa = PBXGroup;
+			children = (
+				94DACB6C26D0A19200B2B7D4 /* JournalOptionController.swift */,
+				94DACB8926D0F5FB00B2B7D4 /* JournalReorderController.swift */,
+			);
+			path = JournalOptionController;
+			sourceTree = "<group>";
+		};
+		94DACB7326D0BB6000B2B7D4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				94DACB7426D0BB6000B2B7D4 /* Inter */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		94DACB7426D0BB6000B2B7D4 /* Inter */ = {
+			isa = PBXGroup;
+			children = (
+				94DACB7526D0BB6000B2B7D4 /* Inter-Bold.otf */,
+				94DACB7626D0BB6000B2B7D4 /* Inter-Regular.otf */,
+				94DACB7726D0BB6000B2B7D4 /* Inter-SemiBoldItalic.otf */,
+				94DACB7826D0BB6000B2B7D4 /* Inter-Medium.otf */,
+				94DACB7926D0BB6000B2B7D4 /* Inter-SemiBold.otf */,
+				94DACB7A26D0BB6000B2B7D4 /* Inter-MediumItalic.otf */,
+				94DACB7B26D0BB6000B2B7D4 /* Inter-Italic.otf */,
+				94DACB7C26D0BB6000B2B7D4 /* Inter-ExtraBold.otf */,
+				94DACB7D26D0BB6000B2B7D4 /* Inter-BoldItalic.otf */,
+			);
+			path = Inter;
 			sourceTree = "<group>";
 		};
 		C8B382E3D01DC816263AA7A6 /* Frameworks */ = {
@@ -209,6 +276,7 @@
 				9480C46A26C1308100739630 /* SnapKit */,
 				941DA3BD26CA483D005A3594 /* SwiftUIX */,
 				941DA3C026CA4DB2005A3594 /* Introspect */,
+				94DACB6A26D0A16900B2B7D4 /* FloatingPanel */,
 			);
 			productName = Cycle12Grocery;
 			productReference = 9480C44926C11B4100739630 /* Cycle12Grocery.app */;
@@ -242,6 +310,7 @@
 				9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				941DA3BC26CA483D005A3594 /* XCRemoteSwiftPackageReference "SwiftUIX" */,
 				941DA3BF26CA4DB2005A3594 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
+				94DACB6926D0A16900B2B7D4 /* XCRemoteSwiftPackageReference "FloatingPanel" */,
 			);
 			productRefGroup = 9480C44A26C11B4100739630 /* Products */;
 			projectDirPath = "";
@@ -257,9 +326,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94DACB8426D0BB6000B2B7D4 /* Inter-Italic.otf in Resources */,
+				94DACB8626D0BB6000B2B7D4 /* Inter-BoldItalic.otf in Resources */,
+				94DACB8126D0BB6000B2B7D4 /* Inter-Medium.otf in Resources */,
+				94DACB8526D0BB6000B2B7D4 /* Inter-ExtraBold.otf in Resources */,
 				9480C45926C11B4300739630 /* LaunchScreen.storyboard in Resources */,
+				94DACB7F26D0BB6000B2B7D4 /* Inter-Regular.otf in Resources */,
+				94DACB7E26D0BB6000B2B7D4 /* Inter-Bold.otf in Resources */,
 				9480C45626C11B4300739630 /* Assets.xcassets in Resources */,
 				9480C45426C11B4100739630 /* Main.storyboard in Resources */,
+				94DACB8026D0BB6000B2B7D4 /* Inter-SemiBoldItalic.otf in Resources */,
+				94DACB8326D0BB6000B2B7D4 /* Inter-MediumItalic.otf in Resources */,
+				94DACB8226D0BB6000B2B7D4 /* Inter-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,15 +403,19 @@
 				94A4533126CE178000816DE7 /* HabitIconPickerController.swift in Sources */,
 				941DA3BB26CA47CD005A3594 /* DateSelectorView.swift in Sources */,
 				9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */,
+				94DACB6D26D0A19200B2B7D4 /* JournalOptionController.swift in Sources */,
 				94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				9480C44D26C11B4100739630 /* AppDelegate.swift in Sources */,
+				94DACB8826D0CB6700B2B7D4 /* UITableView+Extension.swift in Sources */,
 				940386F426C657C8009E1CB7 /* UnitType.swift in Sources */,
 				94A4533826CE40F300816DE7 /* HabitIconCollectionView.swift in Sources */,
 				9480C44F26C11B4100739630 /* SceneDelegate.swift in Sources */,
+				94DACB7226D0BB2D00B2B7D4 /* Font.swift in Sources */,
 				94628A3F26C297150020F081 /* JournalColor.swift in Sources */,
 				9480C47026C132A800739630 /* Defines.swift in Sources */,
 				9480C46E26C1329200739630 /* AppStyle.swift in Sources */,
+				94DACB8A26D0F5FB00B2B7D4 /* JournalReorderController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +653,14 @@
 				version = 5.0.1;
 			};
 		};
+		94DACB6926D0A16900B2B7D4 /* XCRemoteSwiftPackageReference "FloatingPanel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scenee/FloatingPanel";
+			requirement = {
+				kind = exactVersion;
+				version = 2.4.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -593,6 +683,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9480C46926C1308100739630 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		94DACB6A26D0A16900B2B7D4 /* FloatingPanel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 94DACB6926D0A16900B2B7D4 /* XCRemoteSwiftPackageReference "FloatingPanel" */;
+			productName = FloatingPanel;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

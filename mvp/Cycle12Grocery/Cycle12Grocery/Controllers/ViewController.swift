@@ -9,6 +9,7 @@ import UIKit
 import SwipeCellKit
 import SnapKit
 import SwiftUIX
+import FloatingPanel
 
 class ViewController: UIViewController {
     var dataSource: UICollectionViewDiffableDataSource<String, Habit>?
@@ -92,9 +93,10 @@ class ViewController: UIViewController {
 //            $0.edges.equalTo(view.safeAreaLayoutGuide)
 //        }
         
-        let viewModel = JournalSettingViewModel()
-        let v = JournalSettingView(viewModel: viewModel)
-        let contentView = UIHostingView<JournalSettingView>(rootView: v)
+//        let viewModel = JournalSettingViewModel()
+//        let v = JournalSettingView(viewModel: viewModel)
+//        UIHostingView<JournalSettingView>(rootView: v)
+        let contentView = iconSelectButton
         view.addSubview(contentView)
         contentView.snp.makeConstraints {
             $0.edges.equalToSuperview()
@@ -104,11 +106,28 @@ class ViewController: UIViewController {
     }
     
     @objc private func handleTap() {
-        let c = HabitIconPickerController(selectedColor: .red, selectedIconName: nil)
-        let navigationControllerWrapper = UINavigationController(rootViewController: c)
-        navigationControllerWrapper.navigationBar.backgroundColor = Colors.groupedSecondaryBackground
-        navigationControllerWrapper.navigationBar.barTintColor = Colors.groupedSecondaryBackground
-        present(navigationControllerWrapper, animated: true, completion: nil)
+//        let c = HabitIconPickerController(selectedColor: .red, selectedIconName: nil)
+//        let navigationControllerWrapper = UINavigationController(rootViewController: c)
+//        navigationControllerWrapper.navigationBar.backgroundColor = Colors.groupedSecondaryBackground
+//        navigationControllerWrapper.navigationBar.barTintColor = Colors.groupedSecondaryBackground
+//        present(navigationControllerWrapper, animated: true, completion: nil)
+        
+        let fpc = FloatingPanelController()
+        fpc.layout = JournalOptionController.JournalOptionFloatingPanelLayout()
+        fpc.surfaceView.appearance.cornerRadius = 10
+        fpc.surfaceView.contentPadding = .init(top: 24, left: 0, bottom: 0, right: 0)
+        fpc.surfaceView.backgroundColor = Colors.secondaryBackground
+
+        fpc.delegate = self // Optional
+        
+        fpc.isRemovalInteractionEnabled = true
+
+        // Set a content view controller.
+        let contentVC = JournalOptionController()
+        let navigationWrapper = UINavigationController(rootViewController: contentVC)
+        
+        fpc.set(contentViewController: navigationWrapper)
+        present(fpc, animated: true, completion: nil)
     }
 }
 
@@ -177,3 +196,13 @@ class ViewController: UIViewController {
 //        return options
 //    }
 //}
+
+extension ViewController: FloatingPanelControllerDelegate {
+//    func floatingPanelShouldBeginDragging(_ fpc: FloatingPanelController) -> Bool {
+//        return fpc.state != .full
+//    }
+    
+    func floatingPanelDidChangeState(_ fpc: FloatingPanelController) {
+        fpc.panGestureRecognizer.isEnabled = fpc.state != .full
+    }
+}

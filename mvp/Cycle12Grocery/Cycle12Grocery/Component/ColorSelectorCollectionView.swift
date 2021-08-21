@@ -14,7 +14,7 @@ class ColorSelectorCollectionView: UICollectionView {}
 extension ColorSelectorCollectionView {
     class Cell: UICollectionViewCell {
         private let inset: CGFloat = 4
-        var color: UIColor = QuoteColor.orange.value {
+        var color: UIColor = .red {
             didSet {
                 inner.backgroundColor = color
                 outer.backgroundColor = .clear

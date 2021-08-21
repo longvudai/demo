@@ -7,5 +7,6 @@ target 'Cycle12Grocery' do
 
   # Pods for Cycle12Grocery
   pod 'KAProgressLabel'
+  pod 'TextAttributes'
 
 end

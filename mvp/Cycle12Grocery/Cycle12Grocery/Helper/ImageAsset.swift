@@ -25,6 +25,11 @@ enum ImageAsset: String {
     
     case journalSettingIcon = "JournalSettingIcon"
     
+    // Journal option
+    case journalOptionAlphabeticalOrder = "JournalOptionAlphabeticalOrder"
+    case journalOptionMyHabitsOrder = "JournalOptionMyHabitsOrder"
+    case journalOptionReminderTimeOrder = "JournalOptionReminderTimeOrder"
+    
     // Habit Edit
     case habitEditColorPicker = "ColorPickerIcon"
     
