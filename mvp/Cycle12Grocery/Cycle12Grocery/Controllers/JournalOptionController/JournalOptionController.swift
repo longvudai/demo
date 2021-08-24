@@ -22,6 +22,7 @@ class JournalOptionController: UIViewController {
         v.register(TableView.SegmentedCell.self)
         
         v.separatorInset = UIEdgeInsets(top: 0, left: 54, bottom: 0, right: 0)
+        v.contentInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
         v.backgroundColor = Colors.secondaryBackground
         
         return v
@@ -171,7 +172,7 @@ extension JournalOptionController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let titleView: UITextView = UITextView()
-        titleView.textContainerInset = .init(top: 24, left: 0, bottom: 12, right: 0)
+        titleView.textContainerInset = .init(top: 0, left: 0, bottom: 12, right: 0)
         titleView.font = AppTextStyles.caption1.font
         titleView.textColor = Colors.labelSecondary
         titleView.isEditable = false
@@ -199,7 +200,7 @@ extension JournalOptionController {
         var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
             return [
                 .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
-                .half: FloatingPanelLayoutAnchor(fractionalInset: 0.5, edge: .bottom, referenceGuide: .safeArea),
+                .half: FloatingPanelLayoutAnchor(absoluteInset: max(16, UIScreen.main.bounds.height - 600), edge: .top, referenceGuide: .safeArea),
             ]
         }
     }

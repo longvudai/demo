@@ -36,8 +36,9 @@ class JournalReorderController: UIViewController {
         
         v.register(TableView.Cell.self)
         
+        v.contentInset = .init(horizontal: 0, vertical: 16)
         v.rowHeight = UITableView.automaticDimension
-        v.estimatedRowHeight = 65
+        v.estimatedRowHeight = 70
         v.separatorInset = UIEdgeInsets(top: 0, left: 76, bottom: 0, right: 0)
         v.isEditing = true
         
@@ -46,7 +47,7 @@ class JournalReorderController: UIViewController {
     
     // MARK: - Properties
 
-    private var items: [SortableItem] = Array<Item>.init(repeating: Item.mockValue, count: 10)
+    private var items: [SortableItem] = Array<Item>.init(repeating: Item.mockValue, count: 20)
     
     // MARK: - View life cycle
 
@@ -98,6 +99,12 @@ extension JournalReorderController: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView: UIView = UIView(frame: .zero)
+        headerView.backgroundColor = .clear
+        return headerView
+    }
+    
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let movedObject = items[sourceIndexPath.row]
         items.remove(at: sourceIndexPath.row)
@@ -144,8 +151,9 @@ extension JournalReorderController.TableView {
             
             iconView.snp.makeConstraints {
                 $0.leading.equalToSuperview().inset(16)
-                $0.height.width.equalTo(40)
-                $0.centerY.equalToSuperview()
+                $0.height.equalTo(40)
+                $0.width.equalTo(iconView.snp.height)
+                $0.bottom.top.equalToSuperview().inset(13).priority(.high)
             }
             
             titleView.snp.makeConstraints {
