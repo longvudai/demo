@@ -14,6 +14,7 @@
 		941DA3BE26CA483D005A3594 /* SwiftUIX in Frameworks */ = {isa = PBXBuildFile; productRef = 941DA3BD26CA483D005A3594 /* SwiftUIX */; };
 		941DA3C126CA4DB2005A3594 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 941DA3C026CA4DB2005A3594 /* Introspect */; };
 		941DA3C326CA58AE005A3594 /* WeekDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941DA3C226CA58AE005A3594 /* WeekDay.swift */; };
+		941FD85226D887B10038045A /* JournalSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 941FD85126D887B10038045A /* JournalSettingController.swift */; };
 		9435873226CCAFF600CD2390 /* JournalLayoutAnnouncement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435873126CCAFF600CD2390 /* JournalLayoutAnnouncement.swift */; };
 		9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435873326CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift */; };
 		9435874426CD0C7A00CD2390 /* JournalSettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9435874326CD0C7A00CD2390 /* JournalSettingView.swift */; };
@@ -62,6 +63,7 @@
 		940386F926C66F36009E1CB7 /* JournalViewController+SmartActionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "JournalViewController+SmartActionView.swift"; sourceTree = "<group>"; };
 		941DA3BA26CA47CD005A3594 /* DateSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectorView.swift; sourceTree = "<group>"; };
 		941DA3C226CA58AE005A3594 /* WeekDay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekDay.swift; sourceTree = "<group>"; };
+		941FD85126D887B10038045A /* JournalSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSettingController.swift; sourceTree = "<group>"; };
 		9435873126CCAFF600CD2390 /* JournalLayoutAnnouncement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalLayoutAnnouncement.swift; sourceTree = "<group>"; };
 		9435873326CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JournalLayoutAnnouncementViewModel.swift; sourceTree = "<group>"; };
 		9435874326CD0C7A00CD2390 /* JournalSettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalSettingView.swift; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				9480C46026C121BC00739630 /* JournalCollectionView.swift */,
 				94A4533026CE178000816DE7 /* HabitIconPickerController.swift */,
 				94A4533726CE40F300816DE7 /* HabitIconCollectionView.swift */,
+				941FD85126D887B10038045A /* JournalSettingController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				941DA3BB26CA47CD005A3594 /* DateSelectorView.swift in Sources */,
 				9435873426CCB01C00CD2390 /* JournalLayoutAnnouncementViewModel.swift in Sources */,
 				94DACB6D26D0A19200B2B7D4 /* JournalOptionController.swift in Sources */,
+				941FD85226D887B10038045A /* JournalSettingController.swift in Sources */,
 				94628A4126C2A5FC0020F081 /* ImageAsset.swift in Sources */,
 				9480C45126C11B4100739630 /* ViewController.swift in Sources */,
 				94DACB9626D13A8B00B2B7D4 /* View+Extension.swift in Sources */,

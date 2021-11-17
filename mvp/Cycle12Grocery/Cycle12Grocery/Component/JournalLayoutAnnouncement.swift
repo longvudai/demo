@@ -30,11 +30,13 @@ struct JournalLayoutAnnouncement: View {
     
     private var headerView: some View {
         VStack(spacing: 6) {
-            Text("NEW")
+            Text("NEW 2318723617c1 52367512763 NEW 2318723617c1 52367512763")
                 // caption 2
                 .font(.system(size: 11))
                 .foregroundColor(.white)
-                .frame(width: 57, height: 24)
+                .padding(.horizontal)
+                .frame(height: 24)
+                .frame(minWidth: 57)
                 .background(
                     Rectangle().fill(Color.accentPrimary).cornerRadius(20)
                 )
@@ -78,7 +80,7 @@ extension JournalLayoutAnnouncement {
                 VStack(spacing: 13) {
                     if layout == .iconLayout {
                         ImageView(ImageAsset.journalIconLayout.rawValue, isSelected: isSelected)
-                        TextView("With Icon", isSelected: isSelected)
+                        TextView("With Icon With Icon", isSelected: isSelected)
                     } else if layout == .iconlessLayout {
                         ImageView(ImageAsset.journalIconlessLayout.rawValue, isSelected: isSelected)
                         TextView("No Icon", isSelected: isSelected)
@@ -107,13 +109,14 @@ extension JournalLayoutAnnouncement {
             let textColor = isSelected ? .white : Color.labelSecondary
             let bgColor = isSelected ? Color.accentPrimary : Color.secondaryBackground
             return Text(text)
+                .padding(.horizontal)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .foregroundColor(textColor)
                     .background(
                         Rectangle().fill(bgColor).cornerRadius(20)
                     )
                     .frame(maxWidth: 120)
-                .frame(height: 30)
+                    .frame(height: 30)
         }
     }
 }

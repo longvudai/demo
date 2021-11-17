@@ -59,6 +59,9 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell, SmartActionViewDelegate
         v.numberOfLines = 2
         v.adjustsFontForContentSizeCategory = true
         
+        v.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        v.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
+        
         return v
     }()
     
@@ -82,9 +85,6 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell, SmartActionViewDelegate
         let v = SmartActionView()
         
         v.delegate = self
-        
-        v.setContentHuggingPriority(.required, for: .horizontal)
-        v.setContentCompressionResistancePriority(.required, for: .horizontal)
 
         return v
     }()
@@ -98,11 +98,14 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell, SmartActionViewDelegate
     }()
     
     private lazy var trailingAccessoriesStackView: UIStackView = {
-        let v = UIStackView(arrangedSubviews: [smartActionView, habitStatusView])
+        let v = UIStackView(arrangedSubviews: [smartActionView])
         v.spacing = 12
         v.alignment = .center
         v.axis = .horizontal
+        
         v.setContentHuggingPriority(.required, for: .horizontal)
+        v.setContentCompressionResistancePriority(.required, for: .horizontal)
+        
         return v
     }()
     
@@ -123,7 +126,7 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell, SmartActionViewDelegate
     private func setupView() {
         contentView.backgroundColor = Colors.background
         
-        let views = [checkinButton, goalProgressView, titleLabel, subtitleLabel, bottomSeparator, trailingAccessoriesStackView]
+        let views = [checkinButton, goalProgressView, titleLabel, bottomSeparator, trailingAccessoriesStackView]
         views.forEach { contentView.addSubview($0) }
         
         checkinButton.snp.makeConstraints {
@@ -142,15 +145,9 @@ class HabitCollectionViewCell2: SwipeCollectionViewCell, SmartActionViewDelegate
         }
         
         titleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(18)
+            $0.top.bottom.equalToSuperview().inset(18)
             $0.leading.equalToSuperview().inset(76)
             $0.trailing.equalTo(trailingAccessoriesStackView.snp.leading).inset(-10)
-        }
-
-        subtitleLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(6)
-            $0.leading.trailing.equalTo(titleLabel)
-            $0.bottom.equalToSuperview().inset(18)
         }
 
         bottomSeparator.snp.makeConstraints {

@@ -60,28 +60,32 @@ class SmartActionView: UIView {
         return v
     }()
     
-    private lazy var smartActionButton: UIButton = {
-        let v = UIButton()
-        v.setTitle("Timer", for: .normal)
-        
-        let color = textColor
-        v.setTitleColor(color, for: .normal)
-        v.titleEdgeInsets = .init(top: 0, left: 5, bottom: 0, right: 0)
-        
-        let image = PlatformImage(named: ImageAsset.smartActionTimer.rawValue)
-        v.setImage(image, for: .normal)
-        v.imageView?.tintColor = color
-        
-        v.layer.cornerRadius = 20
-        v.contentEdgeInsets = .init(top: 8, left: 14, bottom: 8, right: 14)
-        v.backgroundColor = Colors.JournalColor.smartActionBackground
-        
-        v.titleLabel?.adjustsFontSizeToFitWidth = true;
-        
+    private lazy var titleView: UILabel = {
+        let v = UILabel()
+        v.textColor = textColor
         v.setContentHuggingPriority(.required, for: .horizontal)
         v.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return v
+    }()
+    
+    private lazy var iconView: UIImageView = {
+        let v = UIImageView()
+        v.tintColor = textColor
+        v.setContentHuggingPriority(.required, for: .horizontal)
+        v.setContentCompressionResistancePriority(.required, for: .horizontal)
+        return v
+    }()
+    
+    private lazy var smartActionContainer: UIView = {
+        let v = UIView()
         
-        v.addTarget(self, action: #selector(handleTap), for: .touchUpInside)
+        v.layer.cornerRadius = 35/2
+        v.backgroundColor = Colors.JournalColor.smartActionBackground
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTap))
+        v.addGestureRecognizer(tap)
+        
+        v.setContentHuggingPriority(.required, for: .horizontal)
 
         return v
     }()
@@ -108,7 +112,7 @@ class SmartActionView: UIView {
         
         isAutomated
             .sink { [weak self] isAutomated in
-                self?.smartActionButton.isHidden = isAutomated
+                self?.smartActionContainer.isHidden = isAutomated
                 self?.autoHabitView.isHidden = !isAutomated
             }
             .store(in: &cancellableSet)
@@ -150,11 +154,26 @@ class SmartActionView: UIView {
     }
     
     private func setupView() {
-        addSubview(autoHabitView)
-        addSubview(smartActionButton)
-        smartActionButton.snp.makeConstraints {
+        let views = [smartActionContainer, autoHabitView]
+        views.forEach { addSubview($0) }
+        [titleView, iconView].forEach { smartActionContainer.addSubview($0) }
+        
+        smartActionContainer.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
+        
+        titleView.snp.makeConstraints {
+            $0.centerY.equalToSuperview()
+            $0.top.equalToSuperview().inset(8)
+            $0.trailing.equalToSuperview().inset(16)
+        }
+        
+        iconView.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(16)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(titleView.snp.leading).offset(-5)
+        }
+        
         autoHabitView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview()
@@ -180,8 +199,8 @@ class SmartActionView: UIView {
                 image = PlatformImage(named: ImageAsset.smartActionTimer.rawValue)
             }
             
-            smartActionButton.setTitle(title, for: .normal)
-            smartActionButton.setImage(image, for: .normal)
+            titleView.text = title
+            iconView.image = image
         }
     }
 

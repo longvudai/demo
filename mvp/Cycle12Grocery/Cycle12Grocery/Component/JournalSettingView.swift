@@ -13,9 +13,15 @@ import UIKit
 
 struct JournalSettingView: View {
     @ObservedObject var viewModel: JournalSettingViewModel
+    @State private var isEditing = false
     
     var body: some View {
-        contentView
+        NavigationView {
+            contentView
+                .background(.red)
+                .navigationBarTitle("Hello")
+                .navigationBarColor(.red)
+        }
     }
     
     private var contentView: some View {
@@ -29,24 +35,47 @@ struct JournalSettingView: View {
                     .listStyle(GroupedListStyle())
                     .environment(\.horizontalSizeClass, .regular)
             }
+            
+            if viewModel.title.count > 3 {
+                Text("additional text")
+                    .frame(height: 100)
+            }
         }
     }
     
     private var list: some View {
         List {
-            Section(header: Text("Journal name".uppercased())) {
-                TextField("", text: $viewModel.title, onCommit:  {
-                    viewModel.commit = true
-                })
-                .onAppear(perform: {
-                    UITextField.appearance().clearButtonMode = .whileEditing
-                })
-                .padding(.vertical, 10)
+            Section(header:
+                        Text("Journal Name".uppercased())
+                            .foregroundColor(.labelSecondary)
+                            .textAttributes(AppTextStyles.caption2)
+                            .frame(height: 16)
+                            .padding(.leading, 8)
+                            .padding(.bottom, 5)
+                            .padding(.top, 12)
+            ) {
+                ZStack {
+                    TextField(
+                        "",
+                        text: $viewModel.title
+                    ) { isEditing in
+                        self.isEditing = isEditing
+                    } onCommit: {
+                        viewModel.commit = true
+                    }
+                    .foregroundColor(.labelPrimary)
+                    .font(.system(size: 17))
+                    .frame(height: 45)
+                }
             }
-            Section(header: Text("Layout".uppercased())) {
+            
+            Section(header: Text("Layout".uppercased())
+                        .foregroundColor(.labelSecondary)
+                        .textAttributes(AppTextStyles.caption2)
+            ) {
                 layoutSelectionView
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, 15)
+                    .padding(.vertical, 20)
             }
             .buttonStyle(PlainButtonStyle())
         }
@@ -64,12 +93,19 @@ struct JournalSettingView: View {
 struct JournalSettingView_Previews: PreviewProvider {
     static let viewModel = JournalSettingViewModel()
     static var previews: some View {
-        JournalSettingView(viewModel: viewModel)
+        Group {
+            JournalSettingView(viewModel: viewModel)
+            
+//            JournalSettingView(viewModel: viewModel)
+//                .preferredColorScheme(.dark)
+        }
+        .previewDevice(PreviewDevice(stringLiteral: "iPhone 11 Pro (14.5)"))
+        
     }
 }
 
 class JournalSettingViewModel: ObservableObject {
-    @Published var title = "My Journal"
+    @Published var title = "My"
     @Published var commit = false
     @Published var selectedLayout: JournalLayout?
 }
