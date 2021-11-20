@@ -61,5 +61,5 @@ let calendar = Calendar.current
 
 let x = Date(timeIntervalSince1970: 1634598000)
 
-Date.init(timeIntervalSinceNow: -86400)
+Calendar.current.dateComponents([.day], from: Date().addingTimeInterval(-86400 * 44), to: Date()).day
 
