@@ -1,0 +1,20 @@
+PODS:
+  - KAProgressLabel (3.3.3)
+  - TextAttributes (2.0.2)
+
+DEPENDENCIES:
+  - KAProgressLabel
+  - TextAttributes
+
+SPEC REPOS:
+  trunk:
+    - KAProgressLabel
+    - TextAttributes
+
+SPEC CHECKSUMS:
+  KAProgressLabel: e487587ef405451677dcf660c946edc58bc4b41e
+  TextAttributes: 89905fb52c36de587010f335bd4071463d9c6d9b
+
+PODFILE CHECKSUM: 363e2113a4953e7a43fbb05490919c859f0d59b6
+
+COCOAPODS: 1.10.2

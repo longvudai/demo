@@ -10,5 +10,6 @@
         <page name='ParallaxScrollView'/>
         <page name='HabitStrength'/>
         <page name='SlideButton'/>
+        <page name='CustomShape'/>
     </pages>
 </playground>

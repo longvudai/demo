@@ -1,0 +1,829 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 52;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0966588D9F2A0A857BBD0DC5888B7BB7 /* TPPropertyAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = A79EF28638DBB0401594B98BD82B4B80 /* TPPropertyAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E7BD436BC9520AFCBF5B64C34160D72 /* NSMutableAttributedString+TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F60FBB9387EA0AADE4306415D0C2CD /* NSMutableAttributedString+TextAttributes.swift */; };
+		110A8E0D8DCF9E7C5A083E16C3AB4766 /* KAProgressLabel-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3934F5C3321C0E8826C826A5680ADE2A /* KAProgressLabel-dummy.m */; };
+		22EAF9B53160F3B582BE38CDBAA8A083 /* NSRange+TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAD1623423F0367A886C08600FBBE1F /* NSRange+TextAttributes.swift */; };
+		4B61254EC3596D99F6782A9CBCB4EEF1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		5AAC4EFD3D46F0590580ED8B47DD9030 /* KAProgressLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DA231453E409D29D3536ABB606E8914 /* KAProgressLabel.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		65B40F4C44ECBE26F7D67F654B614C50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		65C6973E204A75E56F4B4E20B90C69FE /* KAProgressLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2FB9562B94A6EE2505898817101AD83D /* KAProgressLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		6F2D46C701EA376BB276733F18555425 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */; };
+		846D9F5D9DA00237EDC81A29900C0B5A /* Pods-Cycle12Grocery-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B98167F069F9DC50C14930971EC7D96B /* Pods-Cycle12Grocery-dummy.m */; };
+		9D5FE96FB4805DC474F91F7B852EC1AC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BDEDC3ACC51986FDB8AB5EC20577A6 /* Utilities.swift */; };
+		9E80F49A27621195695006D205FE0A0B /* KAProgressLabel-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BCE99802E4F0FBB06E00FAA131441F93 /* KAProgressLabel-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9EC62669C4ACD3695A47A2F203823615 /* Pods-Cycle12Grocery-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6610B4B2849C7C433FEAF76E1066166 /* Pods-Cycle12Grocery-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A3D7CFE83472C704DD6F2E406B8452AC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */; };
+		ABA0F555033A0EB616E6260C0C47A23E /* TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 352092EFEFCF6B9B5ACE47A5F296C305 /* TextAttributes.swift */; };
+		AC5E5388E5F4DDDFB9D2C732A088A743 /* NSMutableParagraphStyle+TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = FD0C348C2F979028DCD7A4000CE55E7C /* NSMutableParagraphStyle+TextAttributes.swift */; };
+		B39EF0020FEB6EDE3609E9F17089E7A2 /* NSAttributedString+TextAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9AAEE83CA3B594F787EE221B52DE8D9 /* NSAttributedString+TextAttributes.swift */; };
+		B79694E325E51CB65AD75209F91D04A3 /* TextAttributes-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BCF1A758C32A944AC060EC32BC48E086 /* TextAttributes-dummy.m */; };
+		CE2B4BD75E34CA55012A486E62F6402B /* TextAttributes.h in Headers */ = {isa = PBXBuildFile; fileRef = E3E3FDA669AA6414387D3DA7C18773BC /* TextAttributes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D30F8A44C5077D70C9E98D17FEED4995 /* TextAttributes-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 22FC3D11AFCACCD90752DE212ED1A48C /* TextAttributes-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F82352192B544BAA5E34DBE68958241E /* TPPropertyAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F0AB45176CEF12B9CCB14A6DE5A252B4 /* TPPropertyAnimation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		55830B9D96488525435AAAD2F5E23754 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 83F6E85A94E5C2D82DD553A3D375ED9A;
+			remoteInfo = KAProgressLabel;
+		};
+		A6FF57F94AA83360221D7A214A969E80 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 586E3A4B9F12FC7EF62ACC9DE48E9D72;
+			remoteInfo = TextAttributes;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1E030E436685B908CC67B64272BB7E7A /* KAProgressLabel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KAProgressLabel.debug.xcconfig; sourceTree = "<group>"; };
+		1EBA9575493167068EFE9DC478D5653D /* KAProgressLabel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = KAProgressLabel.release.xcconfig; sourceTree = "<group>"; };
+		2264FE143EE9EEBFBF589B7D38F195AF /* Pods-Cycle12Grocery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cycle12Grocery.debug.xcconfig"; sourceTree = "<group>"; };
+		22FC3D11AFCACCD90752DE212ED1A48C /* TextAttributes-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextAttributes-umbrella.h"; sourceTree = "<group>"; };
+		2C1AC25427EB9C2B9256FB7289695F4D /* Pods-Cycle12Grocery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Cycle12Grocery.release.xcconfig"; sourceTree = "<group>"; };
+		2FB9562B94A6EE2505898817101AD83D /* KAProgressLabel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = KAProgressLabel.h; path = KAProgressLabel/KAProgressLabel.h; sourceTree = "<group>"; };
+		2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		30D1E2E77DA2F8B964B5CB39ED703008 /* Pods_Cycle12Grocery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Cycle12Grocery.framework; path = "Pods-Cycle12Grocery.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		318906117585EE2E38D9E9594D683322 /* KAProgressLabel-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KAProgressLabel-prefix.pch"; sourceTree = "<group>"; };
+		31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		32109B1140FC9AC0FDD30B0C63D55165 /* TextAttributes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextAttributes.debug.xcconfig; sourceTree = "<group>"; };
+		352092EFEFCF6B9B5ACE47A5F296C305 /* TextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TextAttributes.swift; path = Source/TextAttributes.swift; sourceTree = "<group>"; };
+		3934F5C3321C0E8826C826A5680ADE2A /* KAProgressLabel-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "KAProgressLabel-dummy.m"; sourceTree = "<group>"; };
+		4DA231453E409D29D3536ABB606E8914 /* KAProgressLabel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = KAProgressLabel.m; path = KAProgressLabel/KAProgressLabel.m; sourceTree = "<group>"; };
+		53F60FBB9387EA0AADE4306415D0C2CD /* NSMutableAttributedString+TextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSMutableAttributedString+TextAttributes.swift"; path = "Source/Extensions/NSMutableAttributedString+TextAttributes.swift"; sourceTree = "<group>"; };
+		5CAB83E60AD6018DBE53068AAF67BAC5 /* TextAttributes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = TextAttributes.framework; path = TextAttributes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FD021AA628D2853724FCA26FA238377 /* KAProgressLabel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = KAProgressLabel.framework; path = KAProgressLabel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		63BDEDC3ACC51986FDB8AB5EC20577A6 /* Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Utilities.swift; path = "Source/Supporting Files/Utilities.swift"; sourceTree = "<group>"; };
+		6D6B51C6733272AB0176AD99E861C4BA /* KAProgressLabel-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "KAProgressLabel-Info.plist"; sourceTree = "<group>"; };
+		7EAD1623423F0367A886C08600FBBE1F /* NSRange+TextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSRange+TextAttributes.swift"; path = "Source/Extensions/NSRange+TextAttributes.swift"; sourceTree = "<group>"; };
+		858D073F74D14C8959264531A78B3257 /* TextAttributes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = TextAttributes.release.xcconfig; sourceTree = "<group>"; };
+		9ADD46699F33F166D6B6324C0E075571 /* KAProgressLabel.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = KAProgressLabel.modulemap; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A79EF28638DBB0401594B98BD82B4B80 /* TPPropertyAnimation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TPPropertyAnimation.h; path = KAProgressLabel/TPPropertyAnimation.h; sourceTree = "<group>"; };
+		B98167F069F9DC50C14930971EC7D96B /* Pods-Cycle12Grocery-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Cycle12Grocery-dummy.m"; sourceTree = "<group>"; };
+		B9AAEE83CA3B594F787EE221B52DE8D9 /* NSAttributedString+TextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSAttributedString+TextAttributes.swift"; path = "Source/Extensions/NSAttributedString+TextAttributes.swift"; sourceTree = "<group>"; };
+		BC79AC9E547A0C3AA92AC599EFE67755 /* Pods-Cycle12Grocery-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Cycle12Grocery-acknowledgements.markdown"; sourceTree = "<group>"; };
+		BCE99802E4F0FBB06E00FAA131441F93 /* KAProgressLabel-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "KAProgressLabel-umbrella.h"; sourceTree = "<group>"; };
+		BCF1A758C32A944AC060EC32BC48E086 /* TextAttributes-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "TextAttributes-dummy.m"; sourceTree = "<group>"; };
+		C6610B4B2849C7C433FEAF76E1066166 /* Pods-Cycle12Grocery-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Cycle12Grocery-umbrella.h"; sourceTree = "<group>"; };
+		D4D21D77619149026114944AED39851A /* TextAttributes.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = TextAttributes.modulemap; sourceTree = "<group>"; };
+		DA68168CFB21F7B07071DFDFB05E59A0 /* Pods-Cycle12Grocery.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Cycle12Grocery.modulemap"; sourceTree = "<group>"; };
+		DDB9313E4783C9F460907AF0DFF9D996 /* TextAttributes-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "TextAttributes-prefix.pch"; sourceTree = "<group>"; };
+		E3E3FDA669AA6414387D3DA7C18773BC /* TextAttributes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = TextAttributes.h; path = "Source/Supporting Files/TextAttributes.h"; sourceTree = "<group>"; };
+		EB3FBED335D64DEE5184912B0532833E /* Pods-Cycle12Grocery-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Cycle12Grocery-frameworks.sh"; sourceTree = "<group>"; };
+		F023F12776F588100833B1B2461F1E4F /* Pods-Cycle12Grocery-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cycle12Grocery-Info.plist"; sourceTree = "<group>"; };
+		F0AB45176CEF12B9CCB14A6DE5A252B4 /* TPPropertyAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = TPPropertyAnimation.m; path = KAProgressLabel/TPPropertyAnimation.m; sourceTree = "<group>"; };
+		F5003B9E49E5B1FD7C8AFA4D46A96F97 /* TextAttributes-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "TextAttributes-Info.plist"; sourceTree = "<group>"; };
+		FD0C348C2F979028DCD7A4000CE55E7C /* NSMutableParagraphStyle+TextAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "NSMutableParagraphStyle+TextAttributes.swift"; path = "Source/Extensions/NSMutableParagraphStyle+TextAttributes.swift"; sourceTree = "<group>"; };
+		FF7ABC43582E0D24502752A3AE255985 /* Pods-Cycle12Grocery-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Cycle12Grocery-acknowledgements.plist"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		274497B201A2709972EDE03F58F746D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65B40F4C44ECBE26F7D67F654B614C50 /* Foundation.framework in Frameworks */,
+				A3D7CFE83472C704DD6F2E406B8452AC /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		90F719DD35EF00EF88A6ADBFA71003EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F2D46C701EA376BB276733F18555425 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4C13DECECA35C179EC704C4ECF408DF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B61254EC3596D99F6782A9CBCB4EEF1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0AA74784ECBBAC2416285D09D9544298 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7B781F6D9A38357DCF52C873D3BEB45B /* Pods-Cycle12Grocery */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		0DFA6723B5BF456F9F027EA328E5D65B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D4D21D77619149026114944AED39851A /* TextAttributes.modulemap */,
+				BCF1A758C32A944AC060EC32BC48E086 /* TextAttributes-dummy.m */,
+				F5003B9E49E5B1FD7C8AFA4D46A96F97 /* TextAttributes-Info.plist */,
+				DDB9313E4783C9F460907AF0DFF9D996 /* TextAttributes-prefix.pch */,
+				22FC3D11AFCACCD90752DE212ED1A48C /* TextAttributes-umbrella.h */,
+				32109B1140FC9AC0FDD30B0C63D55165 /* TextAttributes.debug.xcconfig */,
+				858D073F74D14C8959264531A78B3257 /* TextAttributes.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/TextAttributes";
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D325A42620E7427FB70FB046C7B7B240 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		188C3CBD977F490901165659D260935F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				86E2035E6517B9F47F8AF888D53C7008 /* KAProgressLabel */,
+				206E80B7A2D56F8BDE13B32B3A41C7CE /* TextAttributes */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		206E80B7A2D56F8BDE13B32B3A41C7CE /* TextAttributes */ = {
+			isa = PBXGroup;
+			children = (
+				B9AAEE83CA3B594F787EE221B52DE8D9 /* NSAttributedString+TextAttributes.swift */,
+				53F60FBB9387EA0AADE4306415D0C2CD /* NSMutableAttributedString+TextAttributes.swift */,
+				FD0C348C2F979028DCD7A4000CE55E7C /* NSMutableParagraphStyle+TextAttributes.swift */,
+				7EAD1623423F0367A886C08600FBBE1F /* NSRange+TextAttributes.swift */,
+				E3E3FDA669AA6414387D3DA7C18773BC /* TextAttributes.h */,
+				352092EFEFCF6B9B5ACE47A5F296C305 /* TextAttributes.swift */,
+				63BDEDC3ACC51986FDB8AB5EC20577A6 /* Utilities.swift */,
+				0DFA6723B5BF456F9F027EA328E5D65B /* Support Files */,
+			);
+			name = TextAttributes;
+			path = TextAttributes;
+			sourceTree = "<group>";
+		};
+		352D27140F7B513F5C35A4451193BF9D /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				9ADD46699F33F166D6B6324C0E075571 /* KAProgressLabel.modulemap */,
+				3934F5C3321C0E8826C826A5680ADE2A /* KAProgressLabel-dummy.m */,
+				6D6B51C6733272AB0176AD99E861C4BA /* KAProgressLabel-Info.plist */,
+				318906117585EE2E38D9E9594D683322 /* KAProgressLabel-prefix.pch */,
+				BCE99802E4F0FBB06E00FAA131441F93 /* KAProgressLabel-umbrella.h */,
+				1E030E436685B908CC67B64272BB7E7A /* KAProgressLabel.debug.xcconfig */,
+				1EBA9575493167068EFE9DC478D5653D /* KAProgressLabel.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/KAProgressLabel";
+			sourceTree = "<group>";
+		};
+		67248525CA2717977E4D5F0D0163838A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD021AA628D2853724FCA26FA238377 /* KAProgressLabel.framework */,
+				30D1E2E77DA2F8B964B5CB39ED703008 /* Pods_Cycle12Grocery.framework */,
+				5CAB83E60AD6018DBE53068AAF67BAC5 /* TextAttributes.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B781F6D9A38357DCF52C873D3BEB45B /* Pods-Cycle12Grocery */ = {
+			isa = PBXGroup;
+			children = (
+				DA68168CFB21F7B07071DFDFB05E59A0 /* Pods-Cycle12Grocery.modulemap */,
+				BC79AC9E547A0C3AA92AC599EFE67755 /* Pods-Cycle12Grocery-acknowledgements.markdown */,
+				FF7ABC43582E0D24502752A3AE255985 /* Pods-Cycle12Grocery-acknowledgements.plist */,
+				B98167F069F9DC50C14930971EC7D96B /* Pods-Cycle12Grocery-dummy.m */,
+				EB3FBED335D64DEE5184912B0532833E /* Pods-Cycle12Grocery-frameworks.sh */,
+				F023F12776F588100833B1B2461F1E4F /* Pods-Cycle12Grocery-Info.plist */,
+				C6610B4B2849C7C433FEAF76E1066166 /* Pods-Cycle12Grocery-umbrella.h */,
+				2264FE143EE9EEBFBF589B7D38F195AF /* Pods-Cycle12Grocery.debug.xcconfig */,
+				2C1AC25427EB9C2B9256FB7289695F4D /* Pods-Cycle12Grocery.release.xcconfig */,
+			);
+			name = "Pods-Cycle12Grocery";
+			path = "Target Support Files/Pods-Cycle12Grocery";
+			sourceTree = "<group>";
+		};
+		86E2035E6517B9F47F8AF888D53C7008 /* KAProgressLabel */ = {
+			isa = PBXGroup;
+			children = (
+				2FB9562B94A6EE2505898817101AD83D /* KAProgressLabel.h */,
+				4DA231453E409D29D3536ABB606E8914 /* KAProgressLabel.m */,
+				A79EF28638DBB0401594B98BD82B4B80 /* TPPropertyAnimation.h */,
+				F0AB45176CEF12B9CCB14A6DE5A252B4 /* TPPropertyAnimation.m */,
+				352D27140F7B513F5C35A4451193BF9D /* Support Files */,
+			);
+			name = KAProgressLabel;
+			path = KAProgressLabel;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				188C3CBD977F490901165659D260935F /* Pods */,
+				67248525CA2717977E4D5F0D0163838A /* Products */,
+				0AA74784ECBBAC2416285D09D9544298 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D325A42620E7427FB70FB046C7B7B240 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				31FE7C6ECA71C614A5A667C679B23874 /* Foundation.framework */,
+				2FEFE490E4A06D19E868B2B9014BB8BF /* QuartzCore.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		14D6852994521E8BD3370CF4D7EBD0D1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9EC62669C4ACD3695A47A2F203823615 /* Pods-Cycle12Grocery-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19D9332F136C585D4B4C57E754794E9A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D30F8A44C5077D70C9E98D17FEED4995 /* TextAttributes-umbrella.h in Headers */,
+				CE2B4BD75E34CA55012A486E62F6402B /* TextAttributes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ACDD9AA9148DB071C275D378683532C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E80F49A27621195695006D205FE0A0B /* KAProgressLabel-umbrella.h in Headers */,
+				65C6973E204A75E56F4B4E20B90C69FE /* KAProgressLabel.h in Headers */,
+				0966588D9F2A0A857BBD0DC5888B7BB7 /* TPPropertyAnimation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		586E3A4B9F12FC7EF62ACC9DE48E9D72 /* TextAttributes */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B7AB91BBF4772B99E1DC7A7744A07975 /* Build configuration list for PBXNativeTarget "TextAttributes" */;
+			buildPhases = (
+				19D9332F136C585D4B4C57E754794E9A /* Headers */,
+				35F5DB1B9CE634CB7595F8ED792DACD6 /* Sources */,
+				F4C13DECECA35C179EC704C4ECF408DF /* Frameworks */,
+				9E8C6DE26BCD719DBFEECB1D45A7DF70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TextAttributes;
+			productName = TextAttributes;
+			productReference = 5CAB83E60AD6018DBE53068AAF67BAC5 /* TextAttributes.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		83F6E85A94E5C2D82DD553A3D375ED9A /* KAProgressLabel */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 69DECE419CB4349068C03FD0AC237B99 /* Build configuration list for PBXNativeTarget "KAProgressLabel" */;
+			buildPhases = (
+				5ACDD9AA9148DB071C275D378683532C /* Headers */,
+				2F134EC9DE9E7EE7C487AA3FEE7127B8 /* Sources */,
+				274497B201A2709972EDE03F58F746D7 /* Frameworks */,
+				D77E68A1B545032275D02D1F9A735A5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KAProgressLabel;
+			productName = KAProgressLabel;
+			productReference = 5FD021AA628D2853724FCA26FA238377 /* KAProgressLabel.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		E8ACA7FF63A5C00785ADCF782DAF0707 /* Pods-Cycle12Grocery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 808E750425CD152940733F00F5327FDF /* Build configuration list for PBXNativeTarget "Pods-Cycle12Grocery" */;
+			buildPhases = (
+				14D6852994521E8BD3370CF4D7EBD0D1 /* Headers */,
+				0797CD72ED62F25576B167BAA3F75F58 /* Sources */,
+				90F719DD35EF00EF88A6ADBFA71003EB /* Frameworks */,
+				978016BB4C08BC3D4FD329F2EA811124 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5E0D750577D0EE994CA22A0AA9C95134 /* PBXTargetDependency */,
+				5F607613E5DA18458F794BFFD81F8D97 /* PBXTargetDependency */,
+			);
+			name = "Pods-Cycle12Grocery";
+			productName = "Pods-Cycle12Grocery";
+			productReference = 30D1E2E77DA2F8B964B5CB39ED703008 /* Pods_Cycle12Grocery.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 11.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 67248525CA2717977E4D5F0D0163838A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				83F6E85A94E5C2D82DD553A3D375ED9A /* KAProgressLabel */,
+				E8ACA7FF63A5C00785ADCF782DAF0707 /* Pods-Cycle12Grocery */,
+				586E3A4B9F12FC7EF62ACC9DE48E9D72 /* TextAttributes */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		978016BB4C08BC3D4FD329F2EA811124 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9E8C6DE26BCD719DBFEECB1D45A7DF70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D77E68A1B545032275D02D1F9A735A5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0797CD72ED62F25576B167BAA3F75F58 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846D9F5D9DA00237EDC81A29900C0B5A /* Pods-Cycle12Grocery-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2F134EC9DE9E7EE7C487AA3FEE7127B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				110A8E0D8DCF9E7C5A083E16C3AB4766 /* KAProgressLabel-dummy.m in Sources */,
+				5AAC4EFD3D46F0590580ED8B47DD9030 /* KAProgressLabel.m in Sources */,
+				F82352192B544BAA5E34DBE68958241E /* TPPropertyAnimation.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		35F5DB1B9CE634CB7595F8ED792DACD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B39EF0020FEB6EDE3609E9F17089E7A2 /* NSAttributedString+TextAttributes.swift in Sources */,
+				0E7BD436BC9520AFCBF5B64C34160D72 /* NSMutableAttributedString+TextAttributes.swift in Sources */,
+				AC5E5388E5F4DDDFB9D2C732A088A743 /* NSMutableParagraphStyle+TextAttributes.swift in Sources */,
+				22EAF9B53160F3B582BE38CDBAA8A083 /* NSRange+TextAttributes.swift in Sources */,
+				B79694E325E51CB65AD75209F91D04A3 /* TextAttributes-dummy.m in Sources */,
+				ABA0F555033A0EB616E6260C0C47A23E /* TextAttributes.swift in Sources */,
+				9D5FE96FB4805DC474F91F7B852EC1AC /* Utilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5E0D750577D0EE994CA22A0AA9C95134 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = KAProgressLabel;
+			target = 83F6E85A94E5C2D82DD553A3D375ED9A /* KAProgressLabel */;
+			targetProxy = 55830B9D96488525435AAAD2F5E23754 /* PBXContainerItemProxy */;
+		};
+		5F607613E5DA18458F794BFFD81F8D97 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TextAttributes;
+			target = 586E3A4B9F12FC7EF62ACC9DE48E9D72 /* TextAttributes */;
+			targetProxy = A6FF57F94AA83360221D7A214A969E80 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		11C3AA9A40960C31EB2ED314BD95D105 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EBA9575493167068EFE9DC478D5653D /* KAProgressLabel.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KAProgressLabel/KAProgressLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KAProgressLabel/KAProgressLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KAProgressLabel/KAProgressLabel.modulemap";
+				PRODUCT_MODULE_NAME = KAProgressLabel;
+				PRODUCT_NAME = KAProgressLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		228989602E7CDC0522C9CA459F6C0CFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 858D073F74D14C8959264531A78B3257 /* TextAttributes.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TextAttributes/TextAttributes-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TextAttributes/TextAttributes-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TextAttributes/TextAttributes.modulemap";
+				PRODUCT_MODULE_NAME = TextAttributes;
+				PRODUCT_NAME = TextAttributes;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		6B5016B3F328574915D93671B19F4C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C1AC25427EB9C2B9256FB7289695F4D /* Pods-Cycle12Grocery.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		8B7AB4082B2A65C8DB1F8AAA2B003E04 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2264FE143EE9EEBFBF589B7D38F195AF /* Pods-Cycle12Grocery.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Cycle12Grocery/Pods-Cycle12Grocery.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8D59DC75C2BE94974CC647CECFFB2C10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1E030E436685B908CC67B64272BB7E7A /* KAProgressLabel.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/KAProgressLabel/KAProgressLabel-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/KAProgressLabel/KAProgressLabel-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/KAProgressLabel/KAProgressLabel.modulemap";
+				PRODUCT_MODULE_NAME = KAProgressLabel;
+				PRODUCT_NAME = KAProgressLabel;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		8DE5143C03248BB6CD542DE3963D6F3A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		EFC0B132C09A303315AB5AD5EF9E7F72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 32109B1140FC9AC0FDD30B0C63D55165 /* TextAttributes.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/TextAttributes/TextAttributes-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/TextAttributes/TextAttributes-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/TextAttributes/TextAttributes.modulemap";
+				PRODUCT_MODULE_NAME = TextAttributes;
+				PRODUCT_NAME = TextAttributes;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DE5143C03248BB6CD542DE3963D6F3A /* Debug */,
+				9E406C6AAF85E580207CD97B0044DEAB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		69DECE419CB4349068C03FD0AC237B99 /* Build configuration list for PBXNativeTarget "KAProgressLabel" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8D59DC75C2BE94974CC647CECFFB2C10 /* Debug */,
+				11C3AA9A40960C31EB2ED314BD95D105 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		808E750425CD152940733F00F5327FDF /* Build configuration list for PBXNativeTarget "Pods-Cycle12Grocery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7AB4082B2A65C8DB1F8AAA2B003E04 /* Debug */,
+				6B5016B3F328574915D93671B19F4C4F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B7AB91BBF4772B99E1DC7A7744A07975 /* Build configuration list for PBXNativeTarget "TextAttributes" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFC0B132C09A303315AB5AD5EF9E7F72 /* Debug */,
+				228989602E7CDC0522C9CA459F6C0CFA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}
