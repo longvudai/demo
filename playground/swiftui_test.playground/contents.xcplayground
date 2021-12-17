@@ -8,6 +8,7 @@
         <page name='ChallgengeDurationPicker'/>
         <page name='PickerView'/>
         <page name='ParallaxScrollView'/>
-        <page name='AttributedText'/>
+        <page name='HabitStrength'/>
+        <page name='SlideButton'/>
     </pages>
 </playground>
