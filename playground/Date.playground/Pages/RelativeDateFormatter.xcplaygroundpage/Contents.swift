@@ -31,3 +31,16 @@ stringFromDate(date: date2)
 
 
 //: [Next](@next)
+
+func relativeString(from date: Date) -> String {
+    let formatter = RelativeDateTimeFormatter()
+    formatter.unitsStyle = .short
+    let relativeDateString = formatter.localizedString(for: date, relativeTo: Date())
+    return relativeDateString
+}
+
+relativeString(from: Date())
+relativeString(from: Date().addingTimeInterval(60 * -15))
+relativeString(from: Date().addingTimeInterval(-6 * 86400))
+
+relativeString(from: Date().addingTimeInterval(50 * 86400))
