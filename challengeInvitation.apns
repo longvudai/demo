@@ -1,0 +1,18 @@
+{
+  "aps": {
+    "alert": {
+      "title": "Invitation",
+      "subtitle": "Five Card Draw",
+      "body": "Bob wants to play poker"
+    },
+    "category": "remote.notification.inviteJoinChallenge"
+  },
+  "Simulator Target Bundle": "co.vuvo.habitify",
+  "challengeId": "eryLmZKuQGRnja1gfnfO",
+  "challengeName": "this challenge name",
+  "inboxId": "T51kM7Cf6UQeAcRi4Phi",
+  "image": "https://vnn-imgs-f.vgcloud.vn/2018/10/10/09/nguyen-tu-quang.jpg",
+  "firstName": "Quang",
+  "lastName": "Tu",
+  "userId": "443lQbLOTqRHOUr7AY40kAK3ZY83"
+}

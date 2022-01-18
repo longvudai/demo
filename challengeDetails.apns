@@ -1,0 +1,15 @@
+{
+  "aps": {
+    "alert": {
+      "title": "Game Request",
+      "subtitle": "Five Card Draw",
+      "body": "Bob wants to play poker"
+    },
+    "category": "remote.notification.inviteJoinAccepted"
+  },
+  "Simulator Target Bundle": "co.vuvo.habitify",
+  "challengeId": "T51kM7Cf6UQeAcRi4Phi",
+  "challengeName": "this challenge name",
+  "inboxId": "T51kM7Cf6UQeAcRi4Phi",
+  "link": "https://sso.habitify.club/challenge?challengeId=T51kM7Cf6UQeAcRi4Phi"
+}
