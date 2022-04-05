@@ -18,7 +18,6 @@ class MyViewController : UIViewController {
         
         imageView.frame.origin = CGPoint(x: 0, y: 0)
         
-        view.insert
 //        view.addSubview(imageView)
         self.view = view
     }
