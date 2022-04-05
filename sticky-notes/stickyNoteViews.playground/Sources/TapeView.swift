@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-public enum TapeStyle {
+public enum TapePosition {
     case left
     case top
     case right
@@ -10,16 +10,16 @@ public enum TapeStyle {
 }
 
 public struct TapeView: View {
-    private var tapeStyle: TapeStyle
+    private var position: TapePosition
     private var tapeColor = Color.green.opacity(0.2)
     
-    public init(tapeStyle: TapeStyle, tapeColor: Color) {
-        self.tapeStyle = tapeStyle
-        self.tapeColor = tapeColor
+    public init(position: TapePosition, color: Color) {
+        self.position = position
+        self.tapeColor = color
     }
     
     private var tapeHeight: CGFloat {
-        switch tapeStyle {
+        switch position {
         case .top:
             return 29
         default:
@@ -34,7 +34,7 @@ public struct TapeView: View {
             let degrees: CGFloat = 45
             
             ZStack {
-                switch tapeStyle {
+                switch position {
                 case .top:
                     HStack {
                         tapeView

@@ -6,17 +6,17 @@ PlaygroundPage.current.needsIndefiniteExecution = true
 
 struct ContentView: View {
     var backgroundType: StickyNoteBackgroundType
-    var tapeStyle: TapeStyle
+    var tapePosition: TapePosition
     var angle: Angle
     
     var body: some View {
-        StickyNoteView(backgroundType: backgroundType, tapeStyle: tapeStyle, angle: angle)
+        StickyNoteView(backgroundType: backgroundType, tapePosition: tapePosition, angle: angle)
     }
 }
 
 struct StickyNoteView: View {
     var backgroundType: StickyNoteBackgroundType
-    var tapeStyle: TapeStyle
+    var tapePosition: TapePosition
     var angle: Angle
     
     private var backgroundColor: Color = Color(red: 0.95, green: 1.00, blue: 1.00)
@@ -27,14 +27,14 @@ struct StickyNoteView: View {
     var font: UIFont = UIFont.systemFont(ofSize: 17)
     var lineSpacing: CGFloat = 3
     
-    init(backgroundType: StickyNoteBackgroundType, tapeStyle: TapeStyle, angle: Angle = .degrees(0)) {
+    init(backgroundType: StickyNoteBackgroundType, tapePosition: TapePosition, angle: Angle = .degrees(0)) {
         self.backgroundType = backgroundType
-        self.tapeStyle = tapeStyle
+        self.tapePosition = tapePosition
         self.angle = angle
     }
     
     private var tapeHeight: CGFloat {
-        switch tapeStyle {
+        switch tapePosition {
         case .top:
             return rectMinWidth
         default:
@@ -43,7 +43,7 @@ struct StickyNoteView: View {
     }
     
     private var topInsetNote: CGFloat {
-        switch tapeStyle {
+        switch tapePosition {
         case .top:
             return tapeHeight / 2
             
@@ -53,7 +53,7 @@ struct StickyNoteView: View {
     }
     
     private var textInset: EdgeInsets {
-        switch tapeStyle {
+        switch tapePosition {
         case .top:
             return EdgeInsets(top: tapeHeight / 2 + 12, leading: 12, bottom: 12, trailing: 12)
             
@@ -87,10 +87,10 @@ struct StickyNoteView: View {
             .padding(.bottom, textInset.bottom)
             .padding(.horizontal, textInset.leading)
             
-            TapeView(tapeStyle: tapeStyle, tapeColor: tapeColor)
+            TapeView(position: tapePosition, color: tapeColor)
         }
         .rotationEffect(angle)
-        .padding(30)
+        .padding(16)
     }
 }
 
@@ -98,25 +98,25 @@ let width: CGFloat = 250
 PlaygroundPage.current.setLiveView(
     Group {
         HStack {
-            ContentView(backgroundType: .smoothLine, tapeStyle: .top, angle: .degrees(0))
+            ContentView(backgroundType: .smoothLine, tapePosition: .top, angle: .degrees(0))
                 .frame(width: width, height: 300)
             
-            ContentView(backgroundType: .caro, tapeStyle: .top, angle: .degrees(0))
+            ContentView(backgroundType: .caro, tapePosition: .top, angle: .degrees(0))
                 .frame(width: width, height: 300)
         }
         
         HStack {
-            ContentView(backgroundType: .smoothLine, tapeStyle: .leftBottomRightTop, angle: .degrees(0))
+            ContentView(backgroundType: .smoothLine, tapePosition: .leftBottomRightTop, angle: .degrees(0))
                 .frame(width: width, height: 300)
             
-            ContentView(backgroundType: .caro, tapeStyle: .leftTopRightBottom, angle: .degrees(0))
+            ContentView(backgroundType: .caro, tapePosition: .leftTopRightBottom, angle: .degrees(0))
                 .frame(width: width, height: 300)
         }
 
-//        ContentView(tapeStyle: .left, angle: .degrees(15))
+//        ContentView(tapePosition: .left, angle: .degrees(15))
 //            .frame(width: 300, height: 300)
 //
-//        ContentView(tapeStyle: .right, angle: .degrees(-13))
+//        ContentView(tapePosition: .right, angle: .degrees(-13))
 //            .frame(width: 300, height: 300)
     }
         .background(Color(red: 1.00, green: 0.93, blue: 0.52))
