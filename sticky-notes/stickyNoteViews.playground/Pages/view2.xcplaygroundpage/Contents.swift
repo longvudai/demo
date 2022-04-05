@@ -21,81 +21,21 @@ struct ContentView: View {
     }
 }
 
-struct StickyNoteView: View {
+struct TapeView: View {
     var tapeStyle: TapeStyle
-    var angle: Angle
-    
-    private var backgroundColor: Color = Color(red: 0.95, green: 1.00, blue: 1.00)
-    private let strokeColor = Color(red: 0.91, green: 0.96, blue: 0.99)
-    private let tapeColor = Color.green.opacity(0.2)
-    private let lineWidth: CGFloat = 4
-    private let rectMinWidth: CGFloat = 29
-    
-    init(tapeStyle: TapeStyle, angle: Angle = .degrees(0)) {
-        self.tapeStyle = tapeStyle
-        self.angle = angle
-    }
+    var tapeColor = Color.green.opacity(0.2)
     
     private var tapeHeight: CGFloat {
         switch tapeStyle {
         case .top:
-            return rectMinWidth
+            return 29
         default:
             return 20 * 1.5
         }
     }
     
-    private var topInsetNote: CGFloat {
-        switch tapeStyle {
-        case .top:
-            return tapeHeight / 2
-            
-        case .left, .right, .leftTopRightBottom, .leftBottomRightTop:
-            return 0
-        }
-    }
-    
-    private var textInset: EdgeInsets {
-        switch tapeStyle {
-        case .top:
-            return EdgeInsets(top: tapeHeight, leading: 12, bottom: 12, trailing: 12)
-            
-        case .left, .right:
-            return EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
-            
-        default:
-            return EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
-        }
-    }
-    
     var body: some View {
-        ZStack {
-            VStack {
-                Spacer().frame(height: topInsetNote)
-                
-                noteView
-            }
-            
-            VStack {
-                textView
-            }
-            .padding(.top, textInset.top)
-            .padding(.bottom, textInset.bottom)
-            .padding(.horizontal, textInset.leading)
-            
-            tapeContainerView
-        }
-        .rotationEffect(angle)
-        .padding(30)
-    }
-    
-    private var tapeContainerView: some View {
-        var tapeView: some View {
-            Rectangle()
-                .fill(tapeColor)
-        }
-        
-        return GeometryReader { proxy -> ZStack in
+        GeometryReader { proxy -> ZStack in
             let tapeWidth = min(proxy.size.width / 2 - 30, 250)
             let offsetX: CGFloat = 30
             let degrees: CGFloat = 45
@@ -175,6 +115,80 @@ struct StickyNoteView: View {
                 }
             }
         }
+    }
+    
+    private var tapeView: some View {
+        Rectangle()
+            .fill(tapeColor)
+    }
+}
+
+struct StickyNoteView: View {
+    var tapeStyle: TapeStyle
+    var angle: Angle
+    
+    private var backgroundColor: Color = Color(red: 0.95, green: 1.00, blue: 1.00)
+    private let strokeColor = Color(red: 0.91, green: 0.96, blue: 0.99)
+    private let tapeColor = Color.green.opacity(0.2)
+    private let lineWidth: CGFloat = 4
+    private let rectMinWidth: CGFloat = 29
+    
+    init(tapeStyle: TapeStyle, angle: Angle = .degrees(0)) {
+        self.tapeStyle = tapeStyle
+        self.angle = angle
+    }
+    
+    private var tapeHeight: CGFloat {
+        switch tapeStyle {
+        case .top:
+            return rectMinWidth
+        default:
+            return 20 * 1.5
+        }
+    }
+    
+    private var topInsetNote: CGFloat {
+        switch tapeStyle {
+        case .top:
+            return tapeHeight / 2
+            
+        case .left, .right, .leftTopRightBottom, .leftBottomRightTop:
+            return 0
+        }
+    }
+    
+    private var textInset: EdgeInsets {
+        switch tapeStyle {
+        case .top:
+            return EdgeInsets(top: tapeHeight, leading: 12, bottom: 12, trailing: 12)
+            
+        case .left, .right:
+            return EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+            
+        default:
+            return EdgeInsets(top: 12, leading: 12, bottom: 12, trailing: 12)
+        }
+    }
+    
+    var body: some View {
+        ZStack {
+            VStack {
+                Spacer().frame(height: topInsetNote)
+                
+                noteView
+            }
+            
+            VStack {
+                textView
+            }
+            .padding(.top, textInset.top)
+            .padding(.bottom, textInset.bottom)
+            .padding(.horizontal, textInset.leading)
+            
+            TapeView(tapeStyle: tapeStyle, tapeColor: tapeColor)
+        }
+        .rotationEffect(angle)
+        .padding(30)
     }
     
     private var textView: some View {
