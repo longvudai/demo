@@ -34,12 +34,7 @@ struct StickyNoteView: View {
     }
     
     private var tapeHeight: CGFloat {
-        switch tapePosition {
-        case .top:
-            return rectMinWidth
-        default:
-            return 20 * 1.5
-        }
+        return 20
     }
     
     private var topInsetNote: CGFloat {
@@ -87,7 +82,7 @@ struct StickyNoteView: View {
             .padding(.bottom, textInset.bottom)
             .padding(.horizontal, textInset.leading)
             
-            TapeView(position: tapePosition, color: tapeColor)
+            TapeView(position: tapePosition, color: tapeColor, height: tapeHeight)
         }
         .rotationEffect(angle)
         .padding(16)

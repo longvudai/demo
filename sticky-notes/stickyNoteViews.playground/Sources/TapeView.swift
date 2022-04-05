@@ -12,24 +12,17 @@ public enum TapePosition {
 public struct TapeView: View {
     private var position: TapePosition
     private var tapeColor = Color.green.opacity(0.2)
+    private var tapeHeight: CGFloat
     
-    public init(position: TapePosition, color: Color) {
+    public init(position: TapePosition, color: Color, height: CGFloat) {
         self.position = position
         self.tapeColor = color
-    }
-    
-    private var tapeHeight: CGFloat {
-        switch position {
-        case .top:
-            return 29
-        default:
-            return 20 * 1.5
-        }
+        self.tapeHeight = height
     }
     
     public var body: some View {
         GeometryReader { proxy -> ZStack in
-            let tapeWidth = min(proxy.size.width / 2 - 30, 250)
+            let tapeWidth = min(proxy.size.width / 2 - 30, 50)
             let offsetX: CGFloat = tapeWidth / 2 - 12
             let degrees: CGFloat = 45
             
