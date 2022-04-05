@@ -123,6 +123,58 @@ struct TapeView: View {
     }
 }
 
+struct StickyNoteBackgroundView: View {
+    private var backgroundColor: Color = Color(red: 0.95, green: 1.00, blue: 1.00)
+    private let strokeColor = Color(red: 0.91, green: 0.96, blue: 0.99)
+    private let lineWidth: CGFloat = 4
+    private let rectMinWidth: CGFloat = 29
+    
+    var body: some View {
+        noteView
+    }
+    
+    private var noteView: some View {
+        ZStack {
+            Rectangle()
+                .fill(backgroundColor)
+                .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 8)
+        }
+        .overlay(gridView)
+    }
+    
+    private var gridView: some View {
+        GeometryReader { proxy in
+            Path { path in
+                let height = proxy.size.height
+                let width = proxy.size.width
+                
+                let expectedHorizontalCount = floor(width / (rectMinWidth + lineWidth))
+                let rectWidth = (width - 4 * expectedHorizontalCount - 2) / (expectedHorizontalCount + 1)
+                
+                Array<Int>(1...max(1,Int(expectedHorizontalCount) + 1)).forEach { n in
+                    let x = CGFloat(n) * rectWidth
+                    let start = CGPoint(x: x, y: 0)
+                    let end = CGPoint(x: x, y: height)
+                    path.move(to: start)
+                    path.addLine(to: end)
+                }
+                
+                Array<Int>(1...Int(floor(height / rectWidth))).forEach { n in
+                    let y = CGFloat(n) * rectWidth
+                    if (height - rectWidth <= y) {
+                        return
+                    }
+                    let start = CGPoint(x: 0, y: y)
+                    let end = CGPoint(x: width, y: y)
+                    path.move(to: start)
+                    path.addLine(to: end)
+                }
+            }
+            .stroke(strokeColor, lineWidth: lineWidth)
+        }
+    }
+}
+
 struct StickyNoteView: View {
     var tapeStyle: TapeStyle
     var angle: Angle
@@ -175,7 +227,7 @@ struct StickyNoteView: View {
             VStack {
                 Spacer().frame(height: topInsetNote)
                 
-                noteView
+                StickyNoteBackgroundView()
             }
             
             VStack {
@@ -193,47 +245,6 @@ struct StickyNoteView: View {
     
     private var textView: some View {
         Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
-    }
-    
-    private var noteView: some View {
-        ZStack {
-            Rectangle()
-                .fill(backgroundColor)
-                .shadow(color: Color.gray.opacity(0.4), radius: 5, x: 0, y: 8)
-        }
-        .overlay(gridView)
-    }
-    
-    private var gridView: some View {
-        GeometryReader { proxy in
-            Path { path in
-                let height = proxy.size.height
-                let width = proxy.size.width
-                
-                let expectedHorizontalCount = floor(width / (rectMinWidth + lineWidth))
-                let rectWidth = (width - 4 * expectedHorizontalCount - 2) / (expectedHorizontalCount + 1)
-                
-                Array<Int>(1...max(1,Int(expectedHorizontalCount) + 1)).forEach { n in
-                    let x = CGFloat(n) * rectWidth
-                    let start = CGPoint(x: x, y: 0)
-                    let end = CGPoint(x: x, y: height)
-                    path.move(to: start)
-                    path.addLine(to: end)
-                }
-                
-                Array<Int>(1...Int(floor(height / rectWidth))).forEach { n in
-                    let y = CGFloat(n) * rectWidth
-                    if (height - rectWidth <= y) {
-                        return
-                    }
-                    let start = CGPoint(x: 0, y: y)
-                    let end = CGPoint(x: width, y: y)
-                    path.move(to: start)
-                    path.addLine(to: end)
-                }
-            }
-            .stroke(strokeColor, lineWidth: lineWidth)
-        }
     }
 }
 
