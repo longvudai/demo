@@ -11,5 +11,9 @@
         <page name='HabitStrength'/>
         <page name='SlideButton'/>
         <page name='CustomShape'/>
+        <page name='ListExample'/>
+        <page name='Test'/>
+        <page name='TimerCountdownView'/>
+        <page name='NestedList'/>
     </pages>
 </playground>
