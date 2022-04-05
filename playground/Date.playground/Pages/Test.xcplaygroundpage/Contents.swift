@@ -52,11 +52,9 @@ extension Date {
 }
 
 let calendar = Calendar.current
-let startOfToday = calendar.startOfDay(for: Date())
-let interval = DateInterval(start: startOfToday, duration: 86_400)
 
-let a = calendar.startOfDay(for: interval.start)
-let b = calendar.startOfDay(for: interval.end)
-
-calendar.dateComponents([.day], from: a, to: b).day
-calendar.dateComponents([.day], from: interval.start, to: interval.end).day
+let date = Date()
+let startOfDay = calendar.startOfDay(for: date)
+let dateComponents = calendar.dateComponents([.hour, .minute], from: startOfDay.addingTimeInterval(-1))
+let hour = dateComponents.hour ?? 0
+let minute = dateComponents.minute ?? 0
