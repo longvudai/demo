@@ -93,7 +93,7 @@ let width: CGFloat = 250
 PlaygroundPage.current.setLiveView(
     Group {
         HStack {
-            ContentView(backgroundType: .smoothLine, tapePosition: .top, angle: .degrees(0))
+            ContentView(backgroundType: .smoothLine, tapePosition: .top, angle: .degrees(4))
                 .frame(width: width, height: 300)
             
             ContentView(backgroundType: .caro, tapePosition: .top, angle: .degrees(0))
