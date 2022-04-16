@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		841133BA280710A300CA6996 /* UITextView.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = UITextView.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		84496830280321020013B0B7 /* ExpandableTextView.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ExpandableTextView.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		845161902802BF86005C2ED7 /* ios_playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ios_playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		845161932802BF86005C2ED7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -44,6 +45,7 @@
 		845161872802BF86005C2ED7 = {
 			isa = PBXGroup;
 			children = (
+				841133BA280710A300CA6996 /* UITextView.playground */,
 				84496830280321020013B0B7 /* ExpandableTextView.playground */,
 				845161A72802BFBC005C2ED7 /* AttributedTextView.playground */,
 				845161922802BF86005C2ED7 /* ios_playground */,

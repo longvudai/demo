@@ -50,7 +50,7 @@ struct ExpandingTextView: View {
             height: $height,
             configuration: configuration
         )
-            .frame(height: max(height, minHeight))
+        .frame(width: 150, height: max(height, minHeight))
             .animation(.easeOut(duration: 0.1), value: height)
     }
 }
@@ -94,6 +94,7 @@ struct WrappedTextView: UIViewRepresentable {
         view.isEditable = true
         view.delegate = context.coordinator
         view.textContainerInset = .zero
+        view.textContainer.lineBreakMode = .byWordWrapping
         view.attributedText = NSAttributedString(string: text, attributes: attributes)
         return view
     }
