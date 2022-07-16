@@ -5,6 +5,16 @@
         <meta name="supported-color-schemes" content="light dark" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <!-- <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
+
+        From <input id="from" disabled /> – To <input id="to" disabled /> -->
+        <script>
+            document.onselectionchange = function () {
+                let selection = document.getSelection();
+
+                console.log(selection.toString());
+            };
+        </script>
     </head>
 
     <body class="selectionDisable">

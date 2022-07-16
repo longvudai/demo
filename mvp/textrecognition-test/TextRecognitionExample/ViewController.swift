@@ -80,7 +80,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 //        return v
 //    }()
 
-    private func processDataForWeb(_ textLines: [TextLine]) {
+    private func processDataForWeb(_ textBlocks: [TextBlock]) {
         func makeLineNodeInjectionScript(text: String, frame: CGRect) -> WKUserScript {
             let script = """
                 javascript:(function() {
@@ -108,9 +108,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             return
         }
 
-        let lineNodeInjectionScripts = textLines.map { line -> (String, CGRect) in
-            let transformedRect = line.frame.applying(transformMatrix())
-            return (line.text, transformedRect)
+        let lineNodeInjectionScripts = textBlocks
+//            .flatMap(\.lines)
+            .map { block -> (String, CGRect) in
+            let transformedRect = block.frame.applying(transformMatrix())
+            return (block.text, transformedRect)
         }
         .map { text, frame in
             makeLineNodeInjectionScript(text: text, frame: frame)
@@ -145,6 +147,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             uc.addUserScript(makeImageBase64InjectionScript(imageBase64))
             uc.addUserScript(.fromFile("style", type: "css"))
 
+            print("lineNodeInjectionScripts", lineNodeInjectionScripts)
             lineNodeInjectionScripts.forEach { script in
                 uc.addUserScript(script)
             }
@@ -162,6 +165,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             //
             //        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
             //        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
+            uc.add(self, name: "getSelection")
 
             let v = WKWebView(frame: .zero, configuration: config)
             v.scrollView.backgroundColor = .clear
@@ -241,6 +245,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     @IBAction func openPhotoLibrary(_: Any) {
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true)
+        webView?.removeFromSuperview()
     }
 
     @IBAction func openCamera(_: Any) {
@@ -360,6 +365,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                 return
             }
 
+            var i = 0
             // Blocks.
             for block in text.blocks {
                 let transformedRect = block.frame.applying(strongSelf.transformMatrix())
@@ -368,6 +374,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                     to: strongSelf.annotationOverlayView,
                     color: UIColor.purple
                 )
+               
+                if (i == 0) {
+                    print("=> block", transformedRect)
+                }
 
                 // Lines.
                 for line in block.lines {
@@ -378,7 +388,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                         color: UIColor.orange
                     )
 
-                    print("transformedRect", transformedRect)
+                    if (i == 0) {
+                        print("=> line", transformedRect)
+                    }
 
                     // Elements.
                     for element in line.elements {
@@ -394,11 +406,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                         strongSelf.annotationOverlayView.addSubview(label)
                     }
                 }
+                i += 1
             }
 
-            let textLines = text.blocks.flatMap(\.lines)
-
-            strongSelf.processDataForWeb(textLines)
+            strongSelf.processDataForWeb(text.blocks)
 
             strongSelf.resultsText += "\(text.text)\n"
             strongSelf.showResults()
@@ -451,7 +462,7 @@ extension ViewController {
 // MARK: - Enums
 
 private enum Constants {
-    static let images = ["image_has_text.jpg"]
+    static let images = ["test1.jpeg"]
     static let detectionNoResultsMessage = "No results returned."
     static let failedToDetectObjectsMessage = "Failed to detect objects in image."
 }
@@ -467,4 +478,18 @@ private func convertFromUIImagePickerControllerInfoKeyDictionary(
 private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey)
     -> String {
     return input.rawValue
+}
+
+extension ViewController: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        guard
+            let selectedText = message.body as? String
+        else {
+            return
+        }
+        
+        print("Selected", selectedText)
+    }
+    
+    
 }

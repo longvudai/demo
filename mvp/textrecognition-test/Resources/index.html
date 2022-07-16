@@ -5,6 +5,15 @@
         <meta name="supported-color-schemes" content="light dark" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <script>
+            document.onselectionchange = function () {
+                let selection = document.getSelection();
+
+                window.webkit.messageHandlers.getSelection.postMessage(
+                    selection.toString()
+                );
+            };
+        </script>
     </head>
 
     <body class="selectionDisable">

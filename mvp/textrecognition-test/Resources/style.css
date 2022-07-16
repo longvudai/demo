@@ -27,6 +27,7 @@ img {
     color: green;
     background-color: aliceblue;
     border-radius: 10px;
+    font-size: 8px;
 
     /* display: flex;
     flex-direction: row;
