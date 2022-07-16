@@ -13,6 +13,8 @@
 		84D1B6CF28829245006FCA1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D1B6CD28829245006FCA1E /* Main.storyboard */; };
 		84D1B6D128829245006FCA1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84D1B6D028829245006FCA1E /* Assets.xcassets */; };
 		84D1B6D428829245006FCA1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84D1B6D228829245006FCA1E /* LaunchScreen.storyboard */; };
+		84D1B6DC288292BD006FCA1E /* MultipleTextContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D1B6DB288292BD006FCA1E /* MultipleTextContainerViewController.swift */; };
+		84D7E379288294980033A45F /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 84D7E378288294980033A45F /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		84D1B6D028829245006FCA1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		84D1B6D328829245006FCA1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		84D1B6D528829245006FCA1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84D1B6DB288292BD006FCA1E /* MultipleTextContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleTextContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84D7E379288294980033A45F /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +63,7 @@
 				84D1B6C728829245006FCA1E /* AppDelegate.swift */,
 				84D1B6C928829245006FCA1E /* SceneDelegate.swift */,
 				84D1B6CB28829245006FCA1E /* ViewController.swift */,
+				84D1B6DB288292BD006FCA1E /* MultipleTextContainerViewController.swift */,
 				84D1B6CD28829245006FCA1E /* Main.storyboard */,
 				84D1B6D028829245006FCA1E /* Assets.xcassets */,
 				84D1B6D228829245006FCA1E /* LaunchScreen.storyboard */,
@@ -83,6 +88,9 @@
 			dependencies = (
 			);
 			name = TextKitExample;
+			packageProductDependencies = (
+				84D7E378288294980033A45F /* SnapKit-Dynamic */,
+			);
 			productName = TextKitExample;
 			productReference = 84D1B6C428829245006FCA1E /* TextKitExample.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +119,9 @@
 				Base,
 			);
 			mainGroup = 84D1B6BB28829245006FCA1E;
+			packageReferences = (
+				84D7E377288294980033A45F /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 84D1B6C528829245006FCA1E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +152,7 @@
 				84D1B6CC28829245006FCA1E /* ViewController.swift in Sources */,
 				84D1B6C828829245006FCA1E /* AppDelegate.swift in Sources */,
 				84D1B6CA28829245006FCA1E /* SceneDelegate.swift in Sources */,
+				84D1B6DC288292BD006FCA1E /* MultipleTextContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -358,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		84D7E377288294980033A45F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = exactVersion;
+				version = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		84D7E378288294980033A45F /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84D7E377288294980033A45F /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 84D1B6BC28829245006FCA1E /* Project object */;
 }
