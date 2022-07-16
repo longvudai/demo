@@ -18,8 +18,9 @@ import MLImage
 import MLKit
 import UIKit
 
-import WebKit
 import SnapKit
+import SwifterSwift
+import WebKit
 
 /// Main view controller class.
 @objc(ViewController)
@@ -49,34 +50,139 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet fileprivate var videoCameraButton: UIBarButtonItem!
     @IBOutlet var detectButton: UIBarButtonItem!
 
-    lazy var webView: WKWebView = {
-        let config = WKWebViewConfiguration()
-        config.selectionGranularity = .dynamic
-        let uc = config.userContentController
-
-//        uc.addUserScript(WKUserScript.fromFile("", type: <#T##String#>))
+    private var webView: WKWebView?
+//    {
+//        let config = WKWebViewConfiguration()
+//        config.selectionGranularity = .dynamic
+//        let uc = config.userContentController
 //
-//        // Rangy
-//        uc.addUserScript(RangyScript.core())
-//        uc.addUserScript(RangyScript.classapplier())
-//        uc.addUserScript(RangyScript.highlighter())
-//        uc.addUserScript(RangyScript.selectionsaverestore())
-//        uc.addUserScript(RangyScript.textrange())
+    ////        uc.addUserScript(WKUserScript.fromFile("", type: <#T##String#>))
+    ////
+    ////        // Rangy
+    ////        uc.addUserScript(RangyScript.core())
+    ////        uc.addUserScript(RangyScript.classapplier())
+    ////        uc.addUserScript(RangyScript.highlighter())
+    ////        uc.addUserScript(RangyScript.selectionsaverestore())
+    ////        uc.addUserScript(RangyScript.textrange())
+    ////
+    ////        // Marker
+    ////        uc.addUserScript(MarkerScript.css())
+    ////        uc.addUserScript(MarkerScript.jsScript())
+    ////
+    ////        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
+    ////        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
 //
-//        // Marker
-//        uc.addUserScript(MarkerScript.css())
-//        uc.addUserScript(MarkerScript.jsScript())
+//        let v = WKWebView(frame: .zero, configuration: config)
+//        v.scrollView.backgroundColor = .clear
+//        v.backgroundColor = .clear
+//        v.isOpaque = false
 //
-//        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
-//        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
+//        return v
+//    }()
 
-        let v = WKWebView(frame: .zero, configuration: config)
-        v.scrollView.backgroundColor = .clear
-        v.backgroundColor = .clear
-        v.isOpaque = false
+    private func processDataForWeb(_ textLines: [TextLine]) {
+        func makeLineNodeInjectionScript(text: String, frame: CGRect) -> WKUserScript {
+            let script = """
+                javascript:(function() {
+                const lineNode = document.createElement('div');
+                lineNode.setAttribute(
+                  'class',
+                  'line selectionEnable',
+                );
+                lineNode.innerText = "\(text)"
+                lineNode.style.left = "\(frame.minX)px"
+                lineNode.style.top = "\(frame.minY)px"
+                lineNode.style.width = "\(frame.width)px"
+                lineNode.style.height = "\(frame.height)px"
+                var parent = document.querySelector("#container");
+                parent.appendChild(lineNode)})()
+            """
+            return WKUserScript(
+                source: script,
+                injectionTime: .atDocumentEnd,
+                forMainFrameOnly: false
+            )
+        }
 
-        return v
-    }()
+        guard let imageBase64 = imageView.image?.pngBase64String() else {
+            return
+        }
+
+        let lineNodeInjectionScripts = textLines.map { line -> (String, CGRect) in
+            let transformedRect = line.frame.applying(transformMatrix())
+            return (line.text, transformedRect)
+        }
+        .map { text, frame in
+            makeLineNodeInjectionScript(text: text, frame: frame)
+        }
+
+        func makeImageBase64InjectionScript(_ imageBase64: String) -> WKUserScript {
+            let script = """
+                javascript:(function() {
+                const image = document.createElement('img');
+                image.setAttribute(
+                  'class',
+                  'selectionDisable',
+                );
+                image.setAttribute(
+                  'src',
+                  'data:image/png;base64, \(imageBase64)',
+                );
+                var parent = document.querySelector("#container");
+                parent.appendChild(image)})()
+            """
+            return WKUserScript(
+                source: script,
+                injectionTime: .atDocumentEnd,
+                forMainFrameOnly: false
+            )
+        }
+
+        let webView: WKWebView = {
+            let config = WKWebViewConfiguration()
+            config.selectionGranularity = .dynamic
+            let uc = config.userContentController
+            uc.addUserScript(makeImageBase64InjectionScript(imageBase64))
+            uc.addUserScript(.fromFile("style", type: "css"))
+
+            lineNodeInjectionScripts.forEach { script in
+                uc.addUserScript(script)
+            }
+            //
+            //        // Rangy
+            //        uc.addUserScript(RangyScript.core())
+            //        uc.addUserScript(RangyScript.classapplier())
+            //        uc.addUserScript(RangyScript.highlighter())
+            //        uc.addUserScript(RangyScript.selectionsaverestore())
+            //        uc.addUserScript(RangyScript.textrange())
+            //
+            //        // Marker
+            //        uc.addUserScript(MarkerScript.css())
+            //        uc.addUserScript(MarkerScript.jsScript())
+            //
+            //        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
+            //        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
+
+            let v = WKWebView(frame: .zero, configuration: config)
+            v.scrollView.backgroundColor = .clear
+            v.backgroundColor = .clear
+            v.isOpaque = false
+
+            return v
+        }()
+
+        let path = Bundle.main.path(forResource: "index", ofType: "html")!
+        let htmlString = try! String(contentsOfFile: path)
+        webView.loadHTMLString(htmlString, baseURL: nil)
+
+        self.webView?.removeFromSuperview()
+        self.webView = webView
+
+        view.addSubview(webView)
+        webView.snp.makeConstraints {
+            $0.edges.equalTo(imageView)
+        }
+    }
 
     // MARK: - UIViewController
 
@@ -91,15 +197,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             annotationOverlayView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             annotationOverlayView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
         ])
-        
-        view.addSubview(webView)
-        webView.snp.makeConstraints {
-            $0.edges.equalTo(imageView)
-        }
-        
-        let path = Bundle.main.path(forResource: "sample", ofType: "html")!
-        let url = URL(fileURLWithPath: path)
-        webView.loadFileURL(url, allowingReadAccessTo: url)
+
+//        let path = Bundle.main.path(forResource: "index", ofType: "html")!
+//        let url = URL(fileURLWithPath: path)
+//        webView.loadFileURL(url, allowingReadAccessTo: url)
 
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
@@ -276,7 +377,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                         to: strongSelf.annotationOverlayView,
                         color: UIColor.orange
                     )
-                    
+
                     print("transformedRect", transformedRect)
 
                     // Elements.
@@ -294,6 +395,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                     }
                 }
             }
+
+            let textLines = text.blocks.flatMap(\.lines)
+
+            strongSelf.processDataForWeb(textLines)
+
             strongSelf.resultsText += "\(text.text)\n"
             strongSelf.showResults()
         }

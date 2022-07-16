@@ -17,6 +17,8 @@
 		84CE61742882B1B60024E318 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE61722882B1B60024E318 /* String+Extension.swift */; };
 		84CE61752882B1B60024E318 /* WKUserScript+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE61732882B1B60024E318 /* WKUserScript+Extension.swift */; };
 		84CE61772882B1E30024E318 /* style.css in Resources */ = {isa = PBXBuildFile; fileRef = 84CE61762882B1E30024E318 /* style.css */; };
+		84CE617A2882E2440024E318 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE61792882E2440024E318 /* SwifterSwift */; };
+		84CE617C2882E8850024E318 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 84CE617B2882E8850024E318 /* index.html */; };
 		84D7E37C2882A8550033A45F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84D7E37B2882A8550033A45F /* SnapKit */; };
 		84D7E3802882AE780033A45F /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 84D7E37F2882AE780033A45F /* sample.html */; };
 		BB287B3920729CE90069707A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB287B3820729CE90069707A /* AppDelegate.swift */; };
@@ -35,6 +37,7 @@
 		84CE61722882B1B60024E318 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		84CE61732882B1B60024E318 /* WKUserScript+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WKUserScript+Extension.swift"; sourceTree = "<group>"; };
 		84CE61762882B1E30024E318 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = Resources/style.css; sourceTree = "<group>"; };
+		84CE617B2882E8850024E318 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Resources/index.html; sourceTree = "<group>"; };
 		84D7E37F2882AE780033A45F /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sample.html; path = Resources/sample.html; sourceTree = "<group>"; };
 		9DB73DBC933DFB45FD72E80D /* Pods-TextRecognitionExampleObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextRecognitionExampleObjC.debug.xcconfig"; path = "Target Support Files/Pods-TextRecognitionExampleObjC/Pods-TextRecognitionExampleObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB287B3520729CE90069707A /* TextRecognitionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextRecognitionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -51,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CE617A2882E2440024E318 /* SwifterSwift in Frameworks */,
 				41DD1A9FB36A2B699F73CC7F /* Pods_TextRecognitionExample.framework in Frameworks */,
 				84D7E37C2882A8550033A45F /* SnapKit in Frameworks */,
 			);
@@ -62,6 +66,7 @@
 		10224B642087E52600A77316 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84CE617B2882E8850024E318 /* index.html */,
 				84CE61762882B1E30024E318 /* style.css */,
 				84D7E37F2882AE780033A45F /* sample.html */,
 				7202DC6520D0C1A300034C35 /* image_has_text.jpg */,
@@ -162,6 +167,7 @@
 			name = TextRecognitionExample;
 			packageProductDependencies = (
 				84D7E37B2882A8550033A45F /* SnapKit */,
+				84CE61792882E2440024E318 /* SwifterSwift */,
 			);
 			productName = "ml-kit-sampler";
 			productReference = BB287B3520729CE90069707A /* TextRecognitionExample.app */;
@@ -195,6 +201,7 @@
 			mainGroup = BB287B2C20729CE90069707A;
 			packageReferences = (
 				84D7E37A2882A8550033A45F /* XCRemoteSwiftPackageReference "SnapKit" */,
+				84CE61782882E2440024E318 /* XCRemoteSwiftPackageReference "SwifterSwift" */,
 			);
 			productRefGroup = BB287B3620729CE90069707A /* Products */;
 			projectDirPath = "";
@@ -213,6 +220,7 @@
 				84D7E3802882AE780033A45F /* sample.html in Resources */,
 				7202DC6A20D0C1A300034C35 /* image_has_text.jpg in Resources */,
 				84CE61772882B1E30024E318 /* style.css in Resources */,
+				84CE617C2882E8850024E318 /* index.html in Resources */,
 				BB287B3E20729CE90069707A /* Main.storyboard in Resources */,
 				1001E6FD20CF0C8F00445CB3 /* Assets.xcassets in Resources */,
 			);
@@ -506,6 +514,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		84CE61782882E2440024E318 /* XCRemoteSwiftPackageReference "SwifterSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SwifterSwift/SwifterSwift";
+			requirement = {
+				kind = exactVersion;
+				version = 5.2.0;
+			};
+		};
 		84D7E37A2882A8550033A45F /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -517,6 +533,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		84CE61792882E2440024E318 /* SwifterSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 84CE61782882E2440024E318 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
+			productName = SwifterSwift;
+		};
 		84D7E37B2882A8550033A45F /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84D7E37A2882A8550033A45F /* XCRemoteSwiftPackageReference "SnapKit" */;
