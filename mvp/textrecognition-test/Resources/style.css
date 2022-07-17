@@ -30,28 +30,8 @@ img {
     padding: 4px;
 }
 
-.text {
-    -webkit-user-select: text;
-    -webkit-touch-callout: inherit;
-    user-select: text;
-}
-
 .textFitted {
     display: block !important;
-}
-
-#l1 {
-    left: 30.0796875px;
-    top: 315.9234375px;
-    width: 368.71875px;
-    height: 75.68437500000005px;
-}
-
-#l2 {
-    left: 114.496875px;
-    top: 437.859375px;
-    width: 208.6171875px;
-    height: 7px;
 }
 
 .selectionDisable {

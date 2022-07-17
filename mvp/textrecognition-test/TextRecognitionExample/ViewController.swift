@@ -53,34 +53,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     @IBOutlet var detectButton: UIBarButtonItem!
 
     private var webView: WKWebView?
-//    {
-//        let config = WKWebViewConfiguration()
-//        config.selectionGranularity = .dynamic
-//        let uc = config.userContentController
-//
-    ////        uc.addUserScript(WKUserScript.fromFile("", type: <#T##String#>))
-    ////
-    ////        // Rangy
-    ////        uc.addUserScript(RangyScript.core())
-    ////        uc.addUserScript(RangyScript.classapplier())
-    ////        uc.addUserScript(RangyScript.highlighter())
-    ////        uc.addUserScript(RangyScript.selectionsaverestore())
-    ////        uc.addUserScript(RangyScript.textrange())
-    ////
-    ////        // Marker
-    ////        uc.addUserScript(MarkerScript.css())
-    ////        uc.addUserScript(MarkerScript.jsScript())
-    ////
-    ////        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
-    ////        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
-//
-//        let v = WKWebView(frame: .zero, configuration: config)
-//        v.scrollView.backgroundColor = .clear
-//        v.backgroundColor = .clear
-//        v.isOpaque = false
-//
-//        return v
-//    }()
 
     private func processDataForWeb(_ textBlocks: [TextBlock]) {
         guard let imageBase64 = imageView.image?.pngBase64String() else {
@@ -122,10 +94,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             annotationOverlayView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             annotationOverlayView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
         ])
-
-//        let path = Bundle.main.path(forResource: "index", ofType: "html")!
-//        let url = URL(fileURLWithPath: path)
-//        webView.loadFileURL(url, allowingReadAccessTo: url)
 
         imagePicker.delegate = self
         imagePicker.sourceType = .photoLibrary
