@@ -5,26 +5,14 @@
         <meta name="supported-color-schemes" content="light dark" />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
-        <!-- <p id="p">Select me: <i>italic</i> and <b>bold</b></p>
-
-        From <input id="from" disabled /> – To <input id="to" disabled /> -->
-        <script>
-            document.onselectionchange = function () {
-                let selection = document.getSelection();
-
-                console.log(selection.toString());
-            };
-        </script>
+        <script src="jquery.min.js"></script>
+        <script src="textFit.js"></script>
     </head>
 
     <body class="selectionDisable">
         <div id="container">
-            <div class="line" id="l1">
-                <div class="text selectionEnable">Gallery 1</div>
-            </div>
-            <div class="line" id="l2">
-                <div class="text selectionEnable">Please Enter</div>
-            </div>
+            <div class="line selectionEnable" id="l1">Gallery 1</div>
+            <div class="line selectionEnable" id="l2">Please Enter</div>
             <img
                 class="selectionDisable"
                 draggable="false"
@@ -32,5 +20,10 @@
                 alt="Red dot"
             />
         </div>
+        <script>
+            textFit(document.getElementsByClassName("line"), {
+                multiLine: true,
+            });
+        </script>
     </body>
 </html>

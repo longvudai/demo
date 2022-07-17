@@ -24,21 +24,20 @@ img {
 
 .line {
     position: absolute;
-    color: green;
-    background-color: aliceblue;
-    border-radius: 10px;
-    font-size: 8px;
-
-    /* display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center; */
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 7px;
+    padding: 4px;
 }
 
 .text {
     -webkit-user-select: text;
     -webkit-touch-callout: inherit;
     user-select: text;
+}
+
+.textFitted {
+    display: block !important;
 }
 
 #l1 {
@@ -52,7 +51,7 @@ img {
     left: 114.496875px;
     top: 437.859375px;
     width: 208.6171875px;
-    height: 31.696874999999977px;
+    height: 7px;
 }
 
 .selectionDisable {

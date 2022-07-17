@@ -20,6 +20,8 @@
 		84CE617A2882E2440024E318 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE61792882E2440024E318 /* SwifterSwift */; };
 		84CE617C2882E8850024E318 /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = 84CE617B2882E8850024E318 /* index.html */; };
 		84CE617E28830E240024E318 /* test1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 84CE617D28830E240024E318 /* test1.jpeg */; };
+		84CE618228841AD70024E318 /* jquery.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 84CE618028841AD70024E318 /* jquery.min.js */; };
+		84CE6188288424F20024E318 /* textFit.js in Resources */ = {isa = PBXBuildFile; fileRef = 84CE6187288424F20024E318 /* textFit.js */; };
 		84D7E37C2882A8550033A45F /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 84D7E37B2882A8550033A45F /* SnapKit */; };
 		84D7E3802882AE780033A45F /* sample.html in Resources */ = {isa = PBXBuildFile; fileRef = 84D7E37F2882AE780033A45F /* sample.html */; };
 		BB287B3920729CE90069707A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB287B3820729CE90069707A /* AppDelegate.swift */; };
@@ -40,6 +42,8 @@
 		84CE61762882B1E30024E318 /* style.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; name = style.css; path = Resources/style.css; sourceTree = "<group>"; };
 		84CE617B2882E8850024E318 /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = index.html; path = Resources/index.html; sourceTree = "<group>"; };
 		84CE617D28830E240024E318 /* test1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = test1.jpeg; sourceTree = "<group>"; };
+		84CE618028841AD70024E318 /* jquery.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = jquery.min.js; path = Resources/jquery.min.js; sourceTree = "<group>"; };
+		84CE6187288424F20024E318 /* textFit.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; name = textFit.js; path = Resources/textFit.js; sourceTree = "<group>"; };
 		84D7E37F2882AE780033A45F /* sample.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = sample.html; path = Resources/sample.html; sourceTree = "<group>"; };
 		9DB73DBC933DFB45FD72E80D /* Pods-TextRecognitionExampleObjC.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TextRecognitionExampleObjC.debug.xcconfig"; path = "Target Support Files/Pods-TextRecognitionExampleObjC/Pods-TextRecognitionExampleObjC.debug.xcconfig"; sourceTree = "<group>"; };
 		BB287B3520729CE90069707A /* TextRecognitionExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TextRecognitionExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +72,8 @@
 		10224B642087E52600A77316 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				84CE6187288424F20024E318 /* textFit.js */,
+				84CE618028841AD70024E318 /* jquery.min.js */,
 				84CE617B2882E8850024E318 /* index.html */,
 				84CE61762882B1E30024E318 /* style.css */,
 				84D7E37F2882AE780033A45F /* sample.html */,
@@ -220,7 +226,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84CE6188288424F20024E318 /* textFit.js in Resources */,
 				84D7E3802882AE780033A45F /* sample.html in Resources */,
+				84CE618228841AD70024E318 /* jquery.min.js in Resources */,
 				7202DC6A20D0C1A300034C35 /* image_has_text.jpg in Resources */,
 				84CE61772882B1E30024E318 /* style.css in Resources */,
 				84CE617C2882E8850024E318 /* index.html in Resources */,

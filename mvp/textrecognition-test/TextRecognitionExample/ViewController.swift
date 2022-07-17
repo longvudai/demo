@@ -82,6 +82,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
     private func processDataForWeb(_ textBlocks: [TextBlock]) {
         func makeLineNodeInjectionScript(base64Text: String, frame: CGRect) -> WKUserScript {
+            let padding: CGFloat = 4
             let script = """
                 javascript:(function() {
                 const lineNode = document.createElement('div');
@@ -89,11 +90,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                   'class',
                   'line selectionEnable',
                 );
-                lineNode.innerText = window.atob('\(base64Text)')
-                lineNode.style.left = "\(frame.minX)px"
-                lineNode.style.top = "\(frame.minY)px"
-                lineNode.style.width = "\(frame.width)px"
-                lineNode.style.height = "\(frame.height)px"
+                lineNode.innerText = `\(base64Text.replacingOccurrences(of: "`", with: "\\`"))`
+                lineNode.style.left = "\(max(0, frame.minX - padding))px"
+                lineNode.style.top = "\(max(0, frame.minY - padding))px"
+                lineNode.style.width = "\(max(frame.width, 10) + padding)px"
+                lineNode.style.height = "\(max(frame.height, 10) + padding)px"
                 var parent = document.querySelector("#container");
                 parent.appendChild(lineNode)})()
             """
@@ -112,13 +113,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 //            .flatMap(\.lines)
             .compactMap { block -> (String, CGRect)? in
                 let transformedRect = block.frame.applying(transformMatrix())
-                guard let base64Text = block.text.toBase64String() else {
-                    return nil
-                }
-                return (base64Text, transformedRect)
+                return (block.text, transformedRect)
             }
-            .map { base64Text, frame in
-                makeLineNodeInjectionScript(base64Text: base64Text, frame: frame)
+            .map { text, frame in
+                makeLineNodeInjectionScript(base64Text: text, frame: frame)
             }
 
         func makeImageBase64InjectionScript(_ imageBase64: String) -> WKUserScript {
@@ -154,6 +152,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             lineNodeInjectionScripts.forEach { script in
                 uc.addUserScript(script)
             }
+            
+            uc.addUserScript(.fromFile("textFit", type: "js"))
+            
+            let textFitScriptBase64 = """
+            textFit(document.getElementsByClassName("line"), {
+                multiLine: true,
+            });
+""".toBase64String()!
+            uc.addUserScript(.injectJSBase64(textFitScriptBase64))
             //
             //        // Rangy
             //        uc.addUserScript(RangyScript.core())
