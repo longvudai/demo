@@ -21,6 +21,8 @@ import UIKit
 import SnapKit
 import SwifterSwift
 import WebKit
+import TextRecognitionKit
+import WebViewKit
 
 /// Main view controller class.
 @objc(ViewController)
@@ -146,21 +148,21 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             config.selectionGranularity = .dynamic
             let uc = config.userContentController
             uc.addUserScript(makeImageBase64InjectionScript(imageBase64))
-            uc.addUserScript(.fromFile("style", type: "css"))
+            uc.addUserScript(.fromFile(filename: "style", fileType: .css))
 
             print("lineNodeInjectionScripts", lineNodeInjectionScripts)
             lineNodeInjectionScripts.forEach { script in
                 uc.addUserScript(script)
             }
             
-            uc.addUserScript(.fromFile("textFit", type: "js"))
+            uc.addUserScript(.fromFile(filename: "textFit", fileType: .js))
             
-            let textFitScriptBase64 = """
+            let textFitScript = """
             textFit(document.getElementsByClassName("line"), {
                 multiLine: true,
             });
-""".toBase64String()!
-            uc.addUserScript(.injectJSBase64(textFitScriptBase64))
+            """
+            uc.addUserScript(.injectJS(textFitScript))
             //
             //        // Rangy
             //        uc.addUserScript(RangyScript.core())
