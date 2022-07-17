@@ -81,7 +81,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 //    }()
 
     private func processDataForWeb(_ textBlocks: [TextBlock]) {
-        func makeLineNodeInjectionScript(text: String, frame: CGRect) -> WKUserScript {
+        func makeLineNodeInjectionScript(base64Text: String, frame: CGRect) -> WKUserScript {
             let script = """
                 javascript:(function() {
                 const lineNode = document.createElement('div');
@@ -89,7 +89,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                   'class',
                   'line selectionEnable',
                 );
-                lineNode.innerText = "\(text)"
+                lineNode.innerText = window.atob('\(base64Text)')
                 lineNode.style.left = "\(frame.minX)px"
                 lineNode.style.top = "\(frame.minY)px"
                 lineNode.style.width = "\(frame.width)px"
@@ -110,13 +110,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
         let lineNodeInjectionScripts = textBlocks
 //            .flatMap(\.lines)
-            .map { block -> (String, CGRect) in
-            let transformedRect = block.frame.applying(transformMatrix())
-            return (block.text, transformedRect)
-        }
-        .map { text, frame in
-            makeLineNodeInjectionScript(text: text, frame: frame)
-        }
+            .compactMap { block -> (String, CGRect)? in
+                let transformedRect = block.frame.applying(transformMatrix())
+                guard let base64Text = block.text.toBase64String() else {
+                    return nil
+                }
+                return (base64Text, transformedRect)
+            }
+            .map { base64Text, frame in
+                makeLineNodeInjectionScript(base64Text: base64Text, frame: frame)
+            }
 
         func makeImageBase64InjectionScript(_ imageBase64: String) -> WKUserScript {
             let script = """
@@ -374,10 +377,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                     to: strongSelf.annotationOverlayView,
                     color: UIColor.purple
                 )
-               
-                if (i == 0) {
-                    print("=> block", transformedRect)
-                }
 
                 // Lines.
                 for line in block.lines {
@@ -387,10 +386,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
                         to: strongSelf.annotationOverlayView,
                         color: UIColor.orange
                     )
-
-                    if (i == 0) {
-                        print("=> line", transformedRect)
-                    }
 
                     // Elements.
                     for element in line.elements {
@@ -481,15 +476,13 @@ private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerCon
 }
 
 extension ViewController: WKScriptMessageHandler {
-    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+    func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
         guard
             let selectedText = message.body as? String
         else {
             return
         }
-        
+
         print("Selected", selectedText)
     }
-    
-    
 }
