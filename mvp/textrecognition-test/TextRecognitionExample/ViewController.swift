@@ -20,8 +20,8 @@ import UIKit
 
 import SnapKit
 import SwifterSwift
-import WebKit
 import TextRecognitionKit
+import WebKit
 import WebViewKit
 
 /// Main view controller class.
@@ -83,113 +83,22 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 //    }()
 
     private func processDataForWeb(_ textBlocks: [TextBlock]) {
-        func makeLineNodeInjectionScript(base64Text: String, frame: CGRect) -> WKUserScript {
-            let padding: CGFloat = 4
-            let script = """
-                javascript:(function() {
-                const lineNode = document.createElement('div');
-                lineNode.setAttribute(
-                  'class',
-                  'line selectionEnable',
-                );
-                lineNode.innerText = `\(base64Text.replacingOccurrences(of: "`", with: "\\`"))`
-                lineNode.style.left = "\(max(0, frame.minX - padding))px"
-                lineNode.style.top = "\(max(0, frame.minY - padding))px"
-                lineNode.style.width = "\(max(frame.width, 10) + padding)px"
-                lineNode.style.height = "\(max(frame.height, 10) + padding)px"
-                var parent = document.querySelector("#container");
-                parent.appendChild(lineNode)})()
-            """
-            return WKUserScript(
-                source: script,
-                injectionTime: .atDocumentEnd,
-                forMainFrameOnly: false
-            )
-        }
-
         guard let imageBase64 = imageView.image?.pngBase64String() else {
             return
         }
 
-        let lineNodeInjectionScripts = textBlocks
-//            .flatMap(\.lines)
-            .compactMap { block -> (String, CGRect)? in
+        let results: [TextRecognitionResultWebView.TextRecognitionResult] = textBlocks
+            .map { block in
                 let transformedRect = block.frame.applying(transformMatrix())
-                return (block.text, transformedRect)
+                return TextRecognitionResultWebView.TextRecognitionResult(
+                    text: block.text,
+                    frame: transformedRect
+                )
             }
-            .map { text, frame in
-                makeLineNodeInjectionScript(base64Text: text, frame: frame)
-            }
 
-        func makeImageBase64InjectionScript(_ imageBase64: String) -> WKUserScript {
-            let script = """
-                javascript:(function() {
-                const image = document.createElement('img');
-                image.setAttribute(
-                  'class',
-                  'selectionDisable',
-                );
-                image.setAttribute(
-                  'src',
-                  'data:image/png;base64, \(imageBase64)',
-                );
-                var parent = document.querySelector("#container");
-                parent.appendChild(image)})()
-            """
-            return WKUserScript(
-                source: script,
-                injectionTime: .atDocumentEnd,
-                forMainFrameOnly: false
-            )
-        }
-
-        let webView: WKWebView = {
-            let config = WKWebViewConfiguration()
-            config.selectionGranularity = .dynamic
-            let uc = config.userContentController
-            uc.addUserScript(makeImageBase64InjectionScript(imageBase64))
-            uc.addUserScript(.fromFile(filename: "style", fileType: .css))
-
-            print("lineNodeInjectionScripts", lineNodeInjectionScripts)
-            lineNodeInjectionScripts.forEach { script in
-                uc.addUserScript(script)
-            }
-            
-            uc.addUserScript(.fromFile(filename: "textFit", fileType: .js))
-            
-            let textFitScript = """
-            textFit(document.getElementsByClassName("line"), {
-                multiLine: true,
-            });
-            """
-            uc.addUserScript(.injectJS(textFitScript))
-            //
-            //        // Rangy
-            //        uc.addUserScript(RangyScript.core())
-            //        uc.addUserScript(RangyScript.classapplier())
-            //        uc.addUserScript(RangyScript.highlighter())
-            //        uc.addUserScript(RangyScript.selectionsaverestore())
-            //        uc.addUserScript(RangyScript.textrange())
-            //
-            //        // Marker
-            //        uc.addUserScript(MarkerScript.css())
-            //        uc.addUserScript(MarkerScript.jsScript())
-            //
-            //        uc.add(self.marker, name: MarkerScript.Handler.serialize.rawValue)
-            //        uc.add(self.marker, name: MarkerScript.Handler.erase.rawValue)
-            uc.add(self, name: "getSelection")
-
-            let v = WKWebView(frame: .zero, configuration: config)
-            v.scrollView.backgroundColor = .clear
-            v.backgroundColor = .clear
-            v.isOpaque = false
-
-            return v
-        }()
-
-        let path = Bundle.main.path(forResource: "index", ofType: "html")!
-        let htmlString = try! String(contentsOfFile: path)
-        webView.loadHTMLString(htmlString, baseURL: nil)
+        let webView = TextRecognitionResultWebView(imageBase64: imageBase64, detectedResults: results)
+        webView.textRecognitionDelegate = self
+        webView.loadHTML()
 
         self.webView?.removeFromSuperview()
         self.webView = webView
@@ -484,14 +393,11 @@ private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerCon
     return input.rawValue
 }
 
-extension ViewController: WKScriptMessageHandler {
-    func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
-        guard
-            let selectedText = message.body as? String
-        else {
-            return
+extension ViewController: TextRecognitionResultWebViewDelegate {
+    func textRecognitionResultWebView(handle scriptMessageResult: TextRecognitionResultWebView.ScriptMessage.Result) {
+        switch scriptMessageResult {
+        case let .getSelection(selectedText):
+            print("Selected", selectedText)
         }
-
-        print("Selected", selectedText)
     }
 }
