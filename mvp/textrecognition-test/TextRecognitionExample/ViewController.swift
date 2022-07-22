@@ -21,6 +21,7 @@ import UIKit
 import SnapKit
 import SwifterSwift
 import TextRecognitionKit
+import TextRecognitionViewKit
 import WebKit
 import WebViewKit
 
@@ -59,10 +60,11 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             return
         }
 
-        let results: [TextRecognitionResultWebView.TextRecognitionResult] = textBlocks
+        let results: [TextRecognition.Result] = textBlocks
             .map { block in
                 let transformedRect = block.frame.applying(transformMatrix())
-                return TextRecognitionResultWebView.TextRecognitionResult(
+                print("b: \(block.frame) \n a: \(transformedRect)\n\n")
+                return TextRecognition.Result(
                     text: block.text,
                     frame: transformedRect
                 )
@@ -362,7 +364,7 @@ private func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerCon
 }
 
 extension ViewController: TextRecognitionResultWebViewDelegate {
-    func textRecognitionResultWebView(handle scriptMessageResult: TextRecognitionResultWebView.ScriptMessage.Result) {
+    func textRecognitionResultWebView(handle scriptMessageResult: TextRecognition.ScriptMessage.Result) {
         switch scriptMessageResult {
         case let .getSelection(selectedText):
             print("Selected", selectedText)

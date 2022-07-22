@@ -13,6 +13,7 @@
 		41DD1A9FB36A2B699F73CC7F /* Pods_TextRecognitionExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAB2E5D5EE1BCB27F9544BFF /* Pods_TextRecognitionExample.framework */; };
 		4ADD356323BAC29A001277A7 /* MLKitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10224B5B2087E49F00A77316 /* MLKitExtensions.swift */; };
 		7202DC6A20D0C1A300034C35 /* image_has_text.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 7202DC6520D0C1A300034C35 /* image_has_text.jpg */; };
+		8465A4982886C22A0008962B /* TextRecognitionViewKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8465A4972886C22A0008962B /* TextRecognitionViewKit */; };
 		84CE61702882B1710024E318 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE616F2882B1710024E318 /* ViewController.swift */; };
 		84CE61742882B1B60024E318 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84CE61722882B1B60024E318 /* String+Extension.swift */; };
 		84CE617A2882E2440024E318 /* SwifterSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 84CE61792882E2440024E318 /* SwifterSwift */; };
@@ -53,6 +54,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84CE618C2884372F0024E318 /* TextRecognitionKit in Frameworks */,
+				8465A4982886C22A0008962B /* TextRecognitionViewKit in Frameworks */,
 				84CE617A2882E2440024E318 /* SwifterSwift in Frameworks */,
 				41DD1A9FB36A2B699F73CC7F /* Pods_TextRecognitionExample.framework in Frameworks */,
 				84D7E37C2882A8550033A45F /* SnapKit in Frameworks */,
@@ -175,6 +177,7 @@
 				84D7E37B2882A8550033A45F /* SnapKit */,
 				84CE61792882E2440024E318 /* SwifterSwift */,
 				84CE618B2884372F0024E318 /* TextRecognitionKit */,
+				8465A4972886C22A0008962B /* TextRecognitionViewKit */,
 			);
 			productName = "ml-kit-sampler";
 			productReference = BB287B3520729CE90069707A /* TextRecognitionExample.app */;
@@ -538,6 +541,10 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8465A4972886C22A0008962B /* TextRecognitionViewKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = TextRecognitionViewKit;
+		};
 		84CE61792882E2440024E318 /* SwifterSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 84CE61782882E2440024E318 /* XCRemoteSwiftPackageReference "SwifterSwift" */;
